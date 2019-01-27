@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------------------------------------------
-# Star Wars - Text-Based RPG Game
+# Text-Based RPG Game
 # Author: Ryan Butler
 # Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python, I thought it would be an
-# awesome idea to develop a game.
+# awesome idea to develop a game, taking Star Wars as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 # Library imports
 # https://pypi.org/project/colorama/
@@ -63,11 +63,24 @@ if __name__ == '__main__':
     def clear():
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def playerhelp():
+    # TODO: Player Help
+    def player_help():
         wprint('Help Menu:')
         wprint('- type \'look\' to look around in this area')
         wprint('- type \'take\' to take object into inventory')
         wprint('- type \'up\', \'down\', \'left\' and \'right\' to move around in this area')
+
+    def character_create():
+        gprint('Enter your character\'s name:')
+        char_name = input(str())
+        char_level = 1
+        clear()
+        bprint(f'Welcome young {char_name}, may the force be with you...')
+        time.sleep(1)
+        bprint(f'You are currently level: {char_level}')
+        time.sleep(2)
+        clear()
+        time.sleep(1)
 
     # Constants
     # ------------------------------------------------------------------------------------------------------------------
@@ -86,9 +99,9 @@ if __name__ == '__main__':
     while game:
 
         # Welcome note where games starts
-        yprint('Welcome to STAR WARS - TEXT'.center(width))
+        yprint('Welcome to Black Star - TEXT'.center(width))
         time.sleep(1)
-        bprint('The Classic Text-Based Adventure Game!\n\n'.center(width))
+        bprint('A Classic Text-Based Adventure Game!\n\n'.center(width))
         wprint('MAIN MENU')
         wprint('1. Play')
         wprint('2. Options')
@@ -107,25 +120,20 @@ if __name__ == '__main__':
             while playGame:
                 # Chapter: Intro
                 time.sleep(1)
-                bprint('A long time ago,'.center(width))
-                bprint('in a galaxy far far away...\n'.center(width))
+                bprint('Long ago,'.center(width))
+                bprint('in a star system very far away...\n'.center(width))
                 time.sleep(1)
-                yprint('STAR WARS'.center(width))
+                yprint('Black Star'.center(width))
                 wprint('A Text-Based Adventure\n'.center(width))
                 time.sleep(1)
                 wprint('Developed by Ryan Butler'.center(width))
                 time.sleep(1)
                 clear()
 
-                # TODO: Character Creation
-                gprint('Enter your character\'s name:')
-                charName = str(input())
-                charLevel = 1
-                clear()
-                bprint('Welcome young {}, may the force be with you...'.format(charName))
-                time.sleep(3)
-                clear()
-                time.sleep(1)
+                # Character Creation
+                character_create()
+
+                # Chapter: Intro
                 wprint('You: uhhhh...ahhhh...')
                 time.sleep(1)
                 wprint('You: my head...what happened???')
@@ -135,7 +143,8 @@ if __name__ == '__main__':
                 if playerInput == 'q' or playerInput == 'quit' or playerInput == 'Quit':
                     playGame = False    # End the game
                 elif playerInput == 'h' or playerInput == 'help' or playerInput == 'Help':
-                    playerhelp()
+                    player_help()
+                    playGame = True
 
         # Menu Item 2
         # Options menu
