@@ -109,18 +109,26 @@ if __name__ == '__main__':
 
     def look_func():
         bprint(f'You are in a {Room.NAME}')
-        yprint(f'Up is {Room.UP}')
-        yprint(f'Down is {Room.DOWN}')
-        yprint(f'To your left is {Room.LEFT}')
-        yprint(f'To your right is {Room.RIGHT}')
-        gprint(f'On the ground is {Room.OBJECT[:]}')
+        yprint(f'Up: {Room.UP}')
+        yprint(f'Down: {Room.DOWN}')
+        yprint(f'Left: {Room.LEFT}')
+        yprint(f'Right: {Room.RIGHT}')
+        gprint(f'Ground: {Room.OBJECT[:]}')
 
     def inventory_func():
-        gprint(f'---INVENTORY---\nHead: {Character.HEAD}\tChest: {Character.CHEST}\n'
+        gprint(f'\n---INVENTORY---\nHead: {Character.HEAD}\tChest: {Character.CHEST}\n'
                f'Weapon: {Character.WEAPON}')
         gprint(f'Bag: {Inventory.BAG[:]}')
         bprint(f'\n---STATUS---\nLevel: {Character.LEVEL}\tHealth: {Character.HEALTH}')
-        rprint(f'\n---ATTRIBUTES---\nDamage: {Character.DAMAGE}\tArmor: {Character.ARMOR}')
+        rprint(f'\n---ATTRIBUTES---\nDamage: {Character.DAMAGE}\tArmor: {Character.ARMOR}\n')
+
+    def create_room_func(name, up, down, left, right, room_object):
+        Room.NAME = name
+        Room.UP = up
+        Room.DOWN = down
+        Room.LEFT = left
+        Room.RIGHT = right
+        Room.OBJECT.append(room_object)
 
     # Constants
     # ------------------------------------------------------------------------------------------------------------------
@@ -147,7 +155,7 @@ if __name__ == '__main__':
         wprint('A Text-Based Adventure'.center(width))
         time.sleep(1)
         wprint('Developed by Ryan Butler'.center(width))
-        time.sleep(1)
+        time.sleep(3)
         clear()
         yprint('Black Star'.center(width))
         wprint('A Text-Based Adventure\n\n'.center(width))
@@ -168,76 +176,81 @@ if __name__ == '__main__':
 
                 # Chapter: Jail Cell
                 intro = True
-                Room.NAME = 'Jail Cell'
-                Room.UP = 'Door'
-                Room.DOWN = 'Window'
-                Room.LEFT = 'Nothing'
-                Room.RIGHT = 'Nothing'
-                Room.OBJECT = ['Key']
+                create_room_func('Jail Cell', 'Window', 'Door', 'Nothing', 'Nothing', 'Key')
                 wprint(f'{Character.NAME}: uhhhh...ahhhh...')
                 time.sleep(1)
                 wprint(f'{Character.NAME}: my head...what happened???')
                 bprint(f'You are in a {Room.NAME}')
-                time.sleep(2)
+                time.sleep(1)
                 bprint('Hint: type \'h\' or \'help\' for controls')
+
+                # Start of loop
                 while intro:
-                    playerInput = str(input())
-                    if playerInput == 'q' or playerInput == 'quit':
+                    player_input = str(input("> "))
+                    if player_input == 'q' or player_input == 'quit':
                         intro = False
-                        playGame = False    # End the game
-                    elif playerInput == 'h' or playerInput == 'help':
+                        playGame = False  # End the game
+                    elif player_input == 'h' or player_input == 'help':
                         player_help()
-                    elif playerInput == 'll' or playerInput == 'look':
+                    elif player_input == 'll' or player_input == 'look':
                         look_func()
-                    elif playerInput == 'i' or playerInput == 'inventory':
+                    elif player_input == 'i' or player_input == 'inventory':
                         inventory_func()
-                    elif playerInput == 'l' or playerInput == 'left':
-                        yprint(f'You moved to {Room.LEFT}')
-                    elif playerInput == 'r' or playerInput == 'right':
-                        yprint(f'You moved to {Room.RIGHT}')
-                    elif playerInput == 'u' or playerInput == 'up':
-                        yprint(f'You moved to {Room.UP}')
+                    elif player_input == 't' or player_input == 'take':
+                        gprint(f'You picked up {Room.OBJECT[-1:]}')
+                        Inventory.BAG.append(Room.OBJECT[-1:])
+                        Room.OBJECT.pop()
+                    elif player_input == 'l' or player_input == 'left':
+                        if Room.LEFT == 'Nothing':
+                            bprint('You cannot move into Nothing')
+                        else:
+                            yprint(f'You moved to {Room.LEFT}')
+                    elif player_input == 'r' or player_input == 'right':
+                        if Room.RIGHT == 'Nothing':
+                            bprint('You cannot move into Nothing')
+                        else:
+                            yprint(f'You moved to {Room.RIGHT}')
+                    elif player_input == 'u' or player_input == 'up':
+                        yprint(f'You looked out of the {Room.UP}, it is dark...')
+                    elif player_input == 'd' or player_input == 'down':
+                        yprint(f'You moved to {Room.DOWN}')
                         if 'Key' in Inventory.BAG:
                             bprint('Unlock door with Key? (y/n)')
-                            playerInput = str(input())
-                            if playerInput == 'y':
+                            player_input = str(input())
+                            if player_input == 'y':
 
                                 # Chapter: Passage
                                 yprint('Moved to Passage')
                                 passage = True
-                                Room.NAME = 'Passage'
-                                Room.UP = 'Nothing'
-                                Room.DOWN = 'Door - to Jail Cell[been there]'
-                                Room.LEFT = 'Door'
-                                Room.RIGHT = 'More Passage Way'
-                                Room.OBJECT = ['Sword']
+                                create_room_func('Passage', 'Nothing', 'Jail Cell Door', 'More Passage', 'Nothing',
+                                                 'Rusty Sword')
                                 while passage:
-                                    playerInput = str(input())
-                                    if playerInput == 'q' or playerInput == 'quit':
+                                    player_input = str(input())
+                                    if player_input == 'q' or player_input == 'quit':
                                         intro = False
                                         playGame = False  # End the game
-                                    elif playerInput == 'h' or playerInput == 'help':
+                                    elif player_input == 'h' or player_input == 'help':
                                         player_help()
-                                    elif playerInput == 'll' or playerInput == 'look':
+                                    elif player_input == 'll' or player_input == 'look':
                                         look_func()
-                                    elif playerInput == 'i' or playerInput == 'inventory':
+                                    elif player_input == 'i' or player_input == 'inventory':
                                         inventory_func()
-                                    elif playerInput == 'l' or playerInput == 'left':
+                                    elif player_input == 'l' or player_input == 'left':
                                         if Room.LEFT == 'Nothing':
                                             bprint('You cannot move into Nothing')
                                         else:
                                             yprint(f'You moved to {Room.LEFT}')
-                                    elif playerInput == 'r' or playerInput == 'right':
+                                    elif player_input == 'r' or player_input == 'right':
                                         if Room.RIGHT == 'Nothing':
                                             bprint('You cannot move into Nothing')
                                         else:
                                             bprint(f'You moved to {Room.RIGHT}')
-                                    elif playerInput == 'u' or playerInput == 'up':
+                                    elif player_input == 'u' or player_input == 'up':
                                         if Room.UP == 'Nothing':
                                             bprint('You cannot move into Nothing')
                                         else:
                                             yprint(f'You moved to {Room.UP}')
-                                    elif playerInput == 'd' or playerInput == 'down':
+                                    elif player_input == 'd' or player_input == 'down':
                                         if Room.DOWN == 'Nothing':
                                             bprint('You cannot move into Nothing')
                                         else:
@@ -248,14 +261,7 @@ if __name__ == '__main__':
                                 intro = True
                         else:
                             bprint('The Door is locked and needs a key')
-                    elif playerInput == 'd' or playerInput == 'down':
-                        yprint(f'You looked out of {Room.DOWN}, it is dark...')
-                    elif playerInput == 't' or playerInput == 'take':
-                        gprint(f'You picked up {Room.OBJECT[-1:]}')
-                        Inventory.BAG.append(Room.OBJECT[-1:])
-                        Room.OBJECT.pop()
-                    else:
-                        intro = True
+
         # Menu Item 2
         # Quit game option
         elif menuOption == 2:
