@@ -1,13 +1,14 @@
 # ------------------------------------------------------------------------------------------------------------------
 # Text-Based RPG Game
 # Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python, I thought it would be an
-# awesome idea to develop a game, taking Star Wars as the inspiration.
+# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
+# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 # Library imports
 # https://pypi.org/project/colorama/
 
 import os
+
 import time
 from colorama import Fore, Back, Style
 from colorama import init
@@ -15,7 +16,7 @@ init(autoreset=True)
 
 if __name__ == '__main__':
     # Classes
-    # ------------------------------------------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------------------
     # class Character:
     # TODO: Create Character class
     class Character:
@@ -62,7 +63,7 @@ if __name__ == '__main__':
         ARMOR = 1
         DAMAGE = 1
     # Functions
-    # ------------------------------------------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------------------
 
     def gprint(sentence):
         print(Style.BRIGHT + Fore.GREEN + sentence)
@@ -92,7 +93,7 @@ if __name__ == '__main__':
 
     def character_create():
         bprint('Enter your character\'s name:')
-        Character.NAME = input(str())
+        Character.NAME = input(str('> '))
         Character.LEVEL = 1
         Character.HEALTH = 150
         Character.DAMAGE = 5
@@ -131,15 +132,19 @@ if __name__ == '__main__':
         Room.OBJECT[-1] = room_object
 
     # Constants
-    # ------------------------------------------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------------------
     # Variables
-    # ------------------------------------------------------------------------------------------------------------------
-    width = os.get_terminal_size().columns
+    # -------------------------------------------------------------------------------------------
+#    if os.name == 'nt':
+#        width = os.get_terminal_size().columns
+#    else:
+#        width = os.popen('stty size', 'r').read().split()
+
     game = True         # While variable for game loop
     options = False     # Option menu loop for different setting in the game
 
     # Starting the game
-    # ------------------------------------------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------------------
     clear()
     time.sleep(1)
 
@@ -148,21 +153,21 @@ if __name__ == '__main__':
         # Welcome note where games starts
         clear()
         time.sleep(1)
-        bprint('Long ago,'.center(width))
-        bprint('in a star system very far away...\n'.center(width))
+        bprint('Long ago,')
+        bprint('in a star system very far away...\n')
         time.sleep(1)
-        yprint('Black Star'.center(width))
-        wprint('A Text-Based Adventure'.center(width))
+        yprint('Black Star')
+        wprint('A Text-Based Adventure')
         time.sleep(1)
-        wprint('Developed by Ryan Butler'.center(width))
+        wprint('Developed by Ryan Butler')
         time.sleep(3)
         clear()
-        yprint('Black Star'.center(width))
-        wprint('A Text-Based Adventure\n\n'.center(width))
+        yprint('Black Star')
+        wprint('A Text-Based Adventure\n\n')
         wprint('MAIN MENU\n1. Play\n2. Quit')
 
         # Player menu option input
-        menuOption = int(input())
+        menuOption = int(input('> '))
         # Menu Item 1
         # Playing the game
         if menuOption == 1:
@@ -223,10 +228,10 @@ if __name__ == '__main__':
                                 # Chapter: Passage
                                 yprint('Moved to Passage')
                                 passage = True
-                                create_room_func('Passage', 'Nothing', 'Jail Cell', 'More Passage', 'Nothing',
-                                                 'Rusty Sword')
+                                create_room_func('Passage', 'Nothing', 'Jail Cell', 'More Passage',
+                                                 'Nothing', 'Rusty Sword')
                                 while passage:
-                                    player_input = str(input('>'))
+                                    player_input = str(input('> '))
                                     if player_input == 'q' or player_input == 'quit':
                                         passage = False
                                         intro = False
@@ -249,7 +254,7 @@ if __name__ == '__main__':
                                                              'Back to the First Passage', 'Nothing',
                                                              '')
                                             while passage2:
-                                                player_input = str(input('>'))
+                                                player_input = str(input('> '))
                                                 if player_input == 'q' or player_input == 'quit':
                                                     passage2 = False
                                                     passage = False
