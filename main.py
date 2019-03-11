@@ -66,16 +66,16 @@ if __name__ == "__main__":
             while playGame:
                 # Chapter: Intro
                 # Character Creation
-                character_create()
-
+                gp.character_create()
+                character = gp.character_create(character_profile)
                 # Chapter: Jail Cell
                 intro = True
                 gw.create_room_func(
                     "Jail Cell", "Window", "Door", "Nothing", "Nothing", "Key"
                 )
-                gt.wprint(f"{Character.NAME}: uhhhh...ahhhh...")
+                gt.wprint(f"{name}: uhhhh...ahhhh...")
                 time.sleep(1)
-                gt.wprint(f"{Character.NAME}: my head...what happened???")
+                gt.wprint(f"{name}: my head...what happened???")
                 gt.bprint(f"You are in a {Room.NAME}")
                 time.sleep(1)
                 gt.bprint("Hint: type 'h' or 'help' for controls")
