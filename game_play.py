@@ -1,6 +1,16 @@
+# ------------------------------------------------------------------------------------------------------------------
+# Text-Based RPG Game
+# Author: Ryan Butler
+# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
+# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
+# ------------------------------------------------------------------------------------------------------------------
+"""
+[Module for game play/actions]
+"""
+
 import os
 import time
-import game_terminal as gt
+import game_terminal as term
 
 # class Character:
 # TODO: Create Character class
@@ -52,8 +62,7 @@ def character_create(character_profile):
     Returns:
         [dict] -- [returns dict with all character info]
     """
-
-    gt.bprint("Enter your character's name:")
+    term.bprint("Enter your character's name:")
     character_profile['Name'] = input(str("> "))
     character_profile['Level'] = '1'
     character_profile['Health'] = '100'
@@ -63,40 +72,40 @@ def character_create(character_profile):
     character_profile['Chest'] = 'Empty'
     character_profile['Weapon'] = 'Empty'
     character_profile['Bag']='Empty'
-    gt.clear()
-    gt.bprint(f"Welcome young {character_profile['Name']}, may the force be with you...")
+    term.clear()
+    term.bprint(f"Welcome young {character_profile['Name']}, may the force be with you...")
     time.sleep(1)
-    gt.clear()
+    term.clear()
     time.sleep(1)
     return character_profile
 
 
 def player_help():
-    gt.wprint("Help Menu:")
-    gt.wprint("- type 'look' to look around in this area")
-    gt.wprint("- type 'take' to take object into inventory")
-    gt.wprint(
+    term.wprint("Help Menu:")
+    term.wprint("- type 'look' to look around in this area")
+    term.wprint("- type 'take' to take object into inventory")
+    term.wprint(
         "- type 'inventory' to see what is in your bag, current gear on player and status"
     )
-    gt.wprint("- type 'up', 'down', 'left' and 'right' to move around in this area")
+    term.wprint("- type 'up', 'down', 'left' and 'right' to move around in this area")
 
 
-def look_func():
-    gt.bprint(f"You are in a {Room.NAME}")
-    gt.yprint(f"Up: {Room.UP}")
-    gt.yprint(f"Down: {Room.DOWN}")
-    gt.yprint(f"Left: {Room.LEFT}")
-    gt.yprint(f"Right: {Room.RIGHT}")
-    gt.gprint(f"Ground: {Room.OBJECT[-1]}")
+def player_look(name, up, down, left, right, item):
+    term.bprint(f"You are in a {name}")
+    term.yprint(f"Up: {up}")
+    term.yprint(f"Down: {down}")
+    term.yprint(f"Left: {left}")
+    term.yprint(f"Right: {right}")
+    term.gprint(f"Ground: {item}")
 
 
 def inventory_func():
-    gt.gprint(
+    term.gprint(
         f"\n---INVENTORY---\nHead: {Character.HEAD}\tChest: {Character.CHEST}\n"
         f"Weapon: {Character.WEAPON}"
     )
-    gt.gprint(f"Bag: {Inventory.BAG[-1]}")
-    gt.bprint(f"\n---STATUS---\nLevel: {Character.LEVEL}\tHealth: {Character.HEALTH}")
-    gt.rprint(
+    term.gprint(f"Bag: {Inventory.BAG[-1]}")
+    term.bprint(f"\n---STATUS---\nLevel: {Character.LEVEL}\tHealth: {Character.HEALTH}")
+    term.rprint(
         f"\n---ATTRIBUTES---\nDamage: {Character.DAMAGE}\tArmor: {Character.ARMOR}\n"
     )

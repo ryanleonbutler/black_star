@@ -5,17 +5,20 @@
 # I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
-[Module for game world]
+[Module for game dialog]
 """
 
-# class Room:
-# TODO: Create Room class
-class Room():
+import os
+import time
+import game_terminal as term
 
-    def __init__(self, name, up, down, left, right, item):
-        self.name = name
-        self.up = up
-        self.down = down
-        self.left = left
-        self.right = right
-        self.item = item
+def chapter1_prison_cell_dialog_intro(room_name):
+    term.wprint(f'you: uhhhh...ahhhh...')
+    time.sleep(2)
+    term.wprint(f'you: my head...what happened???')
+    time.sleep(2)
+    term.wprint(f'you: *standing up*')
+    time.sleep(2)
+    term.wprint(f'you: *looking around*')
+    term.bprint(f'You are in a {room_name}')
+    time.sleep(2)

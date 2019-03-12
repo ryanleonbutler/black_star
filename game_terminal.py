@@ -1,3 +1,15 @@
+# ------------------------------------------------------------------------------------------------------------------
+# Text-Based RPG Game
+# Author: Ryan Butler
+# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
+# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
+# ------------------------------------------------------------------------------------------------------------------
+"""
+[Module for game custom text terminal output]
+"""
+# Library imports
+# https://pypi.org/project/colorama/
+
 import os
 import time
 import colorama
@@ -29,3 +41,14 @@ def bprint(sentence):
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
+
+
+def player_hint():
+    bprint('---Hint: type \'h\' or \'help\' for controls---')
+
+
+def player_input():
+    value = str(input("> "))
+    return value
+
+
