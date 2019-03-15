@@ -19,3 +19,11 @@ class Room():
         self.left = left
         self.right = right
         self.item = item
+
+    def describe_room(self):
+        term.bprint(f"You are in a {name}")
+        term.yprint(f"Up: {up}")
+        term.yprint(f"Down: {down}")
+        term.yprint(f"Left: {left}")
+        term.yprint(f"Right: {right}")
+        term.gprint(f"Ground: {item}")
