@@ -76,10 +76,10 @@ class Enemy:
 
 
 def player_help():
-    term.wprint("Help Menu:")
-    term.wprint("- type 'look' to look around in this area")
-    term.wprint("- type 'take' to take object into inventory")
-    term.wprint(
+    term.bprint("Help Menu:")
+    term.bprint("- type 'view' to look around in this area")
+    term.bprint("- type 'take' to take object into inventory")
+    term.bprint(
         "- type 'inventory' to see what is in your bag, current gear on player and status"
     )
-    term.wprint("- type 'up', 'down', 'left' and 'right' to move around in this area")
+    term.bprint("- type 'up', 'down', 'left' and 'right' to move around in this area")

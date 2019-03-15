@@ -8,6 +8,8 @@
 [Module for game world]
 """
 
+import game_terminal as term
+
 # class Room:
 # TODO: Create Room class
 class Room():
@@ -20,10 +22,18 @@ class Room():
         self.right = right
         self.item = item
 
+    def print_room(self):
+        term.yprint(f'You are in a {self.name}')
+
     def describe_room(self):
-        term.bprint(f"You are in a {name}")
-        term.yprint(f"Up: {up}")
-        term.yprint(f"Down: {down}")
-        term.yprint(f"Left: {left}")
-        term.yprint(f"Right: {right}")
-        term.gprint(f"Ground: {item}")
+        term.yprint(f"Room: You are in a {str(self.name)}")
+        term.gprint(f"Up: {str(self.up)}\n"
+                    f"Down: {str(self.down)}\n"
+                    f"Left: {str(self.left)}\n"
+                    f"Right: {str(self.right)}"
+                    )
+        term.pprint(f"Ground: {str(self.item)}")
+
+    def get_room_name(self):
+        return self.name
+

@@ -18,7 +18,6 @@ from colorama import init
 
 init(autoreset=True)
 
-
 def gprint(sentence):
     print(Style.BRIGHT + Fore.GREEN + sentence)
 
@@ -38,6 +37,8 @@ def yprint(sentence):
 def bprint(sentence):
     print(Style.BRIGHT + Fore.CYAN + sentence)
 
+def pprint(sentence):
+    print(Style.BRIGHT + Fore.MAGENTA + sentence)
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -46,9 +47,11 @@ def clear():
 def player_hint():
     bprint('---Hint: type \'h\' or \'help\' for controls---')
 
-
 def player_input():
     value = str(input("> "))
     return value
+
+def move_to(area):
+    print(f"You moved to {area}")
 
 

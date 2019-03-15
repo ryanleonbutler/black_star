@@ -41,20 +41,20 @@ def game_menu():
 
         # Start game menu option
         if player_input == '1':
-            print('Goodluck, starting game...')
+            term.bprint('Get ready, starting game...')
             time.sleep(3)
             term.clear()
             return player_input
 
         # Quit game menu option
         elif player_input == '2':
-            print('Goodbye see again soon...')
+            term.yprint('Goodbye, see you again soon...')
             time.sleep(3)
             term.clear()
             break
 
         else:
-            print('Please enter correct menu option...')
+            term.rprint('Please enter correct menu option...')
             time.sleep(3)
             term.clear()
             term.yprint("Black Star")

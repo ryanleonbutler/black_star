@@ -12,7 +12,11 @@ import os
 import time
 import game_terminal as term
 
-def chapter1_prison_cell_dialog_intro(room_name):
+def chapter1_prison_cell_dialog():
+    """
+    [Chapter 1 dialog]
+    """
+
     term.wprint(f'you: uhhhh...ahhhh...')
     time.sleep(2)
     term.wprint(f'you: my head...what happened???')
@@ -20,5 +24,4 @@ def chapter1_prison_cell_dialog_intro(room_name):
     term.wprint(f'you: *standing up*')
     time.sleep(2)
     term.wprint(f'you: *looking around*')
-    term.bprint(f'You are in a {room_name}')
     time.sleep(2)
