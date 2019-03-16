@@ -48,10 +48,7 @@ def player_hint():
     bprint('---Hint: type \'h\' or \'help\' for controls---')
 
 def player_input():
-    value = str(input("> "))
+    value = str(input("> ").lower())
     return value
-
-def move_to(area):
-    print(f"You moved to {area}")
 
 

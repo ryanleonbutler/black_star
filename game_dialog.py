@@ -12,11 +12,12 @@ import os
 import time
 import game_terminal as term
 
-def chapter1_prison_cell_dialog():
+def start_prison_cell_dialog():
     """
-    [Chapter 1 dialog]
+    [Start of game in the Prison Cell - Dialog]
     """
-
+    term.clear()
+    time.sleep(2)
     term.wprint(f'you: uhhhh...ahhhh...')
     time.sleep(2)
     term.wprint(f'you: my head...what happened???')

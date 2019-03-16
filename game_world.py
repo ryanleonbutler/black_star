@@ -23,17 +23,14 @@ class Room():
         self.item = item
 
     def print_room(self):
-        term.yprint(f'You are in a {self.name}')
+        term.yprint(f'You moved to {self.name}')
 
     def describe_room(self):
-        term.yprint(f"Room: You are in a {str(self.name)}")
-        term.gprint(f"Up: {str(self.up)}\n"
-                    f"Down: {str(self.down)}\n"
-                    f"Left: {str(self.left)}\n"
-                    f"Right: {str(self.right)}"
+        term.yprint(f"You are in a {self.name}")
+        term.gprint(f"up: {self.up}\n"
+                    f"down: {self.down}\n"
+                    f"left: {self.left}\n"
+                    f"right: {self.right}"
                     )
-        term.pprint(f"Ground: {str(self.item)}")
-
-    def get_room_name(self):
-        return self.name
+        term.pprint(f"There is a {self.item} on the ground")
 
