@@ -8,7 +8,6 @@
 [Module for game start and player menu]
 """
 
-import os
 import time
 import game_terminal as term
 
@@ -17,12 +16,11 @@ def game_intro():
     [Start of the game intro function]
     """
     term.clear()
-    time.sleep(2)
+    time.sleep(1)
     term.bprint('Long ago,\nin a star system very far away...\n')
     time.sleep(1)
     term.yprint("Black Star")
     term.wprint("A Text-Based Adventure")
-    time.sleep(1)
     term.wprint("Developed by Ryan Butler")
     time.sleep(2)
     term.clear()

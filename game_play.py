@@ -8,7 +8,6 @@
 [Module for game play/actions]
 """
 
-import os
 import time
 import game_terminal as term
 

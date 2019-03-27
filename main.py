@@ -8,7 +8,6 @@
 [Main of game]
 """
 
-import os
 import time
 import game_terminal as term
 import game_menu as menu
@@ -38,6 +37,8 @@ if __name__ == '__main__':
     if player_input == '1':
         start_game = True
         dialog.start_prison_cell_dialog()
+        time.sleep(0.5)
+        term.player_hint()
     elif player_input == '2':
         start_game = False
 

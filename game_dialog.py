@@ -8,7 +8,6 @@
 [Module for game dialog]
 """
 
-import os
 import time
 import game_terminal as term
 

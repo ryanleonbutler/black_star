@@ -37,8 +37,10 @@ def yprint(sentence):
 def bprint(sentence):
     print(Style.BRIGHT + Fore.CYAN + sentence)
 
+
 def pprint(sentence):
     print(Style.BRIGHT + Fore.MAGENTA + sentence)
+
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -47,8 +49,8 @@ def clear():
 def player_hint():
     bprint('---Hint: type \'h\' or \'help\' for controls---')
 
+
 def player_input():
     value = str(input("> ").lower())
     return value
-
 
