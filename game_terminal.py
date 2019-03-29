@@ -53,6 +53,7 @@ def player_hint():
 def player_help():
     bprint("Help Menu:")
     bprint("- type 'view(v)' to look around in this area")
+    bprint("- type 'map(m)' to look at the map of the world")
     bprint("- type 'take(t)' to take object into inventory")
     bprint(
         "- type 'inventory(i)' to see what is in your bag, current gear on player and status"
