@@ -50,6 +50,16 @@ def player_hint():
     bprint('---Hint: type \'h\' or \'help\' for controls---')
 
 
+def player_help():
+    bprint("Help Menu:")
+    bprint("- type 'view' to look around in this area")
+    bprint("- type 'take' to take object into inventory")
+    bprint(
+        "- type 'inventory' to see what is in your bag, current gear on player and status"
+    )
+    bprint("- type 'up', 'down', 'left' and 'right' to move around in this area")
+
+
 def player_input():
     value = str(input("> ").lower())
     return value

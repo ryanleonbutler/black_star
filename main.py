@@ -44,23 +44,31 @@ if __name__ == '__main__':
 
     while start_game:
 
-        prison_cell = world.Room('Prison Cell', 'Small Window', 'Nothing', 'Nothing', 'Passage', 'Key')
+        prison_cell = world.Room('Prison Cell', 'Window', 'Nothing', 'Nothing', 'Passage', 'Key')
         passage = world.Room('Passage', 'More Passage', 'Armory', 'Prison Cell', 'Nothing', 'Chest Plate')
         armory = world.Room('Armory', 'Passage', 'Nothing', 'Nothing', 'Nothing', 'Sword')
 
         room_map = {
                 1: {'room': prison_cell,
                     'name': prison_cell.name,
+                    'up': prison_cell.up,
+                    'down': prison_cell.down,
+                    'left': prison_cell.left,
                     'right': 2},
 
                 2: {'room': passage,
                     'name': passage.name,
+                    'up': passage.up,
+                    'down': 3,
                     'left': 1,
-                    'down': 3},
+                    'right': passage.right},
 
                 3: {'room': armory,
                     'name': armory.name,
-                    'up': 2}
+                    'up': 2,
+                    'down': armory.down,
+                    'left': armory.left,
+                    'right': armory.right}
             }
 
         game = True
@@ -74,14 +82,22 @@ if __name__ == '__main__':
                 game = False
 
             elif player_input == 'h' or player_input == 'help':
-                actions.player_help()
+                term.player_help()
 
             elif player_input == 'v' or player_input == 'view':
                 room_map[current_room]['room'].describe_room()
 
             elif player_input in room_map[current_room] or player_input[0] in room_map[current_room]:
-                current_room = room_map[current_room][player_input]
-                room_map[current_room]['room'].print_room()
+                print(room_map[current_room])
+                print(player_input[0])
+                current_room_test = room_map[current_room][player_input]
+                if current_room_test == 'Nothing':
+                    term.yprint(f'You cannot go there')
+                elif current_room_test == 'Window':
+                    term.yprint(f'It is dark outside, you see nothing')
+                else:
+                    current_room = room_map[current_room][player_input]
+                    room_map[current_room]['room'].print_room()
 
             elif player_input == 'c' or player_input == 'clear':
                 term.clear()
