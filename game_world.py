@@ -23,7 +23,7 @@ class Room():
         self.item = item
 
     def print_room(self):
-        term.yprint(f'You moved to {self.name}')
+        term.bprint(f'Moved to {self.name}')
 
     def describe_room(self):
         term.yprint(f"You are in a {self.name}")
@@ -34,3 +34,55 @@ class Room():
                     )
         term.pprint(f"There is a {self.item} on the ground")
 
+
+prison_cell = Room('Prison Cell', 'Window', 'Nothing', 'Nothing', 'Passage', 'Key')
+passage = Room('Passage', 'Barracks', 'Armory', 'Prison Cell', 'Nothing', 'Dirty Robe')
+armory = Room('Armory', 'Passage', 'Nothing', 'Nothing', 'Nothing', 'Space Alloy Sword')
+barracks = Room('Barracks', 'Nothing', 'Passage', 'Nothing', 'Nothing', '')
+
+
+room_map = {
+        1: {'room': prison_cell,
+            'name': prison_cell.name,
+            'up': prison_cell.up,
+            'u': prison_cell.up,
+            'down': prison_cell.down,
+            'd': prison_cell.down,
+            'left': prison_cell.left,
+            'l':  prison_cell.left,
+            'right': 2,
+            'r': 2},
+            
+        2: {'room': passage,
+            'name': passage.name,
+            'up': 4,
+            'u': 4,
+            'down': 3,
+            'd': 3,
+            'left': 1,
+            'l': 1,
+            'right': passage.right,
+            'r': passage.right},
+
+        3: {'room': armory,
+            'name': armory.name,
+            'up': 2,
+            'u': 2,
+            'down': armory.down,
+            'd': armory.down,
+            'left': armory.left,
+            'l': armory.left,
+            'right': armory.right,
+            'r': armory.right},
+
+        4: {'room': barracks,
+            'name': barracks.name,
+            'up': barracks.up,
+            'u': barracks.up,
+            'down': 2,
+            'd': 2,
+            'left': barracks.left,
+            'l': barracks.left,
+            'right': barracks.right,
+            'r': barracks.right}
+    }

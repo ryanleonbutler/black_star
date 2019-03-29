@@ -17,7 +17,7 @@ def game_intro():
     """
     term.clear()
     time.sleep(1)
-    term.bprint('Long ago,\nin a star system very far away...\n')
+    term.bprint('In the future,\nin a star system very far away...\n')
     time.sleep(1)
     term.yprint("Black Star")
     term.wprint("A Text-Based Adventure")
@@ -40,7 +40,7 @@ def game_menu():
         # Start game menu option
         if player_input == '1':
             term.bprint('Get ready, starting game...')
-            time.sleep(3)
+            time.sleep(2)
             term.clear()
             return player_input
 

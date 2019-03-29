@@ -5,24 +5,14 @@
 # I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
-[Module for game play/actions]
+[Module for game objects]
 """
 
-import time
-import game_terminal as term
-
-
-
-
-
-# class Enemy:
-# TODO: Create Enemy class
-class Enemy:
+# class Object:
+# TODO: Create Object class
+class Object:
     NAME = ""
-    LEVEL = 1
-    HEALTH = 100
-    ARMOR = 1
-    DAMAGE = 1
-
-
-
+    ARMOR = 0
+    DAMAGE = 0
+    USE = ""
+    Note = ""

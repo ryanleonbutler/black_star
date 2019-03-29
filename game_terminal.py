@@ -52,15 +52,15 @@ def player_hint():
 
 def player_help():
     bprint("Help Menu:")
-    bprint("- type 'view' to look around in this area")
-    bprint("- type 'take' to take object into inventory")
+    bprint("- type 'view(v)' to look around in this area")
+    bprint("- type 'take(t)' to take object into inventory")
     bprint(
-        "- type 'inventory' to see what is in your bag, current gear on player and status"
+        "- type 'inventory(i)' to see what is in your bag, current gear on player and status"
     )
-    bprint("- type 'up', 'down', 'left' and 'right' to move around in this area")
+    bprint("- type 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas")
+    bprint("- type 'clear(c)' to clear the terminal")
 
 
 def player_input():
     value = str(input("> ").lower())
     return value
-
