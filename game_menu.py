@@ -11,19 +11,21 @@
 import time
 import game_terminal as term
 
+
 def game_intro():
     """
     [Start of the game intro function]
     """
     term.clear()
     time.sleep(1)
-    term.bprint('In the future,\nin a star system very far away...\n')
+    term.bprint("In the future,\nin a star system very far away...\n")
     time.sleep(1)
     term.yprint("Black Star")
     term.wprint("A Text-Based Adventure")
     term.wprint("Developed by Ryan Butler")
     time.sleep(2)
     term.clear()
+
 
 def game_menu():
     """
@@ -38,21 +40,21 @@ def game_menu():
         player_input = term.player_input()
 
         # Start game menu option
-        if player_input == '1':
-            term.bprint('Get ready, starting game...')
+        if player_input == "1":
+            term.bprint("Get ready, starting game...")
             time.sleep(2)
             term.clear()
             return player_input
 
         # Quit game menu option
-        elif player_input == '2':
-            term.yprint('Goodbye, see you again soon...')
+        elif player_input == "2":
+            term.yprint("Goodbye, see you again soon...")
             time.sleep(3)
             term.clear()
             break
 
         else:
-            term.rprint('Please enter correct menu option...')
+            term.rprint("Please enter correct menu option...")
             time.sleep(3)
             term.clear()
             term.yprint("Black Star")
