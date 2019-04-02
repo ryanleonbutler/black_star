@@ -67,7 +67,7 @@ if __name__ == '__main__':
             elif player_input == 'v' or player_input == 'view':
                 room_map[current_room]['room'].describe_room()
 
-            elif player_input == 'i' or player_input == 'inventory':
+            elif player_input == 's' or player_input == 'status':
                myplayer.describe_character()
 
             elif player_input == 'm' or player_input == 'map':

@@ -44,8 +44,5 @@ class Inventory():
         self.items = items
 
     def view_inventory(self):
-        describe_character(self)
-        term.gprint(
-            f"\n---EQUIPED---\nHead: {character.head}\tChest: {character.chest}\n"
-            f"Weapon: {character.weapon}")
-        term.gprint(f"Bag: {inventory.item[-1]}")
+        for item in self.items:
+            term.gprint(f"Bag: {item[-1]}")

@@ -56,7 +56,7 @@ def player_help():
     bprint("- type 'map(m)' to look at the map of the world")
     bprint("- type 'take(t)' to take object into inventory")
     bprint(
-        "- type 'inventory(i)' to see what is in your bag, current gear on player and status"
+        "- type 'status(s)' to view current player status and attributes"
     )
     bprint("- type 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas")
     bprint("- type 'clear(c)' to clear the terminal")
