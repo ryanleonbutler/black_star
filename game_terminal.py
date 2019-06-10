@@ -18,6 +18,7 @@ from colorama import init
 
 init(autoreset=True)
 
+
 def gprint(sentence):
     print(Style.BRIGHT + Fore.GREEN + sentence)
 
@@ -47,7 +48,7 @@ def clear():
 
 
 def player_hint():
-    bprint('---Hint: type \'h\' or \'help\' for controls---')
+    bprint("---Hint: type 'h' or 'help' for controls---")
 
 
 def player_help():
@@ -55,10 +56,10 @@ def player_help():
     bprint("- type 'view(v)' to look around in this area")
     bprint("- type 'map(m)' to look at the map of the world")
     bprint("- type 'take(t)' to take object into inventory")
+    bprint("- type 'status(s)' to view current player status and attributes")
     bprint(
-        "- type 'inventory(i)' to see what is in your bag, current gear on player and status"
+        "- type 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas"
     )
-    bprint("- type 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas")
     bprint("- type 'clear(c)' to clear the terminal")
 
 

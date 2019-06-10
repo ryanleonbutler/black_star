@@ -12,9 +12,6 @@ import time
 import game_terminal as term
 
 
-
-
-
 # class Enemy:
 # TODO: Create Enemy class
 class Enemy:
@@ -23,6 +20,3 @@ class Enemy:
     HEALTH = 100
     ARMOR = 1
     DAMAGE = 1
-
-
-
