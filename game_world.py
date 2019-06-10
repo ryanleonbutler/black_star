@@ -52,7 +52,7 @@ room_map = {
             'l':  prison_cell.left,
             'right': 2,
             'r': 2},
-            
+
         2: {'room': passage,
             'name': passage.name,
             'up': 4,
@@ -86,3 +86,27 @@ room_map = {
             'right': barracks.right,
             'r': barracks.right}
     }
+
+def view_map():
+    term.wprint(
+            "                      ______________  \n"
+            "                     |              | \n"
+            "                     |              | \n"
+            "                     |    Armory    | \n"
+            "                     |              | \n"
+            "                     |______________| \n"
+            "                             |        \n"
+            " ______________       ______________  \n"
+            "|              |     |              | \n"
+            "|              |     |              | \n"
+            "|  Prison Cell | --- |    Passage   | \n"
+            "|    (Start)   |     |              | \n"
+            "|______________|     |______________| \n"
+            "                             |        \n"
+            "                      ______________  \n"
+            "                     |              | \n"
+            "                     |              | \n"
+            "                     |    Armory    | \n"
+            "                     |              | \n"
+            "                     |______________| \n"
+                )

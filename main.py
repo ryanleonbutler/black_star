@@ -59,6 +59,7 @@ if __name__ == '__main__':
 
             if player_input == 'q' or player_input == 'quit':
                 game = False
+                start_game = False
 
             elif player_input == 'h' or player_input == 'help':
                 term.player_help()
@@ -68,6 +69,9 @@ if __name__ == '__main__':
 
             elif player_input == 'i' or player_input == 'inventory':
                myplayer.describe_character()
+
+            elif player_input == 'm' or player_input == 'map':
+               world.view_map()
 
             elif player_input in room_map[current_room] or player_input[0] in room_map[current_room]:
                 current_room_test = room_map[current_room][player_input]
