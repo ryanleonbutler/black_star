@@ -70,12 +70,6 @@ if __name__ == "__main__":
             elif player_input == "s" or player_input == "status":
                 myplayer.describe_character()
 
-<<<<<<< HEAD
-            elif player_input == 'm' or player_input == 'map':
-               world.view_map()
-
-            elif player_input in room_map[current_room] or player_input[0] in room_map[current_room]:
-=======
             elif player_input == "m" or player_input == "map":
                 world.view_map()
 
@@ -83,7 +77,6 @@ if __name__ == "__main__":
                 player_input in room_map[current_room]
                 or player_input[0] in room_map[current_room]
             ):
->>>>>>> dec7fd7efd0b50d5c0b9ee672c8c00a6c7dd2ab2
                 current_room_test = room_map[current_room][player_input]
 
                 if current_room_test == "Nothing":

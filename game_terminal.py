@@ -61,6 +61,7 @@ def player_help():
         "- type 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas"
     )
     bprint("- type 'clear(c)' to clear the terminal")
+    bprint("- type 'quit(q)' to quit the game")
 
 
 def player_input():
