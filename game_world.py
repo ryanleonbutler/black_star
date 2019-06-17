@@ -9,6 +9,7 @@
 """
 
 import game_terminal as term
+import game_items
 
 # class Room:
 # TODO: Create Room class
@@ -26,29 +27,53 @@ class Room:
 
     def describe_room(self):
         term.yprint(f"You are in a {self.name}")
-        term.gprint(
-            f"up: {self.up}\n"
-            f"down: {self.down}\n"
-            f"left: {self.left}\n"
-            f"right: {self.right}"
-        )
-        if self.item == "":
-            term.pprint(f"Nothing on the ground")
+
+        if self.up == "nothing":
+            term.wprint(
+                f"up: {self.up}")
         else:
-            term.pprint(f"There is a {self.item} on the ground")
+            term.gprint(
+                f"up: {self.up}")
+
+        if self.down == "nothing":
+            term.wprint(
+                f"down: {self.down}")
+        else:
+            term.gprint(
+                f"down: {self.down}")
+
+        if self.left == "nothing":
+            term.wprint(
+                f"left: {self.left}")
+        else:
+            term.gprint(
+                f"left: {self.left}")
+
+        if self.right == "nothing":
+            term.wprint(
+                f"right: {self.right}")
+        else:
+            term.gprint(f"right: {self.right}")
+
+        if self.item == "":
+            term.wprint(f"ground: none")
+        elif self.item == "none":
+            term.wprint(f"ground: none")
+        else:
+            term.pprint(f"ground: {self.item}")
 
 
-prison_cell = Room("Prison Cell", "Window", "Nothing", "Nothing", "Passage", "Key")
-passage = Room("Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", "Dirty Robe")
-armory = Room("Armory", "Passage", "Nothing", "Nothing", "Nothing", "Space Alloy Sword")
-sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "Nothing", "Nothing", "")
-food_hall = Room("Food Hall", "Nothing", "Sleeping Quarters", "Nothing", "Nothing", "")
-lab = Room("Lab", "Nothing", "Nothing", "Passage", "Passenger Area", "")
+prison_cell = Room("Prison Cell", "Window", "nothing", "nothing", "Passage", game_items.key.name)
+passage = Room("Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", game_items.robe.name)
+armory = Room("Armory", "Passage", "nothing", "nothing", "nothing", game_items.space_sword.name)
+sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", "")
+food_hall = Room("Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", "")
+lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area", "")
 pass_area = Room("Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area", "")
-cargo_hold = Room("Cargo Hold", "Passenger Area", "Nothing", "Nothing", "Nothing", "")
-blaster_turret = Room("Blaster Turret", "Nothing", "Passenger Area", "Nothing", "Nothing", "")
-crew_area = Room("Crew Area", "Nothing", "Nothing", "Passenger Area", "Cockpit", "")
-cockpit = Room("Cockpit", "Nothing", "Nothing", "Crew Area", "Nothing", "")
+cargo_hold = Room("Cargo Hold", "Passenger Area", "nothing", "nothing", "nothing", "")
+blaster_turret = Room("Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing", "")
+crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit", "")
+cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", "")
 
 room_map = {
     1: {
@@ -62,6 +87,7 @@ room_map = {
         "l": prison_cell.left,
         "right": 2,
         "r": 2,
+        "item": game_items.key,
     },
     2: {
         "room": passage,
@@ -74,6 +100,7 @@ room_map = {
         "l": 1,
         "right": 6,
         "r": 6,
+        "item": game_items.robe,
     },
     3: {
         "room": armory,
@@ -86,6 +113,7 @@ room_map = {
         "l": armory.left,
         "right": armory.right,
         "r": armory.right,
+        "item": game_items.space_sword,
     },
     4: {
         "room": sleep_quar,
@@ -189,6 +217,9 @@ room_map = {
 def view_map():
     term.wprint(
         """\
+
+Unknown Spaceship:
+
                       ______________
                      |              |
                      |              |

@@ -27,3 +27,4 @@ Black Star is a fantasy MUD, which takes place in a galaxy which is unknown and 
 - 'inventory(i)' = view current player inventory.
 - 'take(t)' = take object into inventory.
 - 'clear(c)' = clear the terminal.
+- 'quit(q)' = quit the game.

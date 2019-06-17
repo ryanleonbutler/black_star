@@ -48,20 +48,22 @@ def clear():
 
 
 def player_hint():
-    bprint("---Hint: type 'h' or 'help' for controls---")
+    bprint("---Hint:  'h' or 'help' for controls---")
 
 
 def player_help():
     bprint("Help Menu:")
-    bprint("- type 'view(v)' to look around in this area")
-    bprint("- type 'map(m)' to look at the map of the world")
-    bprint("- type 'take(t)' to take object into inventory")
-    bprint("- type 'status(s)' to view current player status and attributes")
+    bprint("- 'view(v)' to look around in this area")
+    bprint("- 'map(m)' to look at the map of the world")
+    bprint("- 'inspect(y)' to view item attributes")
+    bprint("- 'take(t)' to take item into inventory")
+    bprint("- 'status(s)' to view current player status, attributes and equipped gear")
+    bprint("- 'inventory(i)' to view current player's inventory")
     bprint(
-        "- type 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas"
+        "- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas"
     )
-    bprint("- type 'clear(c)' to clear the terminal")
-    bprint("- type 'quit(q)' to quit the game")
+    bprint("- 'clear(c)' to clear the terminal")
+    bprint("- 'quit(q)' to quit the game")
 
 
 def player_input():

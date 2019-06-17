@@ -48,8 +48,8 @@ def game_menu():
 
         # Quit game menu option
         elif player_input == "2":
-            term.yprint("Goodbye, see you again soon...")
-            time.sleep(3)
+            term.bprint("Goodbye, see you again soon...")
+            time.sleep(2)
             term.clear()
             break
 
