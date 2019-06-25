@@ -11,9 +11,10 @@
 # https://pypi.org/project/colorama/
 
 import os
-import time
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Back
+from colorama import Fore
+from colorama import Style
 from colorama import init
 
 init(autoreset=True)

@@ -13,6 +13,8 @@ import game_items
 
 # class Room:
 # TODO: Create Room class
+
+
 class Room:
     def __init__(self, name, up, down, left, right, item):
         self.name = name
@@ -63,16 +65,25 @@ class Room:
             term.pprint(f"ground: {self.item}")
 
 
-prison_cell = Room("Prison Cell", "Window", "nothing", "nothing", "Passage", game_items.key.name)
-passage = Room("Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", game_items.robe.name)
-armory = Room("Armory", "Passage", "nothing", "nothing", "nothing", game_items.space_sword.name)
-sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", "")
-food_hall = Room("Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", "")
+prison_cell = Room("Prison Cell", "Window", "nothing",
+                   "nothing", "Passage", game_items.key.name)
+passage = Room("Passage", "Sleeping Quarters", "Armory",
+               "Prison Cell", "Lab", game_items.robe.name)
+armory = Room("Armory", "Passage", "nothing", "nothing",
+              "nothing", game_items.space_sword.name)
+sleep_quar = Room("Sleeping Quarters", "Food Hall",
+                  "Passage", "nothing", "nothing", "")
+food_hall = Room("Food Hall", "nothing", "Sleeping Quarters",
+                 "nothing", "nothing", "")
 lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area", "")
-pass_area = Room("Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area", "")
-cargo_hold = Room("Cargo Hold", "Passenger Area", "nothing", "nothing", "nothing", "")
-blaster_turret = Room("Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing", "")
-crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit", "")
+pass_area = Room("Passenger Area", "Blaster Turret",
+                 "Cargo Hold", "Lab", "Crew Area", "")
+cargo_hold = Room("Cargo Hold", "Passenger Area",
+                  "nothing", "nothing", "nothing", "")
+blaster_turret = Room("Blaster Turret", "nothing",
+                      "Passenger Area", "nothing", "nothing", "")
+crew_area = Room("Crew Area", "nothing", "nothing",
+                 "Passenger Area", "Cockpit", "")
 cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", "")
 
 room_map = {

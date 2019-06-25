@@ -94,17 +94,17 @@ if __name__ == "__main__":
                         term.wprint(
                             f"No items on ground to take")
                     else:
-                        inventory_items.append(room_map[current_room]["item"].name)
+                        inventory_items.append(
+                            room_map[current_room]["item"].name)
                         room_map[current_room]["item"].take_item()
                         room_map[current_room]["item"] = "none"
                         room_map[current_room]["room"].item = "none"
-                
+
                 elif player_input == "e" or player_input == "equip":
-                    term.bprint("Enter item name in inventory that you wish to equip:")
+                    term.bprint(
+                        "Enter item name in inventory that you wish to equip:")
                     player_input = term.player_input()
-                    for player_input in inventory_items:
-                        myplayer.equip_item()
-                        term.bprint(f"{player_input} has been equipped")
+                    game_items.Items.equip_item(player_input)
 
                 elif player_input == "y" or player_input == "inspect":
                     if not room_map[current_room]["item"]:

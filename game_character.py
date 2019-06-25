@@ -8,7 +8,6 @@
 [Module for game character]
 """
 
-import time
 import game_terminal as term
 import game_items
 
@@ -71,17 +70,6 @@ class Character:
                 f"weapon: {self.weapon}")
 
 
-    def equip_item(self, item):
-        if item.type == "Armor":
-            self.chest == item.name
-            self.armor += item.armor
-        elif item.type == "Weapon":
-            self.weapon == item.name
-            self.damage += item.damage
-        else:
-            pass
-
-
 class Inventory:
     """
     [Inventory class that manages a list of inventory items kept in the players bag]
@@ -92,7 +80,7 @@ class Inventory:
 
     def view_inventory(self):
         if not self.items:
-             term.bprint(f"Inventory: Empty")
+            term.bprint(f"Inventory: Empty")
         else:
             term.bprint(f"Inventory:")
             for item in self.items:
