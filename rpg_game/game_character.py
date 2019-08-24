@@ -1,8 +1,10 @@
 # ------------------------------------------------------------------------------------------------------------------
 # Text-Based RPG Game
 # Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
-# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
+# Developer notes: I am a massive fan of Star Wars and
+# programming. Eager to learn Python, I thought it would
+# be an awesome idea to develop a game, taking Star Wars
+# as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
 [Module for game character]
@@ -14,7 +16,8 @@ import game_items
 
 class Character:
     """
-    [Character class that defines and creates a new character with all of the character attributes]
+    [Character class that defines and creates a 
+    new character with all of the character attributes]
     """
 
     def __init__(
@@ -38,36 +41,24 @@ class Character:
         self.weapon = weapon
 
     def describe_character(self):
-        term.bprint(
-            f"--- My Character({self.name.title()})---")
-        term.wprint(
-            f"Level: {self.level}")
-        term.gprint(
-            f"Health: {self.health}")
-        term.yprint(
-            f"Armor: {self.armor}")
-        term.rprint(
-            f"Damage: {self.damage}\n")
-        term.bprint(
-            f"--- Items Equiped({self.name.title()})---")
+        term.bprint(f"--- My Character({self.name.title()})---")
+        term.wprint(f"Level: {self.level}")
+        term.gprint(f"Health: {self.health}")
+        term.yprint(f"Armor: {self.armor}")
+        term.rprint(f"Damage: {self.damage}\n")
+        term.bprint(f"--- Items Equiped({self.name.title()})---")
         if self.head == "none":
-            term.wprint(
-                f"head: {self.head}")
+            term.wprint(f"head: {self.head}")
         else:
-            term.pprint(
-                f"head: {self.head}")
+            term.pprint(f"head: {self.head}")
         if self.chest == "none":
-            term.wprint(
-                f"chest: {self.chest}")
+            term.wprint(f"chest: {self.chest}")
         else:
-            term.pprint(
-                f"chest: {self.chest}")
+            term.pprint(f"chest: {self.chest}")
         if self.weapon == "none":
-            term.wprint(
-                f"weapon: {self.weapon}")
+            term.wprint(f"weapon: {self.weapon}")
         else:
-            term.pprint(
-                f"weapon: {self.weapon}")
+            term.pprint(f"weapon: {self.weapon}")
 
 
 class Inventory:

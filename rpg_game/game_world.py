@@ -1,8 +1,10 @@
 # ------------------------------------------------------------------------------------------------------------------
 # Text-Based RPG Game
 # Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
-# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
+# Developer notes: I am a massive fan of Star Wars and
+# programming. Eager to learn Python, I thought it would
+# be an awesome idea to develop a game, taking Star Wars
+# as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
 [Module for game world]
@@ -31,29 +33,22 @@ class Room:
         term.yprint(f"You are in a {self.name}")
 
         if self.up == "nothing":
-            term.wprint(
-                f"up: {self.up}")
+            term.wprint(f"up: {self.up}")
         else:
-            term.gprint(
-                f"up: {self.up}")
+            term.gprint(f"up: {self.up}")
 
         if self.down == "nothing":
-            term.wprint(
-                f"down: {self.down}")
+            term.wprint(f"down: {self.down}")
         else:
-            term.gprint(
-                f"down: {self.down}")
+            term.gprint(f"down: {self.down}")
 
         if self.left == "nothing":
-            term.wprint(
-                f"left: {self.left}")
+            term.wprint(f"left: {self.left}")
         else:
-            term.gprint(
-                f"left: {self.left}")
+            term.gprint(f"left: {self.left}")
 
         if self.right == "nothing":
-            term.wprint(
-                f"right: {self.right}")
+            term.wprint(f"right: {self.right}")
         else:
             term.gprint(f"right: {self.right}")
 
@@ -65,25 +60,26 @@ class Room:
             term.pprint(f"ground: {self.item}")
 
 
-prison_cell = Room("Prison Cell", "Window", "nothing",
-                   "nothing", "Passage", game_items.key.name)
-passage = Room("Passage", "Sleeping Quarters", "Armory",
-               "Prison Cell", "Lab", game_items.robe.name)
-armory = Room("Armory", "Passage", "nothing", "nothing",
-              "nothing", game_items.space_sword.name)
-sleep_quar = Room("Sleeping Quarters", "Food Hall",
-                  "Passage", "nothing", "nothing", "")
-food_hall = Room("Food Hall", "nothing", "Sleeping Quarters",
-                 "nothing", "nothing", "")
+prison_cell = Room(
+    "Prison Cell", "Window", "nothing", "nothing", "Passage", game_items.key.name
+)
+passage = Room(
+    "Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", game_items.robe.name
+)
+armory = Room(
+    "Armory", "Passage", "nothing", "nothing", "nothing", game_items.space_sword.name
+)
+sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", "")
+food_hall = Room("Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", "")
 lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area", "")
-pass_area = Room("Passenger Area", "Blaster Turret",
-                 "Cargo Hold", "Lab", "Crew Area", "")
-cargo_hold = Room("Cargo Hold", "Passenger Area",
-                  "nothing", "nothing", "nothing", "")
-blaster_turret = Room("Blaster Turret", "nothing",
-                      "Passenger Area", "nothing", "nothing", "")
-crew_area = Room("Crew Area", "nothing", "nothing",
-                 "Passenger Area", "Cockpit", "")
+pass_area = Room(
+    "Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area", ""
+)
+cargo_hold = Room("Cargo Hold", "Passenger Area", "nothing", "nothing", "nothing", "")
+blaster_turret = Room(
+    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing", ""
+)
+crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit", "")
 cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", "")
 
 room_map = {

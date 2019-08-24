@@ -1,8 +1,10 @@
 # ------------------------------------------------------------------------------------------------------------------
 # Text-Based RPG Game
 # Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
-# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
+# Developer notes: I am a massive fan of Star Wars and
+# programming. Eager to learn Python, I thought it would
+# be an awesome idea to develop a game, taking Star Wars
+# as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
 [Module for game objects]
@@ -16,17 +18,10 @@ import game_character as char
 # class for Items to use and equip in-game:
 class Items:
     """
-    [Item class that defines usable objects in the game like armor and weapons. Also other items like health elixers and notes.]
+    [Item class that defines usable objects in the game like armor and weapons. Also other items like health elixirs and notes.]
     """
 
-    def __init__(
-        self,
-        name="",
-        item_type="",
-        armor=0,
-        damage=0,
-        description="",
-    ):
+    def __init__(self, name="", item_type="", armor=0, damage=0, description=""):
         self.name = name
         self.item_type = item_type
         self.armor = armor
@@ -42,8 +37,7 @@ class Items:
         elif self.name == "none":
             term.wprint("No items on ground to inspect")
         else:
-            term.bprint(
-                f"---Item details: ({self.name.title()})---")
+            term.bprint(f"---Item details: ({self.name.title()})---")
             term.pprint(
                 f"Type: {self.item_type}\n"
                 f"Armor: {self.armor}\n"
@@ -58,10 +52,9 @@ class Items:
         if not self.name:
             term.wprint("No items on ground to take")
         else:
-            term.pprint(
-                f"---Item ({self.name.title()}) added to inventory---"
-            )
+            term.pprint(f"---Item ({self.name.title()}) added to inventory---")
 
+    # TODO: Finish equip
     def equip_item(self, item):
         if item.type == "Armor":
             self.chest == item.name
@@ -73,32 +66,33 @@ class Items:
             pass
 
 
-# Create game itemms
+# Create game items
 key = Items("Key", "Other", 0, 0, "Opens lock on door")
 robe = Items("Robe", "Armor", 5, 0, "Plain brown cotton robe")
-space_sword = Items("Space Sword", "Weapon", 0, 5,
-                    "Laser energy sword that cuts through anything")
+space_sword = Items(
+    "Space Sword", "Weapon", 0, 5, "Laser energy sword that cuts through anything"
+)
 
 item_map = {
     key: {
         "Name": key.name,
         "Type": key.item_type,
-        "Armor":  key.armor,
-        "Damage":  key.damage,
-        "Description":  key.description
+        "Armor": key.armor,
+        "Damage": key.damage,
+        "Description": key.description,
     },
     robe: {
         "Name": robe.name,
         "Type": robe.item_type,
         "Armor": robe.armor,
         "Damage": robe.damage,
-        "Description": robe.description
+        "Description": robe.description,
     },
     space_sword: {
         "Name": space_sword.name,
         "Type": space_sword.item_type,
         "Armor": space_sword.armor,
         "Damage": space_sword.damage,
-        "Description": space_sword.description
-    }
+        "Description": space_sword.description,
+    },
 }

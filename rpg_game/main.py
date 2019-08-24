@@ -1,8 +1,10 @@
 # ------------------------------------------------------------------------------------------------------------------
 # Text-Based RPG Game
 # Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and programming. Eager to learn Python,
-# I thought it would be an awesome idea to develop a game, taking Star Wars as the inspiration.
+# Developer notes: I am a massive fan of Star Wars and
+# programming. Eager to learn Python, I thought it would
+# be an awesome idea to develop a game, taking Star Wars
+# as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
 [Main of game]
@@ -35,7 +37,7 @@ if __name__ == "__main__":
     # -------------------------------------------------------------------------------------------
     player_input = menu.game_menu()
 
-    # Starting game if player_input == 1 in def player_menu (game_menu.py module)
+    # Starting game if player_input == 1 in def player_menu(game_menu.py)
     # -------------------------------------------------------------------------------------------
     if player_input == "1":
         start_game = True
@@ -85,37 +87,29 @@ if __name__ == "__main__":
 
                 elif player_input == "t" or player_input == "take":
                     if not room_map[current_room]["item"]:
-                        term.wprint(
-                            f"No items on ground to take")
+                        term.wprint(f"No items on ground to take")
                     elif room_map[current_room]["item"] == "none":
-                        term.wprint(
-                            f"No items on ground to take")
+                        term.wprint(f"No items on ground to take")
                     elif room_map[current_room]["room"].item == "none":
-                        term.wprint(
-                            f"No items on ground to take")
+                        term.wprint(f"No items on ground to take")
                     else:
-                        inventory_items.append(
-                            room_map[current_room]["item"].name)
+                        inventory_items.append(room_map[current_room]["item"].name)
                         room_map[current_room]["item"].take_item()
                         room_map[current_room]["item"] = "none"
                         room_map[current_room]["room"].item = "none"
 
                 elif player_input == "e" or player_input == "equip":
-                    term.bprint(
-                        "Enter item name in inventory that you wish to equip:")
+                    term.bprint("Enter item name in inventory that you wish to equip:")
                     player_input = term.player_input()
                     game_items.Items.equip_item(player_input)
 
                 elif player_input == "y" or player_input == "inspect":
                     if not room_map[current_room]["item"]:
-                        term.wprint(
-                            f"No items on ground to inspect")
+                        term.wprint(f"No items on ground to inspect")
                     elif room_map[current_room]["item"] == "none":
-                        term.wprint(
-                            f"No items on ground to inspect")
+                        term.wprint(f"No items on ground to inspect")
                     elif room_map[current_room]["room"].item == "none":
-                        term.wprint(
-                            f"No items on ground to inspect")
+                        term.wprint(f"No items on ground to inspect")
                     else:
                         room_map[current_room]["item"].view_item()
 
