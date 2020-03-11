@@ -3,3 +3,6 @@ __pycache__/
 *.orig
 .coafile
 .python-version
+*.pyc
+venv/
+.idea/
