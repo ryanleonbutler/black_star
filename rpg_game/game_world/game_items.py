@@ -12,6 +12,7 @@
 
 
 from game_mechanics import game_terminal as term
+from game_characters import game_character as char
 
 
 # class for Items to use and equip in-game:
@@ -43,26 +44,6 @@ class Items:
                 f"Damage: {self.damage}\n"
                 f"Description: {self.description}"
             )
-
-    def take_item(self):
-        """
-        [Adds a item to the inventory.]
-        """
-        if not self.name:
-            term.wprint("No items on ground to take")
-        else:
-            term.pprint(f"---Item ({self.name.title()}) added to inventory---")
-
-    # TODO: Finish equip
-    def equip_item(self, item):
-        if item.type == "Armor":
-            self.chest == item.name
-            self.armor += item.armor
-        elif item.type == "Weapon":
-            self.weapon == item.name
-            self.damage += item.damage
-        else:
-            pass
 
 
 # Create game items

@@ -11,6 +11,7 @@
 """
 
 from game_mechanics import game_terminal as term
+from game_world import game_world as world
 
 
 class Character:
@@ -59,13 +60,24 @@ class Character:
         else:
             term.pprint(f"weapon: {self.weapon}")
 
+    def equip_item(self, item):
+        # TODO: Finish equip item action.
+        if item.item_type == "Armor":
+            self.chest = item.name
+            self.armor += item.armor
+        elif item.item_type == "Weapon":
+            self.weapon = item.name
+            self.damage += item.damage
+        else:
+            pass
+
 
 class Inventory:
     """
     [Inventory class that manages a list of inventory items kept in the players bag]
     """
 
-    def __init__(self, items):
+    def __init__(self, items=[]):
         self.items = items
 
     def view_inventory(self):
@@ -75,3 +87,13 @@ class Inventory:
             term.bprint(f"Inventory:")
             for item in self.items:
                 term.pprint(f"- {item}")
+
+    def take_item(self, item):
+        """
+        [Adds a item to the inventory list.]
+        """
+        if not item:
+            term.wprint("No items on ground to take")
+        else:
+            self.items.append(item.name)
+            term.pprint(f"---Item ({item.name.title()}) added to inventory---")

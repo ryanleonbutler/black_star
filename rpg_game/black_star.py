@@ -27,6 +27,7 @@ if __name__ == "__main__":
 
     # Menu
     # -------------------------------------------------------------------------------------------
+    # TODO: Refactor Menu Code, can move it to the game_menu function
     player_input = menu.game_menu()
 
     # Starting game if player_input == 1 in def player_menu(game_menu.py)
@@ -34,10 +35,10 @@ if __name__ == "__main__":
     if player_input == "1":
         start_game = True
         term.bprint("Please enter your name")
-        myname = term.player_input()
-        myplayer = char.Character(myname)
+        my_name = term.player_input()
+        my_player = char.Character(my_name)
         inventory_items = []
-        myinventory = char.Inventory(inventory_items)
+        my_inventory = char.Inventory(inventory_items)
         dialog.start_prison_cell_dialog()
         time.sleep(0.5)
         term.player_hint()
@@ -70,28 +71,25 @@ if __name__ == "__main__":
                     world.room_map[current_room]["room"].describe_room()
 
                 elif player_input == "s" or player_input == "status":
-                    myplayer.describe_character()
+                    my_player.describe_character()
 
                 elif player_input == "i" or player_input == "inventory":
-                    myinventory.view_inventory()
+                    my_inventory.view_inventory()
 
                 elif player_input == "t" or player_input == "take":
                     if not world.room_map[current_room]["item"]:
                         term.wprint("No items on ground to take")
                     elif world.room_map[current_room]["item"] == "none":
                         term.wprint("No items on ground to take")
-                    elif world.room_map[current_room]["room"].item == "none":
-                        term.wprint("No items on ground to take")
                     else:
-                        inventory_items.append(world.room_map[current_room]["item"].name)
-                        world.room_map[current_room]["item"].take_item()
+                        my_inventory.take_item(world.room_map[current_room]["item"])
                         world.room_map[current_room]["item"] = "none"
                         world.room_map[current_room]["room"].item = "none"
 
                 elif player_input == "e" or player_input == "equip":
                     term.bprint("Enter item name in inventory that you wish to equip:")
                     player_input = term.player_input()
-                    game_items.Items.equip_item(player_input)
+                    my_player.equip_item(player_input) # TODO: Fix error in equip action
 
                 elif player_input == "y" or player_input == "inspect":
                     if not world.room_map[current_room]["item"]:
@@ -101,7 +99,7 @@ if __name__ == "__main__":
                     elif world.room_map[current_room]["room"].item == "none":
                         term.wprint("No items on ground to inspect")
                     else:
-                        world.room_map[current_room]["item"].view_item()
+                        world.room_map[current_room]["item"].name.view_item()
 
                 elif player_input == "m" or player_input == "map":
                     world.view_map()
