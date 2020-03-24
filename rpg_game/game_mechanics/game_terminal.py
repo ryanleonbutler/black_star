@@ -7,14 +7,12 @@
 # as the inspiration.
 # ------------------------------------------------------------------------------------------------------------------
 """
-[Module for game custom text terminal output]
+[Module for the game's custom text terminal output]
 """
 # Library imports
 # https://pypi.org/project/colorama/
 
 import os
-import colorama
-from colorama import Back
 from colorama import Fore
 from colorama import Style
 from colorama import init

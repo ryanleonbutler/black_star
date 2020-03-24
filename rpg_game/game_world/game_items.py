@@ -11,8 +11,7 @@
 """
 
 
-import game_terminal as term
-import game_character as char
+from game_mechanics import game_terminal as term
 
 
 # class for Items to use and equip in-game:

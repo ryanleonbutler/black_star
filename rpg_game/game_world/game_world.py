@@ -10,13 +10,11 @@
 [Module for game world]
 """
 
-import game_terminal as term
-import game_items
+from game_mechanics import game_terminal as term
+from game_world import game_items
+
 
 # class Room:
-# TODO: Create Room class
-
-
 class Room:
     def __init__(self, name, up, down, left, right, item):
         self.name = name

@@ -10,8 +10,7 @@
 [Module for game character]
 """
 
-import game_terminal as term
-import game_items
+from game_mechanics import game_terminal as term
 
 
 class Character:
