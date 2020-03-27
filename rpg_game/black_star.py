@@ -89,7 +89,7 @@ if __name__ == "__main__":
                 elif player_input == "e" or player_input == "equip":
                     term.bprint("Enter item name in inventory that you wish to equip:")
                     player_input = term.player_input()
-                    my_player.equip_item(player_input) # TODO: Fix error in equip action
+                    my_inventory.equip_item(player_input) # TODO: Fix error in equip action
 
                 elif player_input == "y" or player_input == "inspect":
                     if not world.room_map[current_room]["item"]:

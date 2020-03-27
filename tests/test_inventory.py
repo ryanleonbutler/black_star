@@ -13,12 +13,12 @@ class MyTestCase(unittest.TestCase):
 
     # Test adding items to inventory
     def test_add_to_inventory(self):
-        MyTestCase.my_inventory.take_item(MyTestCase.robe.name)
+        MyTestCase.my_inventory.take_item(MyTestCase.robe)
         self.assertCountEqual(MyTestCase.my_inventory.items, MyTestCase.test_inventory)
 
     # Test to equip items from inventory to character
     def test_equip_item(self):
-        MyTestCase.my_character.equip_item(MyTestCase.robe)
+        MyTestCase.my_inventory.equip_item(MyTestCase.robe)
         self.assertEqual(MyTestCase.my_character.chest, "Robe")
 
 

@@ -47,10 +47,10 @@ class Items:
 
 
 # Create game items
-key = Items("Key", "Other", 0, 0, "Opens lock on door")
-robe = Items("Robe", "Armor", 5, 0, "Plain brown cotton robe")
+key = Items("key", "other", 0, 0, "Opens lock on door")
+robe = Items("robe", "armor", 5, 0, "Plain brown cotton robe")
 space_sword = Items(
-    "Space Sword", "Weapon", 0, 5, "Laser energy sword that cuts through anything"
+    "space sword", "weapon", 0, 5, "Laser energy sword that cuts through anything"
 )
 
 item_map = {

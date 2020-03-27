@@ -60,16 +60,9 @@ class Character:
         else:
             term.pprint(f"weapon: {self.weapon}")
 
-    def equip_item(self, item):
-        # TODO: Finish equip item action.
-        if item.item_type == "Armor":
-            self.chest = item.name
-            self.armor += item.armor
-        elif item.item_type == "Weapon":
-            self.weapon = item.name
-            self.damage += item.damage
-        else:
-            pass
+    def change_armor(self, name, new_value):
+        self.chest = name
+        self.armor = new_value + 1
 
 
 class Inventory:
@@ -86,7 +79,7 @@ class Inventory:
         else:
             term.bprint(f"Inventory:")
             for item in self.items:
-                term.pprint(f"- {item}")
+                term.pprint(f"- {item.name.title()}")
 
     def take_item(self, item):
         """
@@ -95,5 +88,16 @@ class Inventory:
         if not item:
             term.wprint("No items on ground to take")
         else:
-            self.items.append(item.name)
+            self.items.append(item)
             term.pprint(f"---Item ({item.name.title()}) added to inventory---")
+
+    def equip_item(self, item):
+        # TODO: Finish equip item action.
+        inv_list = []
+        for i in self.items:
+            inv_list.append(i.name)
+            if item in inv_list:
+                if i.item_type == "Armor":
+                    Character.change_armor(i.name, i.armor)
+        else:
+            term.wprint("No such item in inventory to equip")

@@ -55,7 +55,7 @@ class Room:
         elif self.item == "none":
             term.wprint(f"ground: none")
         else:
-            term.pprint(f"ground: {self.item}")
+            term.pprint(f"ground: {self.item.title()}")
 
 
 prison_cell = Room(
