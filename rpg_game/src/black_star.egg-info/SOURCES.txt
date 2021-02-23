@@ -1,0 +1,5 @@
+setup.py
+src/black_star.egg-info/PKG-INFO
+src/black_star.egg-info/SOURCES.txt
+src/black_star.egg-info/dependency_links.txt
+src/black_star.egg-info/top_level.txt
