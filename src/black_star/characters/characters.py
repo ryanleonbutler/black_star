@@ -10,8 +10,7 @@
 [Module for game character]
 """
 
-from game_mechanics import game_terminal as term
-from game_world import game_world as world
+from tools import terminal as term
 
 
 class Character:

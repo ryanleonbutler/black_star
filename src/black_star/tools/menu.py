@@ -12,7 +12,7 @@
 
 import time
 
-from game_mechanics import game_terminal as term
+from tools import terminal as term
 
 
 def game_intro():

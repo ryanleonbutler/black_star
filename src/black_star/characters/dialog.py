@@ -12,7 +12,7 @@
 
 import time
 
-from game_mechanics import game_terminal as term
+from tools import terminal as term
 
 
 def start_prison_cell_dialog():

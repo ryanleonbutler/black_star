@@ -11,10 +11,9 @@
 """
 
 import time
-
-from game_mechanics import game_terminal as term, game_menu as menu
-from game_world import game_world as world, game_items
-from game_characters import game_character as char, game_dialog as dialog
+from tools import terminal as term, menu
+from world import world
+from characters import characters as char, dialog
 
 
 if __name__ == "__main__":
@@ -94,7 +93,7 @@ if __name__ == "__main__":
                     )  # TODO: Fix error in equip action
 
                 elif player_input == "y" or player_input == "inspect":
-                    if not world.room_map[current_room]["item"]:
+                    if not world.room_map.get([current_room]["item"], None):
                         term.wprint("No items on ground to inspect")
                     elif world.room_map[current_room]["item"] == "none":
                         term.wprint("No items on ground to inspect")

@@ -10,8 +10,8 @@
 [Module for game world]
 """
 
-from game_mechanics import game_terminal as term
-from game_world import game_items
+from tools import terminal as term
+from world import items
 
 
 # class Room:
@@ -59,13 +59,13 @@ class Room:
 
 
 prison_cell = Room(
-    "Prison Cell", "Window", "nothing", "nothing", "Passage", game_items.key.name
+    "Prison Cell", "Window", "nothing", "nothing", "Passage", items.key.name
 )
 passage = Room(
-    "Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", game_items.robe.name
+    "Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", items.robe.name
 )
 armory = Room(
-    "Armory", "Passage", "nothing", "nothing", "nothing", game_items.space_sword.name
+    "Armory", "Passage", "nothing", "nothing", "nothing", items.space_sword.name
 )
 sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", "")
 food_hall = Room("Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", "")
@@ -92,7 +92,7 @@ room_map = {
         "l": prison_cell.left,
         "right": 2,
         "r": 2,
-        "item": game_items.key,
+        "item": items.key,
     },
     2: {
         "room": passage,
@@ -105,7 +105,7 @@ room_map = {
         "l": 1,
         "right": 6,
         "r": 6,
-        "item": game_items.robe,
+        "item": items.robe,
     },
     3: {
         "room": armory,
@@ -118,7 +118,7 @@ room_map = {
         "l": armory.left,
         "right": armory.right,
         "r": armory.right,
-        "item": game_items.space_sword,
+        "item": items.space_sword,
     },
     4: {
         "room": sleep_quar,

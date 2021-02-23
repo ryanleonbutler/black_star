@@ -11,8 +11,8 @@
 """
 
 
-from game_mechanics import game_terminal as term
-from game_characters import game_character as char
+from tools import terminal as term
+from characters import characters as char
 
 
 # class for Items to use and equip in-game:
