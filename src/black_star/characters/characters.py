@@ -22,6 +22,8 @@ class Character:
     def __init__(
         self,
         name,
+        gender,
+        race,
         level=1,
         health=10,
         armor=1,
@@ -30,7 +32,9 @@ class Character:
         chest="none",
         weapon="none",
     ):
-        self.name = name
+        self.name = name.title()
+        self.gender = gender.title()
+        self.race = race.title()
         self.level = level
         self.health = health
         self.armor = armor

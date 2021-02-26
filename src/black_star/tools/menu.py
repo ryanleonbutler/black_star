@@ -40,7 +40,7 @@ def game_menu():
     term.wprint("MAIN MENU\n1. Play\n2. Quit")
     # Playing the game
     while True:
-        player_input = term.player_input()
+        player_input = term.player_input("")
 
         # Start game menu option
         if player_input == "1":

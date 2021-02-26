@@ -10,6 +10,7 @@
 [Main of game]
 """
 
+from os import initgroups
 import time
 from tools import terminal as term, menu
 from world import world
@@ -33,11 +34,26 @@ if __name__ == "__main__":
     # -------------------------------------------------------------------------------------------
     if player_input == "1":
         start_game = True
-        term.bprint("Please enter your name")
-        my_name = term.player_input()
-        my_player = char.Character(my_name)
+        name = term.player_input("Please enter your name")
+        gender = term.player_input("Please enter your gender (Male/Female)")
+        race = term.player_input("Please enter your race (Human/Alien/Robot)")
+        my_player = char.Character(name, gender, race)
         inventory_items = []
         my_inventory = char.Inventory(inventory_items)
+        term.clear()
+        term.bprint(
+            f"Welcome {my_player.name}! \nYou have chosen to be a {my_player.gender} {my_player.race}.\n"
+        )
+        choice = term.player_input("Continue? (Y/N)")
+        if choice[0].lower == "n":
+            term.bprint("Going back to Main Menu")
+            time.sleep(1)
+        elif choice[0].lower == "Y":
+            term.bprint("Good luck out there!")
+            time.sleep(1)
+        else:
+            term.bprint('Please enter "Y" or "N"')
+
         dialog.start_prison_cell_dialog()
         time.sleep(0.5)
         term.player_hint()
@@ -51,10 +67,9 @@ if __name__ == "__main__":
 
         while game:
             try:
-                player_input = term.player_input()
+                player_input = term.player_input("")
                 if player_input == "q" or player_input == "quit":
-                    term.bprint("Are you sure you wish to quit? (Y/N)")
-                    player_input = term.player_input()
+                    player_input = term.player_input("Are you sure you wish to quit? (Y/N)")
                     if player_input == "y" or player_input == "Y":
                         term.bprint("Goodbye, see you again soon...")
                         game = False
@@ -86,8 +101,7 @@ if __name__ == "__main__":
                         world.room_map[current_room]["room"].item = "none"
 
                 elif player_input == "e" or player_input == "equip":
-                    term.bprint("Enter item name in inventory that you wish to equip:")
-                    player_input = term.player_input()
+                    player_input = term.player_input("Enter item name in inventory that you wish to equip:")
                     my_inventory.equip_item(
                         player_input
                     )  # TODO: Fix error in equip action

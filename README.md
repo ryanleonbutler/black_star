@@ -1,3 +1,5 @@
+![](https://github.com/ryanleonbutler/black_star/blob/master/docs/black_star.png?raw=true)
+
 # BLACK STAR
 **A Text-Based RPG**
 
@@ -15,16 +17,20 @@ Feel free to reach out to me if you like the game and concept or if you have any
 
 ### **About**
 
-Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and has never been explored, namely Black Star. A young protagnist, the player, wakes up on board a star cruiser in a holding cell, with no recollection of how he/she got there or even what his/her name is. With no memory the player explores the star cruiser in the hope to discover his/her identity and to find out how they ended up on this ship in the first place. Hold on thight for the adventure of a lifetime as you explore and survive the vast galaxy that is Black Star!
+Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and has never been explored, namely Black Star. A young protagnist, the player, wakes up on board a star cruiser in a holding cell, with no recollection of how he/she got there or even what his/her name is. With no memory the player explores the star cruiser in the hope to discover his/her identity and to find out how they ended up on this ship in the first place. Hold on tight for the adventure of a lifetime as you explore and survive the vast galaxy that is Black Star!
 
 
 ### **Controls**
 
-- 'view(v)' = view room.
-- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' = move around between areas.
-- 'map(m)' = look at the map of the world.
-- 'status(s)' = view current player status and attributes.
-- 'inventory(i)' = view current player inventory.
-- 'take(t)' = take object into inventory.
-- 'clear(c)' = clear the terminal.
-- 'quit(q)' = quit the game.
+- 'view(v)' to look around in this area
+- 'map(m)' to look at the map of the world
+- 'inspect(y)' to view item attributes
+- 'take(t)' to take item into inventory
+- 'status(s)' to view current player status, attributes and equipped gear
+- 'inventory(i)' to view current player's inventory
+- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas
+- 'clear(c)' to clear the terminal
+- 'quit(q)' to quit the game
+
+### **Contribute**
+*Work in Progress*

@@ -53,6 +53,7 @@ def player_help():
     bprint("- 'quit(q)' to quit the game")
 
 
-def player_input():
+def player_input(text):
+    bprint(text)
     value = str(console.input("[bold white]>>[/] ").lower())
     return value
