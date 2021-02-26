@@ -15,7 +15,7 @@ from tools import terminal as term
 
 class Character:
     """
-    [Character class that defines and creates a 
+    [Character class that defines and creates a
     new character with all of the character attributes]
     """
 

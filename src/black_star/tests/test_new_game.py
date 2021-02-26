@@ -1,5 +1,5 @@
 import unittest
-from game_characters import game_character as char
+from characters import characters as char
 
 
 class MyTestCase(unittest.TestCase):
@@ -24,7 +24,5 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.my_player.weapon, "none")
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

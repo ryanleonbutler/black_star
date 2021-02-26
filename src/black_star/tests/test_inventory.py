@@ -1,12 +1,12 @@
 import unittest
 
-from game_characters import game_character as char
-from game_world import game_items, game_world
+from characters import characters as char
+from world import items, world
 
 
 class MyTestCase(unittest.TestCase):
-    current_room = game_world.room_map[2]
-    robe = game_items.robe
+    current_room = world.room_map[2]
+    robe = items.robe
     my_character = char.Character("Ryan")
     my_inventory = char.Inventory()
     test_inventory = [robe.name]
@@ -22,5 +22,5 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(MyTestCase.my_character.chest, "Robe")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

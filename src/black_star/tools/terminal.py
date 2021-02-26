@@ -1,47 +1,33 @@
-# ------------------------------------------------------------------------------------------------------------------
-# Text-Based RPG Game
-# Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and
-# programming. Eager to learn Python, I thought it would
-# be an awesome idea to develop a game, taking Star Wars
-# as the inspiration.
-# ------------------------------------------------------------------------------------------------------------------
-"""
-[Module for the game's custom text terminal output]
-"""
-# Library imports
-# https://pypi.org/project/colorama/
+"""Terminal API to print colors. Uses Rich."""
 
 import os
-from colorama import Fore
-from colorama import Style
-from colorama import init
+from rich.console import Console
 
-init(autoreset=True)
+console = Console()
 
 
-def gprint(sentence):
-    print(Style.BRIGHT + Fore.GREEN + sentence)
+def gprint(text):
+    console.print(text, style="bold green")
 
 
-def wprint(sentence):
-    print(Style.BRIGHT + Fore.WHITE + sentence)
+def wprint(text):
+    console.print(text, style="bold white")
 
 
-def rprint(sentence):
-    print(Style.BRIGHT + Fore.RED + sentence)
+def rprint(text):
+    console.print(text, style="bold red")
 
 
-def yprint(sentence):
-    print(Style.BRIGHT + Fore.YELLOW + sentence)
+def yprint(text):
+    console.print(text, style="bold yellow")
 
 
-def bprint(sentence):
-    print(Style.BRIGHT + Fore.CYAN + sentence)
+def bprint(text):
+    console.print(text, style="bold blue")
 
 
-def pprint(sentence):
-    print(Style.BRIGHT + Fore.MAGENTA + sentence)
+def pprint(text):
+    console.print(text, style="bold purple")
 
 
 def clear():
@@ -68,5 +54,5 @@ def player_help():
 
 
 def player_input():
-    value = str(input("> ").lower())
+    value = str(console.input("[bold white]>>[/] ").lower())
     return value
