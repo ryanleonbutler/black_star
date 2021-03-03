@@ -1,4 +1,4 @@
-"""Terminal API to print colors. Uses Rich."""
+"""Terminal API to print graphics, fonts and colors."""
 
 import os
 from rich.console import Console

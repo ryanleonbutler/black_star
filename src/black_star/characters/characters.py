@@ -1,13 +1,5 @@
-# ------------------------------------------------------------------------------------------------------------------
-# Text-Based RPG Game
-# Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and
-# programming. Eager to learn Python, I thought it would
-# be an awesome idea to develop a game, taking Star Wars
-# as the inspiration.
-# ------------------------------------------------------------------------------------------------------------------
 """
-[Module for game character]
+Module for game character.
 """
 
 from tools import terminal as term
@@ -21,16 +13,16 @@ class Character:
 
     def __init__(
         self,
-        name,
-        gender,
-        race,
+        name: str,
+        gender: str,
+        race: str,
         level=1,
         health=10,
         armor=1,
         damage=1,
-        head="none",
-        chest="none",
-        weapon="none",
+        head=None,
+        chest=None,
+        weapon=None,
     ):
         self.name = name.title()
         self.gender = gender.title()
@@ -42,8 +34,20 @@ class Character:
         self.head = head
         self.chest = chest
         self.weapon = weapon
+        self.player = {
+            "Name": name.title(),
+            "Gender": name.title(),
+            "Race": name.title(),
+            "Level": name.title(),
+            "Health": name.title(),
+            "Name": name.title(),
+            "Name": name.title(),
+            "Name": name.title(),
+            "Name": name.title(),
+        }
 
-    def describe_character(self):
+    def describe_character(self) -> dict:
+
         term.bprint(f"--- My Character({self.name.title()})---")
         term.wprint(f"Level: {self.level}")
         term.gprint(f"Health: {self.health}")

@@ -1,13 +1,5 @@
-# ------------------------------------------------------------------------------------------------------------------
-# Text-Based RPG Game
-# Author: Ryan Butler
-# Developer notes: I am a massive fan of Star Wars and
-# programming. Eager to learn Python, I thought it would
-# be an awesome idea to develop a game, taking Star Wars
-# as the inspiration.
-# ------------------------------------------------------------------------------------------------------------------
 """
-[Module for game world]
+Module for game world.
 """
 
 from tools import terminal as term
@@ -217,40 +209,3 @@ room_map = {
         "r": cockpit.right,
     },
 }
-
-
-def view_map():
-    term.wprint(
-        """\
-
-Unknown Spaceship:
-
-                      ______________
-                     |              |
-                     |              |
-                     |   Food Hall  |
-                     |              |
-                     |______________|
-                             |
-                      ______________                            ______________
-                     |              |                          |              |
-                     |   Sleeping   |                          |    Blaster   |
-                     |   Quarters   |                          |    Turret    |
-                     |              |                          |              |
-                     |______________|                          |______________|
-                             |                                         |
- ______________       ______________       ______________       ______________       ______________       ______________
-|              |     |              |     |              |     |              |     |              |     |              |
-|  Prison Cell |     |              |     |              |     |   Passenger  |     |              |     |              |
-|    (Start)   | --- |    Passage   | --- |      Lab     | --- |     Area     | --- |   Crew Area  | --- |   Cockpit    |
-|              |     |              |     |              |     |              |     |              |     |              |
-|______________|     |______________|     |______________|     |______________|     |______________|     |______________|
-                             |                                         |
-                      ______________                            ______________
-                     |              |                          |              |
-                     |              |                          |              |
-                     |    Armory    |                          |  Cargo Hold  |
-                     |              |                          |              |
-                     |______________|                          |______________|
-"""
-    )
