@@ -8,43 +8,46 @@ from world import world, maps
 from characters import characters as char, dialog
 
 
-def create_char() -> tuple:
+def set_name() -> str:
     name = term.player_input("Please enter your name")
+    return name
+
+
+def set_gender() -> str:
     gender = term.player_input(
         "Please enter your gender -> Male(1) or Female(2)"
     )
     while True:
         if gender == "1":
-            gender == "Male"
-            break
+            return "Male"
         elif gender == "2":
-            gender == "Female"
-            break
+            return "Female"
         else:
-            gender = term.player_input(
-                "Please enter your gender -> Male(1) or Female(2)"
-            )
-    race = term.player_input(
-        "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
-    )
+            continue
+
+
+def set_race() -> str:
     while True:
+        race = term.player_input(
+            "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+        )
         if race == "1":
-            race == "Human"
-            break
+            return "Human"
         elif race == "2":
-            race == "Alien"
-            break
+            return "Alien"
         elif race == "3":
-            race == "Robot"
-            break
+            return "Robot"
         else:
-            race = term.player_input(
-                "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
-            )
+            continue
+
+
+def create_char() -> tuple:
+    name = set_name()
+    gender = set_gender()
+    race = set_race()
     my_player = char.Character(name, gender, race)
     inventory_items = []
     my_inventory = char.Inventory(inventory_items)
-
     term.clear()
     term.bprint(
         f"Welcome {my_player.name}!\n"
@@ -57,6 +60,9 @@ def create_char() -> tuple:
 
 
 def main() -> None:
+    """Main game loop"""
+
+    # Menu
     player_input = menu.game_menu()
 
     # Starting game if player_input == 1 in def player_menu(game_menu.py)
@@ -65,8 +71,6 @@ def main() -> None:
         (my_player, my_inventory) = create_char()
         current_room = 1
         dialog.start_prison_cell_dialog()
-        time.sleep(0.5)
-        term.player_hint()
     elif player_input == "2":
         start_game = False
 
@@ -107,7 +111,7 @@ def main() -> None:
 
         elif player_input == "e" or player_input == "equip":
             player_input = term.player_input(
-                "Enter item name in inventory" "that you wish to equip:"
+                "Enter item name in inventory that you wish to equip:"
             )
             my_inventory.equip_item(player_input)
             # TODO: Fix error in equip action
