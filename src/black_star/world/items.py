@@ -12,7 +12,9 @@ class Items:
     [Item class that defines usable objects in the game like armor and weapons. Also other items like health elixirs and notes.]
     """
 
-    def __init__(self, name="", item_type="", armor=0, damage=0, description=""):
+    def __init__(
+        self, name="", item_type="", armor=0, damage=0, description=""
+    ):
         self.name = name
         self.item_type = item_type
         self.armor = armor
@@ -41,7 +43,11 @@ class Items:
 key = Items("key", "other", 0, 0, "Opens lock on door")
 robe = Items("robe", "armor", 5, 0, "Plain brown cotton robe")
 space_sword = Items(
-    "space sword", "weapon", 0, 5, "Laser energy sword that cuts through anything"
+    "space sword",
+    "weapon",
+    0,
+    5,
+    "Laser energy sword that cuts through anything",
 )
 
 item_map = {

@@ -7,29 +7,40 @@ from tools import terminal as term, menu
 from world import world, maps
 from characters import characters as char, dialog
 
+
 def create_char() -> tuple:
+    name = term.player_input("Please enter your name")
+    gender = term.player_input(
+        "Please enter your gender -> Male(1) or Female(2)"
+    )
     while True:
-        name =  term.player_input("Please enter your name")
-        input =  term.player_input("Please enter your gender -> Male(1) or Female(2)")
-        if input ==  "1":
-            gender ==  "Male"
-        elif input ==  "2":
-            gender ==  "Female"
+        if gender == "1":
+            gender == "Male"
+            break
+        elif gender == "2":
+            gender == "Female"
+            break
         else:
-            input = term.player_input("Please enter your gender -> Male(1) or Female(2)")
-    input = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+            gender = term.player_input(
+                "Please enter your gender -> Male(1) or Female(2)"
+            )
+    race = term.player_input(
+        "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+    )
     while True:
-        if input == "1":
+        if race == "1":
             race == "Human"
             break
-        elif input == "2":
+        elif race == "2":
             race == "Alien"
             break
-        elif input == "3":
+        elif race == "3":
             race == "Robot"
             break
         else:
-            input = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+            race = term.player_input(
+                "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+            )
     my_player = char.Character(name, gender, race)
     inventory_items = []
     my_inventory = char.Inventory(inventory_items)
@@ -63,7 +74,9 @@ def main() -> None:
         player_input = term.player_input("")
 
         if player_input == "q" or player_input == "quit":
-            player_input = term.player_input("Are you sure you wish to quit? (Y/N)")
+            player_input = term.player_input(
+                "Are you sure you wish to quit? (Y/N)"
+            )
             if player_input == "y" or player_input == "Y":
                 term.bprint("Goodbye, see you again soon...")
                 start_game = False

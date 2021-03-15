@@ -43,9 +43,9 @@ class Room:
             term.gprint(f"right: {self.right}")
 
         if self.item == "":
-            term.wprint(f"ground: none")
+            term.wprint("ground: none")
         elif self.item == "none":
-            term.wprint(f"ground: none")
+            term.wprint("ground: none")
         else:
             term.pprint(f"+ ground: {self.item.title()}")
 
@@ -54,22 +54,40 @@ prison_cell = Room(
     "Prison Cell", "Window", "nothing", "nothing", "Passage", items.key.name
 )
 passage = Room(
-    "Passage", "Sleeping Quarters", "Armory", "Prison Cell", "Lab", items.robe.name
+    "Passage",
+    "Sleeping Quarters",
+    "Armory",
+    "Prison Cell",
+    "Lab",
+    items.robe.name,
 )
 armory = Room(
-    "Armory", "Passage", "nothing", "nothing", "nothing", items.space_sword.name
+    "Armory",
+    "Passage",
+    "nothing",
+    "nothing",
+    "nothing",
+    items.space_sword.name,
 )
-sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", "")
-food_hall = Room("Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", "")
+sleep_quar = Room(
+    "Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", ""
+)
+food_hall = Room(
+    "Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", ""
+)
 lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area", "")
 pass_area = Room(
     "Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area", ""
 )
-cargo_hold = Room("Cargo Hold", "Passenger Area", "nothing", "nothing", "nothing", "")
+cargo_hold = Room(
+    "Cargo Hold", "Passenger Area", "nothing", "nothing", "nothing", ""
+)
 blaster_turret = Room(
     "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing", ""
 )
-crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit", "")
+crew_area = Room(
+    "Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit", ""
+)
 cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", "")
 
 room_map = {
