@@ -17,10 +17,10 @@ class Room:
         self.item = item
 
     def print_room(self):
-        term.bprint(f"Moved to {self.name}")
+        term.bprint(f"-> Moved to {self.name}")
 
     def describe_room(self):
-        term.yprint(f"You are in a {self.name}")
+        term.yprint(f"* You are in a {self.name}")
 
         if self.up == "nothing":
             term.wprint(f"up: {self.up}")
@@ -47,7 +47,7 @@ class Room:
         elif self.item == "none":
             term.wprint(f"ground: none")
         else:
-            term.pprint(f"ground: {self.item.title()}")
+            term.pprint(f"+ ground: {self.item.title()}")
 
 
 prison_cell = Room(

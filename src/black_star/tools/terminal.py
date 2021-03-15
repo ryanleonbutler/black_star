@@ -7,26 +7,50 @@ console = Console()
 
 
 def gprint(text):
+    console.print(text, style="green")
+
+
+def gbprint(text):
     console.print(text, style="bold green")
 
 
 def wprint(text):
+    console.print(text, style="white")
+
+
+def wbprint(text):
     console.print(text, style="bold white")
 
 
 def rprint(text):
+    console.print(text, style="red")
+
+
+def rbprint(text):
     console.print(text, style="bold red")
 
 
 def yprint(text):
+    console.print(text, style="yellow")
+
+
+def ybprint(text):
     console.print(text, style="bold yellow")
 
 
 def bprint(text):
+    console.print(text, style="blue")
+
+
+def bbprint(text):
     console.print(text, style="bold blue")
 
 
 def pprint(text):
+    console.print(text, style="purple")
+
+
+def pbprint(text):
     console.print(text, style="bold purple")
 
 

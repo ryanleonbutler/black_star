@@ -9,9 +9,28 @@ from characters import characters as char, dialog
 
 
 def create_char() -> tuple:
-    name = term.player_input("Please enter your name")
-    gender = term.player_input("Please enter your gender (Male/Female)")
-    race = term.player_input("Please enter your race (Human/Alien/Robot)")
+    while True:
+        name = term.player_input("Please enter your name")
+        input = term.player_input("Please enter your gender -> Male(1) or Female(2)")
+        if input == "1":
+            gender == "Male"
+        elif input == "2":
+            gender == "Female"
+        else:
+            input = term.player_input("Please enter your gender -> Male(1) or Female(2)")
+    input = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+    while True:
+        if input == "1":
+            race == "Human"
+            break
+        elif input == "2":
+            race == "Alien"
+            break
+        elif input == "3":
+            race == "Robot"
+            break
+        else:
+            input = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
     my_player = char.Character(name, gender, race)
     inventory_items = []
     my_inventory = char.Inventory(inventory_items)
