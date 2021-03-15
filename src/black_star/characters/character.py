@@ -2,6 +2,7 @@
 Module for game character.
 """
 
+import time
 from tools import terminal as term
 
 
@@ -13,9 +14,9 @@ class Character:
 
     def __init__(
         self,
-        name: str,
-        gender: str,
-        race: str,
+        name=None,
+        gender=None,
+        race=None,
         level=1,
         health=10,
         armor=1,
@@ -24,9 +25,9 @@ class Character:
         chest=None,
         weapon=None,
     ):
-        self.name = name.title()
-        self.gender = gender.title()
-        self.race = race.title()
+        self.name = name
+        self.gender = gender
+        self.race = race
         self.level = level
         self.health = health
         self.armor = armor
@@ -34,20 +35,11 @@ class Character:
         self.head = head
         self.chest = chest
         self.weapon = weapon
-        self.player = {
-            "Name": name.title(),
-            "Gender": name.title(),
-            "Race": name.title(),
-            "Level": name.title(),
-            "Health": name.title(),
-            "Name": name.title(),
-            "Name": name.title(),
-            "Name": name.title(),
-            "Name": name.title(),
-        }
+
+    def set_name(self):
+        self.name = term.player_input("Please enter your name")
 
     def describe_character(self) -> dict:
-
         term.bprint(f"--- My Character({self.name.title()})---")
         term.wprint(f"Level: {self.level}")
         term.gprint(f"Health: {self.health}")
@@ -67,6 +59,37 @@ class Character:
         else:
             term.pprint(f"weapon: {self.weapon}")
 
+    def set_gender(self):
+        input = term.player_input(
+            "Please enter your gender -> Male(1) or Female(2)"
+        )
+        while True:
+            if input == "1":
+                self.gender = "Male"
+                break
+            elif input == "2":
+                self.gender = "Female"
+                break
+            else:
+                continue
+
+    def set_race(self):
+        while True:
+            input = term.player_input(
+                "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+            )
+            if input == "1":
+                self.race = "Human"
+                break
+            elif input == "2":
+                self.race = "Alien"
+                break
+            elif input == "3":
+                self.race = "Robot"
+                break
+            else:
+                continue
+
     def change_armor(self, name, new_value):
         self.chest = name
         self.armor = new_value + 1
@@ -82,9 +105,9 @@ class Inventory:
 
     def view_inventory(self):
         if not self.items:
-            term.bprint(f"Inventory: Empty")
+            term.bprint("Inventory: Empty")
         else:
-            term.bprint(f"Inventory:")
+            term.bprint("Inventory:")
             for item in self.items:
                 term.pprint(f"- {item.name.title()}")
 
@@ -108,3 +131,21 @@ class Inventory:
                     Character.change_armor(i.name, i.armor)
         else:
             term.wprint("No such item in inventory to equip")
+
+
+def create_char() -> tuple:
+    my_char = Character()
+    my_char.set_name()
+    my_char.set_gender()
+    my_char.set_race()
+    inv_items = []
+    my_inv = Inventory(inv_items)
+    term.clear()
+    term.bprint(
+        f"Welcome {my_char.name}!\n"
+        f"You have chosen to be a {my_char.gender} {my_char.race}.\n"
+    )
+    term.player_input("Press enter to continue...")
+    term.bprint("Good luck out there!")
+    time.sleep(1)
+    return (my_char, my_inv)

@@ -5,58 +5,7 @@ Main of game.
 import time
 from tools import terminal as term, menu
 from world import world, maps
-from characters import characters as char, dialog
-
-
-def set_name() -> str:
-    name = term.player_input("Please enter your name")
-    return name
-
-
-def set_gender() -> str:
-    gender = term.player_input(
-        "Please enter your gender -> Male(1) or Female(2)"
-    )
-    while True:
-        if gender == "1":
-            return "Male"
-        elif gender == "2":
-            return "Female"
-        else:
-            continue
-
-
-def set_race() -> str:
-    while True:
-        race = term.player_input(
-            "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
-        )
-        if race == "1":
-            return "Human"
-        elif race == "2":
-            return "Alien"
-        elif race == "3":
-            return "Robot"
-        else:
-            continue
-
-
-def create_char() -> tuple:
-    name = set_name()
-    gender = set_gender()
-    race = set_race()
-    my_player = char.Character(name, gender, race)
-    inventory_items = []
-    my_inventory = char.Inventory(inventory_items)
-    term.clear()
-    term.bprint(
-        f"Welcome {my_player.name}!\n"
-        f"You have chosen to be a {my_player.gender} {my_player.race}.\n"
-    )
-    term.player_input("Press enter to continue...")
-    term.bprint("Good luck out there!")
-    time.sleep(1)
-    return (my_player, my_inventory)
+from characters import character, dialog
 
 
 def main() -> None:
@@ -68,7 +17,7 @@ def main() -> None:
     # Starting game if player_input == 1 in def player_menu(game_menu.py)
     if player_input == "1":
         start_game = True
-        (my_player, my_inventory) = create_char()
+        (my_char, my_inventory) = character.create_char()
         current_room = 1
         dialog.start_prison_cell_dialog()
     elif player_input == "2":
@@ -94,7 +43,7 @@ def main() -> None:
             world.room_map[current_room]["room"].describe_room()
 
         elif player_input == "s" or player_input == "status":
-            my_player.describe_character()
+            my_char.describe_character()
 
         elif player_input == "i" or player_input == "inventory":
             my_inventory.view_inventory()
