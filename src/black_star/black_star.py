@@ -7,15 +7,14 @@ from tools import terminal as term, menu
 from world import world, maps
 from characters import characters as char, dialog
 
-
 def create_char() -> tuple:
     while True:
-        name = term.player_input("Please enter your name")
-        input = term.player_input("Please enter your gender -> Male(1) or Female(2)")
-        if input == "1":
-            gender == "Male"
-        elif input == "2":
-            gender == "Female"
+        name =  term.player_input("Please enter your name")
+        input =  term.player_input("Please enter your gender -> Male(1) or Female(2)")
+        if input ==  "1":
+            gender ==  "Male"
+        elif input ==  "2":
+            gender ==  "Female"
         else:
             input = term.player_input("Please enter your gender -> Male(1) or Female(2)")
     input = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
