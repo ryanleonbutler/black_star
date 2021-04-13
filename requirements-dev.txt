@@ -5,6 +5,7 @@ isort
 flit
 tox
 pytest
+pytest-cov
 mccabe
 pylint
 pytest
