@@ -18,8 +18,8 @@
 [coverage-url]: https://codecov.io/gh/ryanleonbutler/black_star
 [commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/black_star
 [python versions badge]: https://shields.io/pypi/pyversions/black_star
-[license badge]: https://img.shields.io/pypi/l/black_star
-[release badge]: https://img.shields.io/github/v/release/ryanleonbutler/black_star
+[license badge]: https://img.shields.io/github/license/ryanleonbutler/black_star
+
 
 ![](https://github.com/ryanleonbutler/black_star/blob/master/docs/black_star.png?raw=true)
 
