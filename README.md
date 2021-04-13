@@ -1,6 +1,6 @@
 [![Build Status][build-image]][build]
 [![Black][black badge]][black]
-[![Linter][linter badge]][linter]
+[![Flake8][flake8 badge]][flake8]
 [![Imports][isort badge]][isort]
 [![Tests][tests badge]][tests]
 [![Code Coverage][coverage-image]][coverage]
@@ -19,7 +19,7 @@
 [coverage]: https://codecov.io/gh/ryanleonbutler/black_star
 [build]: https://github.com/ryanleonbutler/black_star/actions/workflows/build.yml
 [black]: https://github.com/psf/black
-[linter]: https://github.com/PyCQA/flake8
+[flake8]: https://github.com/PyCQA/flake8
 [isort]: https://pycqa.github.io/isort/
 [tests]: https://github.com/ryanleonbutler/black_star/tree/master/src/black_star/tests
 
@@ -31,9 +31,9 @@
 [license badge]: https://img.shields.io/github/license/ryanleonbutler/black_star
 [release badge]: https://img.shields.io/github/v/release/ryanleonbutler/black_star?include_prereleases
 [black badge]: https://img.shields.io/badge/code%20style-black-000000.svg
-[linter badge]: https://github.com/ryanleonbutler/black_star/workflows/flake8/badge.svg
+[flake8 badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/flake8.yml/badge.svg
 [isort badge]: https://img.shields.io/badge/%20imports-isort-%231674b1
-[tests badge]: https://github.com/ryanleonbutler/black_star/workflows/tests/badge.svg
+[tests badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/tests.yml/badge.svg
 
 
 
