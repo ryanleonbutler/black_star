@@ -13,7 +13,7 @@
 [codecov]: https://codecov.io/gh/ryanleonbutler/black_star
 [commit]: https://github.com/ryanleonbutler/black_star/commit/HEAD
 [python]: https://www.python.org/
-[license]: https://github.com/ryanleonbutler/black_star/blob/master/License.txt
+[license]: https://github.com/ryanleonbutler/black_star/blob/main/License.txt
 [release]: https://github.com/ryanleonbutler/black_star/releases
 [github]: https://github.com/ryanleonbutler/black_star
 [coverage]: https://codecov.io/gh/ryanleonbutler/black_star
@@ -21,11 +21,11 @@
 [black]: https://github.com/psf/black
 [flake8]: https://github.com/PyCQA/flake8
 [isort]: https://pycqa.github.io/isort/
-[tests]: https://github.com/ryanleonbutler/black_star/tree/master/src/black_star/tests
+[tests]: https://github.com/ryanleonbutler/black_star/tree/main/src/black_star/tests
 
 <!-- Badges -->
 [build-image]: https://github.com/ryanleonbutler/black_star/actions/workflows/build.yml/badge.svg
-[coverage-image]: https://codecov.io/gh/ryanleonbutler/black_star/branch/master/graph/badge.svg
+[coverage-image]: https://codecov.io/gh/ryanleonbutler/black_star/branch/main/graph/badge.svg
 [commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/black_star
 [python versions badge]: https://shields.io/pypi/pyversions/black_star
 [license badge]: https://img.shields.io/github/license/ryanleonbutler/black_star
@@ -37,7 +37,7 @@
 
 
 
-![](https://github.com/ryanleonbutler/black_star/blob/master/docs/black_star.png?raw=true)
+![](https://github.com/ryanleonbutler/black_star/blob/main/docs/black_star.png?raw=true)
 
 # BLACK STAR
 **A Text-Based RPG**
