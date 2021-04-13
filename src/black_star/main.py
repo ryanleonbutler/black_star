@@ -4,7 +4,7 @@ Main of game.
 
 import time
 
-from characters import characters as char
+from characters import character as char
 from characters import dialog
 from tools import menu
 from tools import terminal as term
