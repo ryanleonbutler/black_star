@@ -1,23 +1,37 @@
 name: Tests
 
 on:
-    push:
-        branches: [main]
-        paths:
-          - 'src/black_star/*'
-    pull_request:
-        branches: [main]
-        paths:
-          - 'src/black_star/*'
-    workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/black_star/*'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/black_star/*'
+  workflow_dispatch:
 
 jobs:
-  gitHubActionForPytest:
-    name: GitHub Action for pytest
+  pytest:
+    name: pytest
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.9 ]
+
     steps:
-    - uses: actions/checkout@master
-    - name: GitHub Action for pytest
-      uses: cclauss/GitHub-Action-for-pytest@master
-      with:
-        args: pytest -ra -v
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9.4"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+      - name: Run pytest
+        run: |
+          python -m pytest -ra -v
