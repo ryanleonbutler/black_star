@@ -1,9 +1,15 @@
 name: Flake8
 
 on:
-  push:
-    paths:
-      - '*.py'
+    push:
+        branches: [main]
+        paths:
+          - '*.py'
+    pull_request:
+        branches: [main]
+        paths:
+          - '*.py'
+    workflow_dispatch:
 
 jobs:
   flake8_py3:

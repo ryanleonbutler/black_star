@@ -1,9 +1,15 @@
 name: Tests
 
 on:
-  push:
-    paths:
-      - 'src/black_star/*'
+    push:
+        branches: [main]
+        paths:
+          - 'src/black_star/*'
+    pull_request:
+        branches: [main]
+        paths:
+          - 'src/black_star/*'
+    workflow_dispatch:
 
 jobs:
   gitHubActionForPytest:
