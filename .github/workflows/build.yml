@@ -8,13 +8,14 @@ on:
     workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: true
-      matrix:
-        python-version: [3.9]
-        os: [ubuntu-latest, ubuntu-18.04, macos-latest, windows-latest]
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: [3.9]
+
+        env:
+            USING_COVERAGE: "3.9"
 
         steps:
             - name: Checkout sources
