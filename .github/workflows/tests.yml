@@ -1,2 +1,17 @@
-- name: Tests
-  uses: cclauss/GitHub-Action-for-pytest@0.5.0
+name: Tests
+
+on:
+  push:
+    paths:
+      - 'src/black_star/*'
+
+jobs:
+  gitHubActionForPytest:
+    name: GitHub Action for pytest
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: GitHub Action for pytest
+      uses: cclauss/GitHub-Action-for-pytest@master
+      with:
+        args: pytest -ra -v
