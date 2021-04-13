@@ -65,6 +65,7 @@ def player_hint():
 
 def player_help():
     bprint("Help Menu:")
+    bprint("- 'attack(a)' to attack an enemy in the area")
     bprint("- 'view(v)' to look around in this area")
     bprint("- 'map(m)' to look at the map of the world")
     bprint("- 'inspect(y)' to view item attributes")

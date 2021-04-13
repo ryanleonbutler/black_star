@@ -2,25 +2,31 @@
 Module for game world.
 """
 
+from characters.enemies import Enemy
 from tools import terminal as term
-from world import items
+from world.items import Item
 
 
-# class Room:
 class Room:
-    def __init__(self, name, up, down, left, right, item):
+    def __init__(self, name, up, down, left, right, item=False, enemy=False):
         self.name = name
         self.up = up
         self.down = down
         self.left = left
         self.right = right
         self.item = item
+        self.enemy = enemy
 
     def print_room(self):
         term.bprint(f"-> Moved to {self.name}")
 
     def describe_room(self):
         term.yprint(f"* You are in a {self.name}")
+
+        if self.enemy:
+            term.rprint(f"! enemy: {self.enemy.title()}")
+        else:
+            term.wprint("enemy: none")
 
         if self.up == "nothing":
             term.wprint(f"up: {self.up}")
@@ -42,16 +48,36 @@ class Room:
         else:
             term.gprint(f"right: {self.right}")
 
-        if self.item == "":
-            term.wprint("ground: none")
-        elif self.item == "none":
-            term.wprint("ground: none")
-        else:
+        if self.item:
             term.pprint(f"+ ground: {self.item.title()}")
+        else:
+            term.wprint("ground: none")
 
 
+# Create game items
+key = Item("key", "other", 0, 0, "Opens lock on door")
+robe = Item("robe", "armor", 5, 0, "Plain brown cotton robe")
+space_sword = Item(
+    "space sword",
+    "weapon",
+    0,
+    5,
+    "Laser energy sword that cuts through anything",
+)
+cadet_hat = Item(
+    "cadet hat",
+    "head",
+    2,
+    0,
+    "Standard issue space cadet hat",
+)
+
+# Create enemies
+service_robot = Enemy("Service Robot", "Other", "Robot", ["Blaster"], 5, 1, 1)
+
+# Create rooms
 prison_cell = Room(
-    "Prison Cell", "Window", "nothing", "nothing", "Passage", items.key.name
+    "Prison Cell", "Window", "nothing", "nothing", "Passage", key.name
 )
 passage = Room(
     "Passage",
@@ -59,7 +85,7 @@ passage = Room(
     "Armory",
     "Prison Cell",
     "Lab",
-    items.robe.name,
+    robe.name,
 )
 armory = Room(
     "Armory",
@@ -67,28 +93,35 @@ armory = Room(
     "nothing",
     "nothing",
     "nothing",
-    items.space_sword.name,
+    space_sword.name,
 )
 sleep_quar = Room(
-    "Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing", ""
+    "Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing"
 )
 food_hall = Room(
-    "Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing", ""
+    "Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing"
 )
-lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area", "")
+lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area")
 pass_area = Room(
-    "Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area", ""
+    "Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area"
 )
 cargo_hold = Room(
-    "Cargo Hold", "Passenger Area", "nothing", "nothing", "nothing", ""
+    "Cargo Hold",
+    "Passenger Area",
+    "nothing",
+    "nothing",
+    "nothing",
+    enemy=service_robot.name,
 )
 blaster_turret = Room(
-    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing", ""
+    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing"
 )
 crew_area = Room(
-    "Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit", ""
+    "Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit"
 )
-cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", "")
+cockpit = Room(
+    "Cockpit", "nothing", "nothing", "Crew Area", "nothing", cadet_hat.name
+)
 
 room_map = {
     1: {
@@ -102,7 +135,7 @@ room_map = {
         "l": prison_cell.left,
         "right": 2,
         "r": 2,
-        "item": items.key,
+        "item": key,
     },
     2: {
         "room": passage,
@@ -115,7 +148,7 @@ room_map = {
         "l": 1,
         "right": 6,
         "r": 6,
-        "item": items.robe,
+        "item": robe,
     },
     3: {
         "room": armory,
@@ -128,7 +161,7 @@ room_map = {
         "l": armory.left,
         "right": armory.right,
         "r": armory.right,
-        "item": items.space_sword,
+        "item": space_sword,
     },
     4: {
         "room": sleep_quar,
@@ -189,6 +222,7 @@ room_map = {
         "l": cargo_hold.left,
         "right": cargo_hold.right,
         "r": cargo_hold.right,
+        "enemy": service_robot,
     },
     9: {
         "room": blaster_turret,
@@ -225,5 +259,6 @@ room_map = {
         "l": 10,
         "right": cockpit.right,
         "r": cockpit.right,
+        "item": cadet_hat,
     },
 }

@@ -7,14 +7,12 @@ from tools import terminal as term
 
 
 # class for Items to use and equip in-game:
-class Items:
+class Item:
     """
     [Item class that defines usable objects in the game like armor and weapons. Also other items like health elixirs and notes.]
     """
 
-    def __init__(
-        self, name="", item_type="", armor=0, damage=0, description=""
-    ):
+    def __init__(self, name, item_type, armor=0, damage=0, description=""):
         self.name = name
         self.item_type = item_type
         self.armor = armor
@@ -37,39 +35,3 @@ class Items:
                 f"Damage: {self.damage}\n"
                 f"Description: {self.description}"
             )
-
-
-# Create game items
-key = Items("key", "other", 0, 0, "Opens lock on door")
-robe = Items("robe", "armor", 5, 0, "Plain brown cotton robe")
-space_sword = Items(
-    "space sword",
-    "weapon",
-    0,
-    5,
-    "Laser energy sword that cuts through anything",
-)
-
-item_map = {
-    key: {
-        "Name": key.name,
-        "Type": key.item_type,
-        "Armor": key.armor,
-        "Damage": key.damage,
-        "Description": key.description,
-    },
-    robe: {
-        "Name": robe.name,
-        "Type": robe.item_type,
-        "Armor": robe.armor,
-        "Damage": robe.damage,
-        "Description": robe.description,
-    },
-    space_sword: {
-        "Name": space_sword.name,
-        "Type": space_sword.item_type,
-        "Armor": space_sword.armor,
-        "Damage": space_sword.damage,
-        "Description": space_sword.description,
-    },
-}

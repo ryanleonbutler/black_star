@@ -63,9 +63,8 @@ def create_char() -> tuple:
     name = set_name()
     gender = set_gender()
     race = set_race()
-    my_player = char.Character(name, gender, race)
-    inventory_items: list = []
-    my_inventory = char.Inventory(inventory_items)
+    my_inventory: list = []
+    my_player = char.Character(name, gender, race, my_inventory)
     term.clear()
     term.bprint(
         f"Welcome {my_player.name}!\n"
@@ -117,24 +116,21 @@ def main() -> None:
             my_player.describe_character()
 
         elif player_input == "i" or player_input == "inventory":
-            my_inventory.view_inventory()
+            my_player.view_inventory()
 
         elif player_input == "t" or player_input == "take":
-            if not world.room_map[current_room]["item"]:
-                term.wprint("No items on ground to take")
-            elif world.room_map[current_room]["item"] == "none":
-                term.wprint("No items on ground to take")
+            if world.room_map[current_room]["item"]:
+                my_player.take_item(world.room_map[current_room]["item"])
+                world.room_map[current_room]["item"] = False
+                world.room_map[current_room]["room"].item = False
             else:
-                my_inventory.take_item(world.room_map[current_room]["item"])
-                world.room_map[current_room]["item"] = "none"
-                world.room_map[current_room]["room"].item = "none"
+                term.wprint("No items on ground to take")
 
         elif player_input == "e" or player_input == "equip":
-            player_input = term.player_input(
+            item = term.player_input(
                 "Enter item name in inventory that you wish to equip:"
             )
-            my_inventory.equip_item(player_input)
-            # TODO: Fix error in equip action
+            my_player.equip_item(item, my_inventory)
 
         elif player_input == "y" or player_input == "inspect":
             if not world.room_map[current_room]["item"]:
@@ -162,6 +158,10 @@ def main() -> None:
 
         elif player_input == "c" or player_input == "clear":
             term.clear()
+
+        elif player_input == "a" or player_input == "attack":
+            my_player.attack(world.room_map[current_room]["enemy"])
+            world.room_map[current_room]["enemy"] = False
 
         else:
             start_game = True

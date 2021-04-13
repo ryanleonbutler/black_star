@@ -61,6 +61,7 @@ Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and h
 
 ### **Controls**
 ```
+- 'attack(a)' to attack an enemy in the area
 - 'view(v)' to look around in this area
 - 'map(m)' to look at the map of the world
 - 'inspect(y)' to view item attributes
