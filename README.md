@@ -49,7 +49,7 @@ I am a big fan of programming, Star Wars and RPG's. Eager to learn Python,
 I thought it would be an awesome project to develop a game, taking all my interests as the inspiration.
 What I ended up with was a sci-fi world, far far away in a Galaxy no one has ever heard from.
 
-Welcome to ...BLACK STAR...
+*Welcome to ...BLACK STAR...*
 
 Feel free to reach out to me if you like the game and concept or if you have any ideas on what I can improve or even if you just want to say hi :-)
 
@@ -60,7 +60,7 @@ Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and h
 
 
 ### **Controls**
-
+```
 - 'view(v)' to look around in this area
 - 'map(m)' to look at the map of the world
 - 'inspect(y)' to view item attributes
@@ -70,6 +70,38 @@ Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and h
 - 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas
 - 'clear(c)' to clear the terminal
 - 'quit(q)' to quit the game
+```
 
 ### **Contribute**
-*Work in Progress*
+```
+# 1. Fork the project
+
+# 2. Clone the repo on your dev machine
+git clone git@github.com:ryanleonbutler/black_star.git
+
+# 3. Change directory
+cd black_star
+
+# 3. Create virtual env
+python3.9 -m venv venv --prompt black_star_venv
+
+# 4. Activate venv
+source venv/bin/activate
+
+# 5. Upgrade pip
+pip install --upgrade pip
+
+# 6. Install app requirements
+pip install -r requirements.txt
+
+# 7. Install dev requirements
+pip install -r requirements-dev.txt
+
+# 8. pre-commit setup
+pre-commit install
+
+# 9. Run tox
+tox -e py39
+
+Now make your changes and perform a pull request. You can create a branch if you are making larger feature changes. Don't hesitate to reach out to me if you need some guidance.
+```
