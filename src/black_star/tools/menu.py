@@ -7,21 +7,6 @@ import time
 from tools import terminal as term
 
 
-def game_intro() -> None:
-    """
-    [Start of the game's intro function]
-    """
-    term.clear()
-    time.sleep(1)
-    term.bprint("In the future,\nin a star system very far away...\n")
-    time.sleep(1)
-    term.yprint("Black Star")
-    term.wprint("A Text-Based Adventure")
-    term.wprint("Developed by Ryan Butler")
-    time.sleep(2)
-    term.clear()
-
-
 def game_menu() -> str:
     """
     [Menu function, to start game or quit game.]

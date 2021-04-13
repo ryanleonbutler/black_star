@@ -3,9 +3,27 @@ Main of game.
 """
 
 import time
-from tools import terminal as term, menu
-from world import world, maps
-from characters import characters as char, dialog
+
+from characters import characters as char
+from characters import dialog
+from tools import menu
+from tools import terminal as term
+from world import maps, world
+
+
+def game_intro():
+    """
+    [Start of the game's intro function]
+    """
+    term.clear()
+    time.sleep(1)
+    term.bprint("In the future,\nin a star system very far away...\n")
+    time.sleep(1)
+    term.yprint("Black Star")
+    term.wprint("A Text-Based Adventure")
+    term.wprint("Developed by Ryan Butler")
+    time.sleep(2)
+    term.clear()
 
 
 def set_name() -> str:
@@ -46,7 +64,7 @@ def create_char() -> tuple:
     gender = set_gender()
     race = set_race()
     my_player = char.Character(name, gender, race)
-    inventory_items = []
+    inventory_items: list = []
     my_inventory = char.Inventory(inventory_items)
     term.clear()
     term.bprint(
@@ -56,7 +74,8 @@ def create_char() -> tuple:
     term.player_input("Press enter to continue...")
     term.bprint("Good luck out there!")
     time.sleep(1)
-    return (my_player, my_inventory)
+    new_char = (my_player, my_inventory)
+    return new_char
 
 
 def main() -> None:
@@ -66,10 +85,11 @@ def main() -> None:
     player_input = menu.game_menu()
 
     # Starting game if player_input == 1 in def player_menu(game_menu.py)
+    start_game = False
     if player_input == "1":
         start_game = True
         (my_player, my_inventory) = create_char()
-        current_room = 1
+        current_room: int = 1
         dialog.start_prison_cell_dialog()
     elif player_input == "2":
         start_game = False
@@ -117,7 +137,7 @@ def main() -> None:
             # TODO: Fix error in equip action
 
         elif player_input == "y" or player_input == "inspect":
-            if not world.room_map.get([current_room]["item"], None):
+            if not world.room_map[current_room]["item"]:
                 term.wprint("No items on ground to inspect")
             elif world.room_map[current_room]["item"] == "none":
                 term.wprint("No items on ground to inspect")
@@ -148,8 +168,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    # Clear current terminal
     term.clear()
-    menu.game_intro()
-
+    # Game intro
+    game_intro()
     # Starting game
     main()

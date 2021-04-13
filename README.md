@@ -1,3 +1,26 @@
+[![Build Status][build-image]][build-url]
+[![Code Coverage][coverage-image]][coverage-url]
+[![Last Commit][commit badge]][commit]
+[![License][license badge]][license]
+
+<!-- Links -->
+[codecov]: https://codecov.io/gh/ryanleonbutler/black_star
+[commit]: https://github.com/ryanleonbutler/black_star/commit/HEAD
+[python]: https://www.python.org/
+[license]: https://github.com/ryanleonbutler/black_star/blob/master/License.txt
+[release]: https://github.com/ryanleonbutler/black_star/releases/latest
+[github]: https://github.com/ryanleonbutler/black_star
+
+<!-- Badges -->
+[build-image]: https://github.com/ryanleonbutler/black_star/actions/workflows/build.yml/badge.svg
+[build-url]: https://github.com/ryanleonbutler/black_star/actions/workflows/build.yml
+[coverage-image]: https://codecov.io/gh/ryanleonbutler/black_star/branch/master/graph/badge.svg
+[coverage-url]: https://codecov.io/gh/ryanleonbutler/black_star
+[commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/black_star
+[python versions badge]: https://shields.io/pypi/pyversions/black_star
+[license badge]: https://img.shields.io/pypi/l/black_star
+[release badge]: https://img.shields.io/github/v/release/ryanleonbutler/black_star
+
 ![](https://github.com/ryanleonbutler/black_star/blob/master/docs/black_star.png?raw=true)
 
 # BLACK STAR

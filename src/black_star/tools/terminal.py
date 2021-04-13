@@ -1,6 +1,7 @@
 """Terminal API to print graphics, fonts and colors."""
 
 import os
+
 from rich.console import Console
 
 console = Console()

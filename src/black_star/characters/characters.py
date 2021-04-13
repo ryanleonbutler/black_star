@@ -34,19 +34,8 @@ class Character:
         self.head = head
         self.chest = chest
         self.weapon = weapon
-        self.player = {
-            "Name": name.title(),
-            "Gender": name.title(),
-            "Race": name.title(),
-            "Level": name.title(),
-            "Health": name.title(),
-            "Name": name.title(),
-            "Name": name.title(),
-            "Name": name.title(),
-            "Name": name.title(),
-        }
 
-    def describe_character(self) -> dict:
+    def describe_character(self):
 
         term.bprint(f"--- My Character({self.name.title()})---")
         term.wprint(f"Level: {self.level}")
@@ -82,9 +71,9 @@ class Inventory:
 
     def view_inventory(self):
         if not self.items:
-            term.bprint(f"Inventory: Empty")
+            term.bprint("Inventory: Empty")
         else:
-            term.bprint(f"Inventory:")
+            term.bprint("Inventory:")
             for item in self.items:
                 term.pprint(f"- {item.name.title()}")
 
