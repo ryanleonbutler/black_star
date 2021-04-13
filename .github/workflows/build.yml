@@ -1,11 +1,11 @@
 name: Build
 
 on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
-    workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,8 +33,10 @@ jobs:
       - name: Run tox
         run: |
           python -m tox
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        if: contains(env.USING_COVERAGE, matrix.python-version)
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v1
         with:
-          fail_ci_if_error: true
+          name: codecov-umbrella
+          fail_ci_if_error: false
+          verbose: true
+          directory: htmlcov
