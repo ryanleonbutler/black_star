@@ -42,7 +42,7 @@ pip-delete-this-directory.txt
 .nox/
 .cache
 nosetests.xml
-coverage.xml
+.coverage
 *.cover
 *.py,cover
 .hypothesis/
