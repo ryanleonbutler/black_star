@@ -70,13 +70,9 @@ def player_help():
     bprint("- 'map(m)' to look at the map of the world")
     bprint("- 'inspect(y)' to view item attributes")
     bprint("- 'take(t)' to take item into inventory")
-    bprint(
-        "- 'status(s)' to view current player status, attributes and equipped gear"
-    )
+    bprint("- 'status(s)' to view current player status, attributes and equipped gear")
     bprint("- 'inventory(i)' to view current player's inventory")
-    bprint(
-        "- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas"
-    )
+    bprint("- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas")
     bprint("- 'clear(c)' to clear the terminal")
     bprint("- 'quit(q)' to quit the game")
 

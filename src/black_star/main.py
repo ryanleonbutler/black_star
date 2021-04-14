@@ -32,9 +32,7 @@ def set_name() -> str:
 
 
 def set_gender() -> str:
-    gender = term.player_input(
-        "Please enter your gender -> Male(1) or Female(2)"
-    )
+    gender = term.player_input("Please enter your gender -> Male(1) or Female(2)")
     while True:
         if gender == "1":
             return "Male"
@@ -46,9 +44,7 @@ def set_gender() -> str:
 
 def set_race() -> str:
     while True:
-        race = term.player_input(
-            "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
-        )
+        race = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
         if race == "1":
             return "Human"
         elif race == "2":
@@ -66,10 +62,7 @@ def create_char() -> tuple:
     my_inventory: list = []
     my_player = char.Character(name, gender, race, my_inventory)
     term.clear()
-    term.bprint(
-        f"Welcome {my_player.name}!\n"
-        f"You have chosen to be a {my_player.gender} {my_player.race}.\n"
-    )
+    term.bprint(f"Welcome {my_player.name}!\n" f"You have chosen to be a {my_player.gender} {my_player.race}.\n")
     term.player_input("Press enter to continue...")
     term.bprint("Good luck out there!")
     time.sleep(1)
@@ -97,9 +90,7 @@ def main() -> None:
         player_input = term.player_input("")
 
         if player_input == "q" or player_input == "quit":
-            player_input = term.player_input(
-                "Are you sure you wish to quit? (Y/N)"
-            )
+            player_input = term.player_input("Are you sure you wish to quit? (Y/N)")
             if player_input == "y" or player_input == "Y":
                 term.bprint("Goodbye, see you again soon...")
                 start_game = False
@@ -127,9 +118,7 @@ def main() -> None:
                 term.wprint("No items on ground to take")
 
         elif player_input == "e" or player_input == "equip":
-            item = term.player_input(
-                "Enter item name in inventory that you wish to equip:"
-            )
+            item = term.player_input("Enter item name in inventory that you wish to equip:")
             my_player.equip_item(item, my_inventory)
 
         elif player_input == "y" or player_input == "inspect":

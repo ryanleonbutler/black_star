@@ -62,23 +62,21 @@ space_sword = Item(
     "weapon",
     0,
     5,
-    "Laser energy sword that cuts through anything",
+    "Laser energy sword, cuts anything",
 )
 cadet_hat = Item(
     "cadet hat",
     "head",
     2,
     0,
-    "Standard issue space cadet hat",
+    "Standard issue cadet hat",
 )
 
 # Create enemies
 service_robot = Enemy("Service Robot", "Other", "Robot", ["Blaster"], 5, 1, 1)
 
 # Create rooms
-prison_cell = Room(
-    "Prison Cell", "Window", "nothing", "nothing", "Passage", key.name
-)
+prison_cell = Room("Prison Cell", "Window", "nothing", "nothing", "Passage", key.name)
 passage = Room(
     "Passage",
     "Sleeping Quarters",
@@ -95,16 +93,10 @@ armory = Room(
     "nothing",
     space_sword.name,
 )
-sleep_quar = Room(
-    "Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing"
-)
-food_hall = Room(
-    "Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing"
-)
+sleep_quar = Room("Sleeping Quarters", "Food Hall", "Passage", "nothing", "nothing")
+food_hall = Room("Food Hall", "nothing", "Sleeping Quarters", "nothing", "nothing")
 lab = Room("Lab", "nothing", "nothing", "Passage", "Passenger Area")
-pass_area = Room(
-    "Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area"
-)
+pass_area = Room("Passenger Area", "Blaster Turret", "Cargo Hold", "Lab", "Crew Area")
 cargo_hold = Room(
     "Cargo Hold",
     "Passenger Area",
@@ -113,15 +105,9 @@ cargo_hold = Room(
     "nothing",
     enemy=service_robot.name,
 )
-blaster_turret = Room(
-    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing"
-)
-crew_area = Room(
-    "Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit"
-)
-cockpit = Room(
-    "Cockpit", "nothing", "nothing", "Crew Area", "nothing", cadet_hat.name
-)
+blaster_turret = Room("Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing")
+crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit")
+cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", cadet_hat.name)
 
 room_map = {
     1: {
