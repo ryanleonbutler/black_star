@@ -32,7 +32,3 @@ jobs:
       - name: Run flake8
         run: |
           python3 -m flake8 --max-line-length=119
-
-      outputs:
-        results-file: Flake8
-        description: "./Flake8"
