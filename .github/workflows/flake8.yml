@@ -4,29 +4,34 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '*.py'
+      - 'src/black_star/*'
   pull_request:
     branches: [ main ]
     paths:
-      - '*.py'
+      - 'src/black_star/*'
   workflow_dispatch:
 
 jobs:
-  flake8_py3:
+  pytest:
+    name: flake8
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.9 ]
+
     steps:
-      - name: Setup Python
-        uses: actions/setup-python@v1
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          python-version: 3.9.4
-          architecture: x64
-      - name: Checkout PyTorch
-        uses: actions/checkout@master
-      - name: Install flake8
-        run: pip install flake8
+          python-version: "3.9.4"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install flake8
       - name: Run flake8
-        uses: suo/flake8-github-action@releases/v1
-        with:
-          checkName: 'flake8_py3'   # NOTE: this needs to be the same as the job name
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m flake8 --max-line-length=119
