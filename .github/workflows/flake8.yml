@@ -1,20 +1,38 @@
-name: Flake8
+name: Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/black_star/*'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/black_star/*'
+  workflow_dispatch:
 
 jobs:
-  flake8-lint:
+  pytest:
+    name: pytest
     runs-on: ubuntu-latest
-    name: Lint
+
     steps:
-      - name: Check out source repository
+      - name: Checkout sources
         uses: actions/checkout@v2
-      - name: Set up Python environment
-        uses: actions/setup-python@v1
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
           python-version: "3.9.4"
-      - name: Flake8
-        uses: py-actions/flake8@v1
-        with:
-          max-line-length: "119"
-          path: "src/black_star"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install flake8
+      - name: Run flake8
+        run: |
+          python3 -m flake8 --max-line-length=119
+
+      outputs:
+        results-file: Flake8
+        description: "./Flake8"
