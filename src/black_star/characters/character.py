@@ -8,32 +8,26 @@ from tools import terminal as term
 
 class Character:
     """
-    [Character class that defines and creates a
-    new character with all of the character attributes]
+    Base Character class that defines and creates a
+    new character with all of the character attributes
     """
 
     def __init__(
         self,
         name: str,
         gender: str,
-        race: str,
         inventory: list,
-        level=1,
-        health=10,
-        armor=1,
-        damage=1,
-        head=None,
-        chest=None,
-        weapon=None,
+        level: int,
+        exp: int,
+        head: str = None,
+        chest: str = None,
+        weapon: str = None,
     ):
-        self.name = name.title()
-        self.gender = gender.title()
-        self.race = race.title()
+        self.name = name
+        self.gender = gender
         self.inventory = inventory
         self.level = level
-        self.health = health
-        self.armor = armor
-        self.damage = damage
+        self.exp = exp
         self.head = head
         self.chest = chest
         self.weapon = weapon
@@ -111,3 +105,87 @@ class Character:
             term.rprint(f"Enemy Health: {enemy.health}")
         time.sleep(1)
         term.gprint(f"{enemy.name} killed")
+
+
+class Human(Character):
+    """
+    Class for the Human Race.
+    Strong and heavy armored Race.
+    """
+
+    def __init__(
+        self,
+        name: str,
+        gender: str,
+        inventory: list = [],
+        level: int = 1,
+        exp: int = 0,
+        head: str = None,
+        chest: str = None,
+        weapon: str = None,
+        race: str = "Human",
+        health: int = 15,
+        armor: int = 7,
+        damage: int = 3,
+    ):
+        super().__init__(name, gender, inventory, level, exp, head, chest, weapon)
+        self.race = race
+        self.health = health
+        self.armor = armor
+        self.damage = damage
+
+
+class Alien(Character):
+    """
+    Class for the Alien Race.
+    High damage race, but easily takes damage
+    """
+
+    def __init__(
+        self,
+        name: str,
+        gender: str,
+        inventory: list = [],
+        level: int = 1,
+        exp: int = 0,
+        head: str = None,
+        chest: str = None,
+        weapon: str = None,
+        race: str = "Alien",
+        health: int = 9,
+        armor: int = 3,
+        damage: int = 13,
+    ):
+        super().__init__(name, gender, inventory, level, exp, head, chest, weapon)
+        self.race = race
+        self.health = health
+        self.armor = armor
+        self.damage = damage
+
+
+class Robot(Character):
+    """
+    Class for the Robot Race.
+    Well balanced race, can give and take damage equally.
+    """
+
+    def __init__(
+        self,
+        name: str,
+        gender: str,
+        inventory: list = [],
+        level: int = 1,
+        exp: int = 0,
+        head: str = None,
+        chest: str = None,
+        weapon: str = None,
+        race: str = "Robot",
+        health: int = 12,
+        armor: int = 5,
+        damage: int = 8,
+    ):
+        super().__init__(name, gender, inventory, level, exp, head, chest, weapon)
+        self.race = race
+        self.health = health
+        self.armor = armor
+        self.damage = damage

@@ -55,18 +55,21 @@ def set_race() -> str:
             continue
 
 
-def create_char() -> tuple:
+def create_char():
     name = set_name()
     gender = set_gender()
     race = set_race()
-    my_inventory: list = []
-    my_player = char.Character(name, gender, race, my_inventory)
+    if race == "Human":
+        new_char = char.Human(name, gender)
+    elif race == "Alien":
+        new_char = char.Alien(name, gender)
+    elif race == "Robot":
+        new_char = char.Robot(name, gender)
     term.clear()
-    term.bprint(f"Welcome {my_player.name}!\n" f"You have chosen to be a {my_player.gender} {my_player.race}.\n")
+    term.bprint(f"Welcome {new_char.name}!\n" f"You have chosen to be a {new_char.gender} {new_char.race}.\n")
     term.player_input("Press enter to continue...")
     term.bprint("Good luck out there!")
     time.sleep(1)
-    new_char = (my_player, my_inventory)
     return new_char
 
 
@@ -80,7 +83,7 @@ def main() -> None:
     start_game = False
     if player_input == "1":
         start_game = True
-        (my_player, my_inventory) = create_char()
+        my_char = create_char()
         current_room: int = 1
         dialog.start_prison_cell_dialog()
     elif player_input == "2":
@@ -104,14 +107,14 @@ def main() -> None:
             world.room_map[current_room]["room"].describe_room()
 
         elif player_input == "s" or player_input == "status":
-            my_player.describe_character()
+            my_char.describe_character()
 
         elif player_input == "i" or player_input == "inventory":
-            my_player.view_inventory()
+            my_char.view_inventory()
 
         elif player_input == "t" or player_input == "take":
             if world.room_map[current_room]["item"]:
-                my_player.take_item(world.room_map[current_room]["item"])
+                my_char.take_item(world.room_map[current_room]["item"])
                 world.room_map[current_room]["item"] = False
                 world.room_map[current_room]["room"].item = False
             else:
@@ -119,7 +122,7 @@ def main() -> None:
 
         elif player_input == "e" or player_input == "equip":
             item = term.player_input("Enter item name in inventory that you wish to equip:")
-            my_player.equip_item(item, my_inventory)
+            my_char.equip_item(item, my_char.inventory)
 
         elif player_input == "y" or player_input == "inspect":
             if not world.room_map[current_room]["item"]:
@@ -149,7 +152,7 @@ def main() -> None:
             term.clear()
 
         elif player_input == "a" or player_input == "attack":
-            my_player.attack(world.room_map[current_room]["enemy"])
+            my_char.attack(world.room_map[current_room]["enemy"])
             world.room_map[current_room]["enemy"] = False
 
         else:

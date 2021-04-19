@@ -74,35 +74,56 @@ Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and h
 ```
 
 ### **Contribute**
+#### 1. Fork the project
+
+#### 2. Clone the repo on your dev machine
 ```
-# 1. Fork the project
-
-# 2. Clone the repo on your dev machine
 git clone git@github.com:ryanleonbutler/black_star.git
+```
 
-# 3. Change directory
+#### 3. Change directory
+```
 cd black_star
+```
 
-# 3. Create virtual env
+#### 3. Create virtual env
+```
 python3.9 -m venv venv --prompt black_star_venv
+```
 
-# 4. Activate venv
+#### 4. Activate venv
+```
 source venv/bin/activate
+```
 
-# 5. Upgrade pip
-pip install --upgrade pip
+#### 5. Upgrade pip
+```
+(venv) pip install --upgrade pip
+```
 
-# 6. Install app requirements
-pip install -r requirements.txt
+#### 6. Install app requirements
+```
+(venv) pip install -r requirements.txt
+```
 
-# 7. Install dev requirements
-pip install -r requirements-dev.txt
+#### 7. Install dev requirements
+```
+(venv) pip install -r requirements-dev.txt
+```
 
-# 8. pre-commit setup
-pre-commit install
+#### 8. pre-commit setup
+```
+(venv) pre-commit install
+```
 
-# 9. Run tox
-tox -e py39
+#### 9. Run tox
+```
+(venv) tox -e py39
+```
 
 Now make your changes and perform a pull request. You can create a branch if you are making larger feature changes. Don't hesitate to reach out to me if you need some guidance.
+
+To run the game, just run `main.py` in `src/black_star`.
+```
+(venv) python src/black_star/main.py
 ```
