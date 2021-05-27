@@ -23,9 +23,7 @@ class Item:
         """
         [Prints item details and attributes to the screen]
         """
-        if not self.name:
-            term.wprint("No items on ground to inspect")
-        elif self.name == "none":
+        if not self.name or self.name == "none":
             term.wprint("No items on ground to inspect")
         else:
             term.bprint(f"---Item details: ({self.name.title()})---")
