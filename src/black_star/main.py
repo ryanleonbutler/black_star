@@ -39,7 +39,7 @@ def set_gender() -> str:
         elif gender == "2":
             return "Female"
         else:
-            continue
+            gender = term.player_input("Please enter your gender -> Male(1) or Female(2)")
 
 
 def set_race() -> str:
@@ -52,7 +52,7 @@ def set_race() -> str:
         elif race == "3":
             return "Robot"
         else:
-            continue
+            race = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
 
 
 def create_char():
