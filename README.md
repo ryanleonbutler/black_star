@@ -70,6 +70,7 @@ Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and h
 - 'inventory(i)' to view current player's inventory
 - 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas
 - 'clear(c)' to clear the terminal
+- 'help(h)' to to acess the Help Menu
 - 'quit(q)' to quit the game
 ```
 
