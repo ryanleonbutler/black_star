@@ -74,7 +74,7 @@ def player_help():
     bprint("- 'inventory(i)' to view current player's inventory")
     bprint("- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas")
     bprint("- 'clear(c)' to clear the terminal")
-    bprint("- 'help(h)' to to acess the Help Menu")
+    bprint("- 'help(h)' to acess the help menu")
     bprint("- 'quit(q)' to quit the game")
 
 
