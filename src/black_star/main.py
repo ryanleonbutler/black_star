@@ -132,7 +132,7 @@ def main() -> None:
             elif world.room_map[current_room]["room"].item == "none":
                 term.wprint("No items on ground to inspect")
             else:
-                world.room_map[current_room]["item"].name.view_item()
+                world.room_map[current_room]["item"].view_item()
 
         elif player_input == "m" or player_input == "map":
             maps.unknown_spaceship()
