@@ -29,6 +29,8 @@ def is_valid_command(player_input):
         "inspect",
         "t",
         "take",
+        "e",
+        "equip",
         "s",
         "status",
         "i",

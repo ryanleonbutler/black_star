@@ -66,6 +66,7 @@ Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and h
 - 'map(m)' to look at the map of the world
 - 'inspect(y)' to view item attributes
 - 'take(t)' to take item into inventory
+- 'equip(e)' to equip an item
 - 'status(s)' to view current player status, attributes and equipped gear
 - 'inventory(i)' to view current player's inventory
 - 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas
