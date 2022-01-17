@@ -72,7 +72,9 @@ def player_help():
     bprint("- 'take(t)' to take item into inventory")
     bprint("- 'status(s)' to view current player status, attributes and equipped gear")
     bprint("- 'inventory(i)' to view current player's inventory")
-    bprint("- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas")
+    bprint(
+        "- 'up(u)', 'down(d)', 'left(l)' and 'right(r)' to move around between areas"
+    )
     bprint("- 'clear(c)' to clear the terminal")
     bprint("- 'help(h)' to acess the help menu")
     bprint("- 'quit(q)' to quit the game")
@@ -80,5 +82,8 @@ def player_help():
 
 def player_input(text):
     bprint(text)
-    value = str(console.input("[bold white]>>[/] ").lower())
-    return value
+    return str(console.input("[bold white]>>[/] ").lower())
+
+
+if __name__ == "__main__":
+    pass

@@ -1,20 +1,55 @@
-[build-system]
-requires = ["flit_core >=2,<4"]
-build-backend = "flit_core.buildapi"
+[tool.poetry]
+name = "black_star"
+version = "0.5.1"
+description = "Text-based role playing game"
+authors = ["Ryan <ryanleonbutler@gmail.com>"]
+license = "AGPL-3.0 License"
 
-[tool.flit.metadata]
-module = "black_star"
-author = "Ryan Butler"
-author-email = "ryanleonbutler@gmail.com"
-home-page = "https://github.com/ryanleonbutler/black_star"
-    classifiers=[
-        'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-    ]
-description-file = "README.md"
-requires-python = ">=3.7"
+[tool.poetry.dependencies]
+python = "^3.9"
+rich = "^11.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+flake8 = "^4.0.1"
+pre-commit = "^2.16.0"
+isort = "^5.10.1"
+coverage = "^6.2"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+tox = "^3.24.5"
+pyinstaller = "^4.8"
+pytest-pythonpath = "^0.7.3"
+
+[tool.tox]
+legacy_tox_ini = """
+[Tox]
+isolated_build = true
+skipsdist = true
+envlist =
+    py39,
+    lint,
+    coverage
+
+[testenv]
+deps =
+    poetry>=1.1.0
+whitelist_external = poetry
+skip_install = true
+commands_pre = poetry install -vvv
+
+[testenv:lint]
+commands =
+    poetry run flake8 src/black_star
+    poetry run isort --check-only src/black_star
+    poetry run black --check --verbose --config ./pyproject.toml src/black_star
+
+[testenv:coverage]
+commands =
+    poetry run pytest -ra -v --cov=src/black_star --cov-report=xml
+    poetry run coverage report -m
+    poetry run coverage html -i
+"""
 
 [tool.black]
 line-length = 119
@@ -32,3 +67,13 @@ exclude = '''
   | dist
 )/
 '''
+
+[tool.pytest.ini_options]
+python_paths = "src/black_star"
+
+[tool.coverage.report]
+skip_empty = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
