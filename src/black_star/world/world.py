@@ -105,9 +105,7 @@ cargo_hold = Room(
     "nothing",
     enemy=service_robot.name,
 )
-blaster_turret = Room(
-    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing"
-)
+blaster_turret = Room("Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing")
 crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit")
 cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", cadet_hat.name)
 

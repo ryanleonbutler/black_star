@@ -31,7 +31,7 @@
 [license badge]: https://img.shields.io/github/license/ryanleonbutler/black_star
 [release badge]: https://img.shields.io/github/v/release/ryanleonbutler/black_star?include_prereleases
 [black badge]: https://img.shields.io/badge/code%20style-black-000000.svg
-[flake8 badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/flake8.yml/badge.svg
+[flake8 badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/lint.yml/badge.svg
 [isort badge]: https://img.shields.io/badge/%20imports-isort-%231674b1
 [tests badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/tests.yml/badge.svg
 
