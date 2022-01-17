@@ -23,13 +23,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.9.4"
+          python-version: "3.10"
 
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
-          python3 -m pip install pytest
+          python3 -m pip poetry
+          python3 -m pip poetry install -vvv
       - name: Run pytest
         run: |
-          python3 -m pytest -ra -v
+          poetry run pytest -ra -v
