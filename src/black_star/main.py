@@ -39,12 +39,16 @@ def set_gender() -> str:
         elif gender == "2":
             return "Female"
         else:
-            gender = term.player_input("Please enter your gender -> Male(1) or Female(2)")
+            gender = term.player_input(
+                "Please enter your gender -> Male(1) or Female(2)"
+            )
 
 
 def set_race() -> str:
     while True:
-        race = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+        race = term.player_input(
+            "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+        )
         if race == "1":
             return "Human"
         elif race == "2":
@@ -52,7 +56,9 @@ def set_race() -> str:
         elif race == "3":
             return "Robot"
         else:
-            race = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+            race = term.player_input(
+                "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+            )
 
 
 def create_char():
@@ -66,7 +72,10 @@ def create_char():
     elif race == "Robot":
         new_char = char.Robot(name, gender)
     term.clear()
-    term.bprint(f"Welcome {new_char.name}!\n" f"You have chosen to be a {new_char.gender} {new_char.race}.\n")
+    term.bprint(
+        f"Welcome {new_char.name}!\n"
+        f"You have chosen to be a {new_char.gender} {new_char.race}.\n"
+    )
     term.player_input("Press enter to continue...")
     term.bprint("Good luck out there!")
     time.sleep(1)
@@ -121,7 +130,9 @@ def main() -> None:
                 term.wprint("No items on ground to take")
 
         elif player_input == "e" or player_input == "equip":
-            item = term.player_input("Enter item name in inventory that you wish to equip:")
+            item = term.player_input(
+                "Enter item name in inventory that you wish to equip:"
+            )
             my_char.equip_item(item, my_char.inventory)
 
         elif player_input == "y" or player_input == "inspect":
