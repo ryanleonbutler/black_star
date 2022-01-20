@@ -1,2 +1,2 @@
-rich
-
+python>=3.9
+rich>=11.0.0

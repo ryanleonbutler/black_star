@@ -80,5 +80,8 @@ def player_help():
 
 def player_input(text):
     bprint(text)
-    value = str(console.input("[bold white]>>[/] ").lower())
-    return value
+    return str(console.input("[bold white]>>[/] ").lower())
+
+
+if __name__ == "__main__":
+    pass
