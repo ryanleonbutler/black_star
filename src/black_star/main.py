@@ -8,8 +8,8 @@ from characters import character as char
 from characters import dialog
 from tools import menu
 from tools import terminal as term
-from world import commands, maps, world
-
+from world import maps, world
+from world.commands import Commands
 
 def game_intro():
     """
@@ -92,13 +92,13 @@ def main() -> None:
     while start_game:
         player_input = term.player_input("")
 
-        if not commands.is_valid_command(player_input):
+        if not Commands.is_valid_command(player_input):
             term.player_hint()
             continue
 
         # quit game
         if player_input == "q" or player_input == "quit":
-            start_game = commands.quit()
+            start_game = Commands.quit()
 
         # help menu
         elif player_input == "h" or player_input == "help":
@@ -118,16 +118,15 @@ def main() -> None:
 
         # take item
         elif player_input == "t" or player_input == "take":
-            commands.take(current_room, my_char)
+            Commands.take(current_room, my_char)
 
         # equip item
         elif player_input == "e" or player_input == "equip":
-            item = term.player_input("Enter item name in inventory that you wish to equip:")
-            my_char.equip_item(item, my_char.inventory)
+            Commands.equip(my_char)
 
         # inspect items in room
         elif player_input == "y" or player_input == "inspect":
-            commands.inspect(current_room)
+            Commands.inspect(current_room)
 
         # view map
         elif player_input == "m" or player_input == "map":
@@ -135,7 +134,7 @@ def main() -> None:
 
         # move player
         elif player_input in world.room_map[current_room]:
-            current_room = commands.move(current_room, player_input)
+            current_room = Commands.move(current_room, player_input)
 
         # clear terminal
         elif player_input == "c" or player_input == "clear":
@@ -143,11 +142,7 @@ def main() -> None:
 
         # attack enemy
         elif player_input == "a" or player_input == "attack":
-            if "enemy" not in world.room_map[current_room]:
-                term.wprint("There is no enemy around")
-            else:
-                my_char.attack(world.room_map[current_room]["enemy"])
-                world.room_map[current_room]["enemy"] = False
+            Commands.attack(my_char, current_room)
 
         else:
             start_game = True
