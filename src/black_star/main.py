@@ -11,6 +11,7 @@ from tools import terminal as term
 from world import maps, world
 from world.commands import Commands
 
+
 def game_intro():
     """
     [Start of the game's intro function]
@@ -98,7 +99,7 @@ def main() -> None:
 
         # quit game
         if player_input == "q" or player_input == "quit":
-            start_game = Commands.quit()
+            start_game = Commands.quit(player_input)
 
         # help menu
         elif player_input == "h" or player_input == "help":

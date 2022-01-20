@@ -5,7 +5,11 @@ Module for in-game commands
 from tools import terminal as term
 from world import world
 
+
 class Commands:
+    """
+    Class that defines some of the in-game commands
+    """
 
     def is_valid_command(player_input):
         valid_input = {
@@ -42,7 +46,6 @@ class Commands:
         }
         return player_input in valid_input
 
-
     def attack(my_char, current_room):
         if "enemy" not in world.room_map[current_room]:
             term.wprint("There is no enemy around")
@@ -52,23 +55,20 @@ class Commands:
                 world.room_map[current_room]["enemy"] = False
             except AttributeError:
                 term.wprint("The enemy has been killed")
-    
 
     def equip(my_char):
         item = term.player_input("Enter item name in inventory that you wish to equip:")
         my_char.equip_item(item, my_char.inventory)
 
-
     def inspect(current_room):
         if "item" not in world.room_map[current_room]:
             term.wprint("No items on ground to inspect")
-        elif world.room_map[current_room]["item"] == False:
+        elif not world.room_map[current_room]["item"]:
             term.wprint("No items on ground to inspect")
-        elif world.room_map[current_room]["room"].item == False:
+        elif not world.room_map[current_room]["room"].item:
             term.wprint("No items on ground to inspect")
         else:
             world.room_map[current_room]["item"].view_item()
-
 
     def move(current_room, player_input):
         current_room_test = world.room_map[current_room][player_input]
@@ -83,7 +83,6 @@ class Commands:
             world.room_map[current_room_test]["room"].describe_room()
             return current_room_test
 
-
     def take(current_room, my_char):
         if "item" not in world.room_map[current_room]:
             term.wprint("No items on ground to take")
@@ -92,7 +91,7 @@ class Commands:
             world.room_map[current_room]["item"] = False
             world.room_map[current_room]["room"].item = False
 
-    def quit():
+    def quit(player_input):
         player_input = term.player_input("Are you sure you wish to quit? (Y/N)")
         if player_input == "y" or player_input == "Y":
             term.bprint("Goodbye, see you again soon...")
