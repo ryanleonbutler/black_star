@@ -60,7 +60,7 @@ def clear():
 
 
 def player_hint():
-    bprint("---Hint: Enter 'h' or 'help' for controls---")
+    bprint("---Hint:  'h' or 'help' for controls---")
 
 
 def player_help():

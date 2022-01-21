@@ -17,8 +17,8 @@
 						<line number="9" hits="0"/>
 						<line number="10" hits="0"/>
 						<line number="11" hits="0"/>
-						<line number="12" hits="0"/>
-						<line number="15" hits="0"/>
+						<line number="14" hits="0"/>
+						<line number="18" hits="0"/>
 						<line number="19" hits="0"/>
 						<line number="20" hits="0"/>
 						<line number="21" hits="0"/>
@@ -27,10 +27,10 @@
 						<line number="24" hits="0"/>
 						<line number="25" hits="0"/>
 						<line number="26" hits="0"/>
-						<line number="27" hits="0"/>
+						<line number="29" hits="0"/>
 						<line number="30" hits="0"/>
 						<line number="31" hits="0"/>
-						<line number="32" hits="0"/>
+						<line number="34" hits="0"/>
 						<line number="35" hits="0"/>
 						<line number="36" hits="0"/>
 						<line number="37" hits="0"/>
@@ -73,6 +73,7 @@
 						<line number="96" hits="0"/>
 						<line number="97" hits="0"/>
 						<line number="98" hits="0"/>
+						<line number="99" hits="0"/>
 						<line number="101" hits="0"/>
 						<line number="102" hits="0"/>
 						<line number="104" hits="0"/>
@@ -81,10 +82,12 @@
 						<line number="107" hits="0"/>
 						<line number="108" hits="0"/>
 						<line number="110" hits="0"/>
+						<line number="112" hits="0"/>
 						<line number="113" hits="0"/>
 						<line number="115" hits="0"/>
 						<line number="116" hits="0"/>
 						<line number="118" hits="0"/>
+						<line number="119" hits="0"/>
 						<line number="121" hits="0"/>
 						<line number="122" hits="0"/>
 						<line number="124" hits="0"/>
@@ -106,9 +109,11 @@
 						<line number="146" hits="0"/>
 						<line number="148" hits="0"/>
 						<line number="149" hits="0"/>
+						<line number="151" hits="0"/>
 						<line number="152" hits="0"/>
 						<line number="153" hits="0"/>
 						<line number="154" hits="0"/>
+						<line number="155" hits="0"/>
 						<line number="156" hits="0"/>
 						<line number="158" hits="0"/>
 						<line number="159" hits="0"/>
@@ -135,7 +140,7 @@
 				</class>
 			</classes>
 		</package>
-		<package name="characters" line-rate="0.4359" branch-rate="0" complexity="0">
+		<package name="characters" line-rate="0.4435" branch-rate="0" complexity="0">
 			<classes>
 				<class name="character.py" filename="characters/character.py" complexity="0" line-rate="0.4505" branch-rate="0">
 					<methods/>
@@ -191,18 +196,18 @@
 						<line number="82" hits="0"/>
 						<line number="83" hits="0"/>
 						<line number="84" hits="0"/>
-						<line number="85" hits="0"/>
-						<line number="86" hits="0"/>
-						<line number="88" hits="1"/>
-						<line number="89" hits="0"/>
-						<line number="90" hits="0"/>
-						<line number="92" hits="1"/>
-						<line number="93" hits="0"/>
-						<line number="94" hits="0"/>
-						<line number="96" hits="1"/>
-						<line number="97" hits="0"/>
-						<line number="98" hits="0"/>
-						<line number="100" hits="1"/>
+						<line number="86" hits="1"/>
+						<line number="87" hits="0"/>
+						<line number="88" hits="0"/>
+						<line number="90" hits="1"/>
+						<line number="91" hits="0"/>
+						<line number="92" hits="0"/>
+						<line number="94" hits="1"/>
+						<line number="95" hits="0"/>
+						<line number="96" hits="0"/>
+						<line number="98" hits="1"/>
+						<line number="99" hits="0"/>
+						<line number="100" hits="0"/>
 						<line number="101" hits="0"/>
 						<line number="102" hits="0"/>
 						<line number="103" hits="0"/>
@@ -210,29 +215,27 @@
 						<line number="105" hits="0"/>
 						<line number="106" hits="0"/>
 						<line number="107" hits="0"/>
-						<line number="108" hits="0"/>
-						<line number="109" hits="0"/>
-						<line number="112" hits="1"/>
-						<line number="118" hits="1"/>
+						<line number="110" hits="1"/>
+						<line number="116" hits="1"/>
+						<line number="131" hits="1"/>
+						<line number="132" hits="1"/>
 						<line number="133" hits="1"/>
 						<line number="134" hits="1"/>
 						<line number="135" hits="1"/>
-						<line number="136" hits="1"/>
-						<line number="137" hits="1"/>
-						<line number="140" hits="1"/>
-						<line number="146" hits="1"/>
+						<line number="138" hits="1"/>
+						<line number="144" hits="1"/>
+						<line number="159" hits="1"/>
+						<line number="160" hits="1"/>
 						<line number="161" hits="1"/>
 						<line number="162" hits="1"/>
 						<line number="163" hits="1"/>
-						<line number="164" hits="1"/>
-						<line number="165" hits="1"/>
-						<line number="168" hits="1"/>
-						<line number="174" hits="1"/>
+						<line number="166" hits="1"/>
+						<line number="172" hits="1"/>
+						<line number="187" hits="1"/>
+						<line number="188" hits="1"/>
 						<line number="189" hits="1"/>
 						<line number="190" hits="1"/>
 						<line number="191" hits="1"/>
-						<line number="192" hits="1"/>
-						<line number="193" hits="1"/>
 					</lines>
 				</class>
 				<class name="dialog.py" filename="characters/dialog.py" complexity="0" line-rate="0" branch-rate="0">
@@ -356,7 +359,7 @@
 				</class>
 			</classes>
 		</package>
-		<package name="world" line-rate="0.3419" branch-rate="0" complexity="0">
+		<package name="world" line-rate="0.597" branch-rate="0" complexity="0">
 			<classes>
 				<class name="items.py" filename="world/items.py" complexity="0" line-rate="0.6923" branch-rate="0">
 					<methods/>
