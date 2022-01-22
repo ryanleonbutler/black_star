@@ -3,6 +3,7 @@ Main of game.
 """
 
 import time
+from re import M
 
 from characters import character as char
 from characters import dialog
@@ -86,6 +87,7 @@ def main() -> None:
         start_game = True
         my_char = create_char()
         current_room: int = 1
+        player_action = Commands(my_char, current_room, player_input)
         dialog.start_prison_cell_dialog()
     elif player_input == "2":
         start_game = False
@@ -93,7 +95,7 @@ def main() -> None:
     while start_game:
         player_input = term.player_input("")
 
-        if not Commands.is_valid_command(player_input):
+        if not player_action.is_valid_command(player_input):
             term.player_hint()
             continue
 

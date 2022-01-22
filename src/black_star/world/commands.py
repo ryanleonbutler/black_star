@@ -11,7 +11,13 @@ class Commands:
     Class that defines some of the in-game commands
     """
 
-    def is_valid_command(player_input):
+    def __init__(self, my_char, current_room=0, player_input=""):
+        self.my_char = my_char
+        self.current_room = current_room
+        self.player_input = player_input
+
+    def is_valid_command(self, player_input):
+        self.player_input = player_input
         valid_input = {
             "a",
             "attack",
@@ -44,9 +50,9 @@ class Commands:
             "q",
             "quit",
         }
-        return player_input in valid_input
+        return self.player_input in valid_input
 
-    def attack(my_char, current_room):
+    def attack(self, my_char, current_room):
         if "enemy" not in world.room_map[current_room]:
             term.wprint("There is no enemy around")
         else:
@@ -91,7 +97,7 @@ class Commands:
             world.room_map[current_room]["item"] = False
             world.room_map[current_room]["room"].item = False
 
-    def quit(player_input):
+    def quit(self, player_input):
         player_input = term.player_input("Are you sure you wish to quit? (Y/N)")
         if player_input == "y" or player_input == "Y":
             term.bprint("Goodbye, see you again soon...")
