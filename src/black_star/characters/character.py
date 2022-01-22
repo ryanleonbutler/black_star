@@ -82,8 +82,6 @@ class Character:
                 elif i.item_type == "weapon":
                     self.equip_weapon(i.name, i.damage)
                     inventory.remove(i)
-                return
-        term.pprint(f"---Oops! {item} is not in your inventory!---")
 
     def equip_head(self, name, new_value):
         self.head = name.title()
