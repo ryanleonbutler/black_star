@@ -9,7 +9,6 @@ from characters import dialog
 from tools import menu
 from tools import terminal as term
 from world import maps, world
-from world.commands import Commands
 
 
 def game_intro():
@@ -93,57 +92,68 @@ def main() -> None:
     while start_game:
         player_input = term.player_input("")
 
-        if not Commands.is_valid_command(player_input):
-            term.player_hint()
-            continue
-
-        # quit game
         if player_input == "q" or player_input == "quit":
-            start_game = Commands.quit(player_input)
+            player_input = term.player_input("Are you sure you wish to quit? (Y/N)")
+            if player_input == "y" or player_input == "Y":
+                term.bprint("Goodbye, see you again soon...")
+                start_game = False
+            else:
+                start_game = True
 
-        # help menu
         elif player_input == "h" or player_input == "help":
             term.player_help()
 
-        # view room
         elif player_input == "v" or player_input == "view":
             world.room_map[current_room]["room"].describe_room()
 
-        # check status
         elif player_input == "s" or player_input == "status":
             my_char.describe_character()
 
-        # check inventory
         elif player_input == "i" or player_input == "inventory":
             my_char.view_inventory()
 
-        # take item
         elif player_input == "t" or player_input == "take":
-            Commands.take(current_room, my_char)
+            if world.room_map[current_room]["item"]:
+                my_char.take_item(world.room_map[current_room]["item"])
+                world.room_map[current_room]["item"] = False
+                world.room_map[current_room]["room"].item = False
+            else:
+                term.wprint("No items on ground to take")
 
-        # equip item
         elif player_input == "e" or player_input == "equip":
-            Commands.equip(my_char)
+            item = term.player_input("Enter item name in inventory that you wish to equip:")
+            my_char.equip_item(item, my_char.inventory)
 
-        # inspect items in room
         elif player_input == "y" or player_input == "inspect":
-            Commands.inspect(current_room)
+            if not world.room_map[current_room]["item"]:
+                term.wprint("No items on ground to inspect")
+            elif world.room_map[current_room]["item"] == "none":
+                term.wprint("No items on ground to inspect")
+            elif world.room_map[current_room]["room"].item == "none":
+                term.wprint("No items on ground to inspect")
+            else:
+                world.room_map[current_room]["item"].view_item()
 
-        # view map
         elif player_input == "m" or player_input == "map":
             maps.unknown_spaceship()
 
-        # move player
         elif player_input in world.room_map[current_room]:
-            current_room = Commands.move(current_room, player_input)
+            current_room_test = world.room_map[current_room][player_input]
+            if current_room_test == "nothing":
+                term.rprint("You cannot go there")
+            elif current_room_test == "Window":
+                term.bprint("It is dark outside, you see nothing")
+            else:
+                current_room = world.room_map[current_room][player_input]
+                world.room_map[current_room]["room"].print_room()
+                world.room_map[current_room]["room"].describe_room()
 
-        # clear terminal
         elif player_input == "c" or player_input == "clear":
             term.clear()
 
-        # attack enemy
         elif player_input == "a" or player_input == "attack":
-            Commands.attack(my_char, current_room)
+            my_char.attack(world.room_map[current_room]["enemy"])
+            world.room_map[current_room]["enemy"] = False
 
         else:
             start_game = True
