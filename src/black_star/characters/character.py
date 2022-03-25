@@ -82,6 +82,8 @@ class Character:
                 elif i.item_type == "weapon":
                     self.equip_weapon(i.name, i.damage)
                     inventory.remove(i)
+                return
+        term.pprint(f"---Oops! {item} is not in your inventory!---")
 
     def equip_head(self, name, new_value):
         self.head = name.title()
@@ -96,15 +98,18 @@ class Character:
         self.damage = new_value + 1
 
     def attack(self, enemy):
-        term.rprint("Attacking... ")
-        while enemy.health > 0:
+        if not enemy:
+            term.wprint("There is no enemy around")
+        else:
+            term.rprint("Attacking... ")
+            while enemy.health > 0:
+                time.sleep(1)
+                term.rprint(f"Hit: {self.damage}")
+                time.sleep(1)
+                enemy.health -= self.damage
+                term.rprint(f"Enemy Health: {enemy.health}")
             time.sleep(1)
-            term.rprint(f"Hit: {self.damage}")
-            time.sleep(1)
-            enemy.health -= self.damage
-            term.rprint(f"Enemy Health: {enemy.health}")
-        time.sleep(1)
-        term.gprint(f"{enemy.name} killed")
+            term.gprint(f"{enemy.name} killed")
 
 
 class Human(Character):
