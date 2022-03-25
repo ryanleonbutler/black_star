@@ -81,18 +81,17 @@ def main() -> None:
     player_input = menu.game_menu()
 
     # Starting game if player_input == 1 in def player_menu(game_menu.py)
-    start_game = False
     if player_input == "1":
         start_game = True
+        my_char = create_char()
+        current_room = 1
+        player_action = Commands(my_char, current_room)
+        dialog.start_prison_cell_dialog()
+
     elif player_input == "2":
         start_game = False
 
     while start_game:
-        my_char = create_char()
-        current_room: int = 1
-        player_action = Commands(my_char, current_room)
-        dialog.start_prison_cell_dialog()
-
         player_input = term.player_input("")
 
         if not player_action.is_valid_command(player_input):
