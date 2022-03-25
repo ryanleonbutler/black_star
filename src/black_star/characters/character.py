@@ -20,8 +20,11 @@ class Character:
         level: int,
         exp: int,
         head: str = None,
-        chest: str = None,
+        body: str = None,
         weapon: str = None,
+        health: int = 0,
+        armor: int = 0,
+        damage: int = 0,
     ):
         self.name = name
         self.gender = gender
@@ -29,8 +32,11 @@ class Character:
         self.level = level
         self.exp = exp
         self.head = head
-        self.chest = chest
+        self.body = body
         self.weapon = weapon
+        self.health = health
+        self.armor = armor
+        self.damage = damage
 
     def describe_character(self):
         term.bprint(f"--- My Character({self.name.title()})---")
@@ -43,10 +49,10 @@ class Character:
             term.wprint(f"head: {self.head}")
         else:
             term.pprint(f"head: {self.head}")
-        if self.chest is None:
-            term.wprint(f"chest: {self.chest}")
+        if self.body is None:
+            term.wprint(f"body: {self.body}")
         else:
-            term.pprint(f"chest: {self.chest}")
+            term.pprint(f"body: {self.body}")
         if self.weapon is None:
             term.wprint(f"weapon: {self.weapon}")
         else:
@@ -77,7 +83,7 @@ class Character:
                     self.equip_head(i.name, i.armor)
                     inventory.remove(i)
                 elif i.item_type == "armor":
-                    self.equip_armor(i.name, i.armor)
+                    self.equip_body(i.name, i.armor)
                     inventory.remove(i)
                 elif i.item_type == "weapon":
                     self.equip_weapon(i.name, i.damage)
@@ -87,15 +93,15 @@ class Character:
 
     def equip_head(self, name, new_value):
         self.head = name.title()
-        self.armor = new_value + 1
+        self.armor += new_value
 
-    def equip_armor(self, name, new_value):
-        self.chest = name.title()
-        self.armor = new_value + 1
+    def equip_body(self, name, new_value):
+        self.body = name.title()
+        self.armor += new_value
 
     def equip_weapon(self, name, new_value):
         self.weapon = name.title()
-        self.damage = new_value + 1
+        self.damage += new_value
 
     def attack(self, enemy):
         if not enemy:
@@ -126,14 +132,14 @@ class Human(Character):
         level: int = 1,
         exp: int = 0,
         head: str = None,
-        chest: str = None,
+        body: str = None,
         weapon: str = None,
         race: str = "Human",
         health: int = 15,
         armor: int = 7,
         damage: int = 3,
     ):
-        super().__init__(name, gender, inventory, level, exp, head, chest, weapon)
+        super().__init__(name, gender, inventory, level, exp, head, body, weapon)
         self.race = race
         self.health = health
         self.armor = armor
@@ -154,14 +160,14 @@ class Alien(Character):
         level: int = 1,
         exp: int = 0,
         head: str = None,
-        chest: str = None,
+        body: str = None,
         weapon: str = None,
         race: str = "Alien",
         health: int = 9,
         armor: int = 3,
         damage: int = 13,
     ):
-        super().__init__(name, gender, inventory, level, exp, head, chest, weapon)
+        super().__init__(name, gender, inventory, level, exp, head, body, weapon)
         self.race = race
         self.health = health
         self.armor = armor
@@ -182,14 +188,14 @@ class Robot(Character):
         level: int = 1,
         exp: int = 0,
         head: str = None,
-        chest: str = None,
+        body: str = None,
         weapon: str = None,
         race: str = "Robot",
         health: int = 12,
         armor: int = 5,
         damage: int = 8,
     ):
-        super().__init__(name, gender, inventory, level, exp, head, chest, weapon)
+        super().__init__(name, gender, inventory, level, exp, head, body, weapon)
         self.race = race
         self.health = health
         self.armor = armor
