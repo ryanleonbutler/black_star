@@ -1,41 +1,29 @@
-[![Build Status][build-image]][build]
+[![Release][release badge]][release]
 [![Black][black badge]][black]
 [![Flake8][flake8 badge]][flake8]
 [![Imports][isort badge]][isort]
 [![Tests][tests badge]][tests]
 [![Code Coverage][coverage-image]][coverage]
-[![Release][release badge]][release]
 [![Last Commit][commit badge]][commit]
-[![License][license badge]][license]
 
 
 <!-- Links -->
-[codecov]: https://codecov.io/gh/ryanleonbutler/black_star
-[commit]: https://github.com/ryanleonbutler/black_star/commit/HEAD
-[python]: https://www.python.org/
-[license]: https://github.com/ryanleonbutler/black_star/blob/main/License.txt
 [release]: https://github.com/ryanleonbutler/black_star/releases
-[github]: https://github.com/ryanleonbutler/black_star
-[coverage]: https://codecov.io/gh/ryanleonbutler/black_star
-[build]: https://github.com/ryanleonbutler/black_star/actions/workflows/build.yml
 [black]: https://github.com/psf/black
 [flake8]: https://github.com/PyCQA/flake8
 [isort]: https://pycqa.github.io/isort/
 [tests]: https://github.com/ryanleonbutler/black_star/tree/main/src/black_star/tests
+[coverage]: https://codecov.io/gh/ryanleonbutler/black_star
+[commit]: https://github.com/ryanleonbutler/black_star/commit/HEAD
 
 <!-- Badges -->
-[build-image]: https://github.com/ryanleonbutler/black_star/actions/workflows/build.yml/badge.svg
-[coverage-image]: https://codecov.io/gh/ryanleonbutler/black_star/branch/main/graph/badge.svg
-[commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/black_star
-[python versions badge]: https://shields.io/pypi/pyversions/black_star
-[license badge]: https://img.shields.io/github/license/ryanleonbutler/black_star
 [release badge]: https://img.shields.io/github/v/release/ryanleonbutler/black_star?include_prereleases
 [black badge]: https://img.shields.io/badge/code%20style-black-000000.svg
 [flake8 badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/lint.yml/badge.svg
 [isort badge]: https://img.shields.io/badge/%20imports-isort-%231674b1
 [tests badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/tests.yml/badge.svg
-
-
+[coverage-image]: https://codecov.io/gh/ryanleonbutler/black_star/branch/main/graph/badge.svg
+[commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/black_star
 
 ![](https://github.com/ryanleonbutler/black_star/blob/main/docs/black_star.png?raw=true)
 
@@ -56,7 +44,7 @@ Feel free to reach out to me if you like the game and concept or if you have any
 
 ### **About**
 
-Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and has never been explored, namely Black Star. A young protagnist, the player, wakes up on board a star cruiser in a holding cell, with no recollection of how he/she got there or even what his/her name is. With no memory the player explores the star cruiser in the hope to discover his/her identity and to find out how they ended up on this ship in the first place. Hold on tight for the adventure of a lifetime as you explore and survive the vast galaxy that is Black Star!
+Black Star is a sci-fi RPG, which takes place in a galaxy which is unknown and has never been explored, namely Black Star. A young protagonist, the player, wakes up on board a star cruiser in a holding cell, with no recollection of how he/she got there or even what his/her name is. With no memory the player explores the star cruiser in the hope to discover his/her identity and to find out how they ended up on this ship in the first place. Hold on tight for the adventure of a lifetime as you explore and survive the vast galaxy that is Black Star!
 
 
 ### **Controls**
@@ -88,12 +76,12 @@ git clone git@github.com:ryanleonbutler/black_star.git
 cd black_star
 ```
 
-#### 3. Create virtual env
+#### 4 Create virtual environment
 ```
-python3.9 -m venv venv --prompt black_star_venv
+python3.10 -m venv venv 
 ```
 
-#### 4. Activate venv
+#### 4. Activate virtual environment
 ```
 source venv/bin/activate
 ```
@@ -103,24 +91,24 @@ source venv/bin/activate
 (venv) pip install --upgrade pip
 ```
 
-#### 6. Install app requirements
+#### 6. Install requirements
 ```
 (venv) pip install -r requirements.txt
 ```
 
-#### 7. Install dev requirements
+#### 7. Install development requirements
 ```
 (venv) pip install -r requirements-dev.txt
 ```
 
-#### 8. pre-commit setup
+#### 8. Pre-commit setup
 ```
 (venv) pre-commit install
 ```
 
 #### 9. Run tox
 ```
-(venv) tox -e py39
+(venv) tox
 ```
 
 Now make your changes and perform a pull request. You can create a branch if you are making larger feature changes. Don't hesitate to reach out to me if you need some guidance.
