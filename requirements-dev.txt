@@ -1,10 +1,7 @@
 black>=21.12
 flake8>=4.0.1
-pre-commit>=2.16.0
 isort>=5.10.1
 coverage>=6.2
 pytest>=6.2.5
 pytest-cov>=3.0.0
 tox>=3.24.5
-pyinstaller>=4.8
-pytest-pythonpath>=0.7.3

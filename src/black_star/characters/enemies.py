@@ -1,6 +1,3 @@
-from tools import terminal as term
-
-
 class Enemy:
     """
     Enemy class that defines and creates

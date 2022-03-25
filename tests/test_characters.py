@@ -7,20 +7,7 @@ def test_create_human():
         "Male",
         ["Space Sword"],
     )
-    assert (
-        "Bob",
-        "Male",
-        ["Space Sword"],
-        1,
-        0,
-        None,
-        None,
-        None,
-        "Human",
-        15,
-        7,
-        3,
-    ) == (
+    assert ("Bob", "Male", ["Space Sword"], 1, 0, None, None, None, "Human", 15, 7, 3,) == (
         c.name,
         c.gender,
         c.inventory,
@@ -42,20 +29,7 @@ def test_create_alien():
         "Male",
         ["Space Sword"],
     )
-    assert (
-        "Bob",
-        "Male",
-        ["Space Sword"],
-        1,
-        0,
-        None,
-        None,
-        None,
-        "Alien",
-        9,
-        3,
-        13,
-    ) == (
+    assert ("Bob", "Male", ["Space Sword"], 1, 0, None, None, None, "Alien", 9, 3, 13,) == (
         c.name,
         c.gender,
         c.inventory,
@@ -77,20 +51,7 @@ def test_create_robot():
         "Male",
         ["Space Sword"],
     )
-    assert (
-        "Bob",
-        "Male",
-        ["Space Sword"],
-        1,
-        0,
-        None,
-        None,
-        None,
-        "Robot",
-        12,
-        5,
-        8,
-    ) == (
+    assert ("Bob", "Male", ["Space Sword"], 1, 0, None, None, None, "Robot", 12, 5, 8,) == (
         c.name,
         c.gender,
         c.inventory,

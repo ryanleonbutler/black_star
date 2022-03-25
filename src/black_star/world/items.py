@@ -9,7 +9,8 @@ from tools import terminal as term
 # class for Items to use and equip in-game:
 class Item:
     """
-    [Item class that defines usable objects in the game like armor and weapons. Also other items like health elixirs and notes.]
+    Item class that defines usable objects in the game like armor and weapons.
+    Also other items like health elixirs and notes.
     """
 
     def __init__(self, name, item_type, armor=0, damage=0, description=""):
