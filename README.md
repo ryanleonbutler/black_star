@@ -1,23 +1,3 @@
-[![Release][release badge]][release]
-[![Tests][tests badge]][tests]
-[![Code Coverage][coverage-image]][coverage]
-[![Last Commit][commit badge]][commit]
-
-
-<!-- Links -->
-[release]: https://github.com/ryanleonbutler/black_star/releases
-[tests]: https://github.com/ryanleonbutler/black_star/tree/main/src/black_star/tests
-[coverage]: https://codecov.io/gh/ryanleonbutler/black_star
-[commit]: https://github.com/ryanleonbutler/black_star/commit/HEAD
-
-<!-- Badges -->
-[release badge]: https://img.shields.io/github/v/release/ryanleonbutler/black_star?include_prereleases
-[tests badge]: https://github.com/ryanleonbutler/black_star/actions/workflows/tests.yml/badge.svg
-[coverage-image]: https://codecov.io/gh/ryanleonbutler/black_star/branch/main/graph/badge.svg
-[commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/black_star
-
-![](https://github.com/ryanleonbutler/black_star/blob/main/docs/black_star.png?raw=true)
-
 # BLACK STAR
 **A Text-Based RPG**
 
