@@ -1,11 +1,7 @@
-# 0.0.5 (2021-04-19)
+# 0.0.1 (2023-08-29)
+
 ### Features
-- Added combat
-- Added enemy (Cargo Hold)
-- Added item (Cadet Hat)
-- Created three races with different base attributes
-- Added experience attribute
-- Added CHANGELOG.md
+- Starting basic Go implementation
 
 ### Bug fixes
-- Fixed equip, can now equip items and will amplify attributes
+- None
