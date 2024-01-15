@@ -2,8 +2,10 @@
 Module for game character.
 """
 import time
+from typing import List
 
 from black_star.tools import terminal as term
+from black_star.world.items import Item, ItemTypes
 
 
 class Character:
@@ -16,7 +18,7 @@ class Character:
         self,
         name: str,
         gender: str,
-        inventory: list,
+        inventory: List[Item],
         level: int,
         exp: int,
         head: str = "",
@@ -46,17 +48,17 @@ class Character:
         term.rprint(f"Damage: {self.damage}\n")
         term.bprint(f"--- Items Equiped({self.name.title()})---")
         if self.head is None:
-            term.wprint(f"head: {self.head}")
+            term.wprint(f"head: {self.head.title()}")
         else:
-            term.pprint(f"head: {self.head}")
+            term.pprint(f"head: {self.head.title()}")
         if self.body is None:
-            term.wprint(f"body: {self.body}")
+            term.wprint(f"body: {self.body.title()}")
         else:
-            term.pprint(f"body: {self.body}")
+            term.pprint(f"body: {self.body.title()}")
         if self.weapon is None:
-            term.wprint(f"weapon: {self.weapon}")
+            term.wprint(f"weapon: {self.weapon.title()}")
         else:
-            term.pprint(f"weapon: {self.weapon}")
+            term.pprint(f"weapon: {self.weapon.title()}")
 
     def view_inventory(self):
         if not self.inventory:
@@ -66,7 +68,7 @@ class Character:
             for item in self.inventory:
                 term.pprint(f"- {item.name.title()}")
 
-    def take_item(self, item):
+    def take_item(self, item: Item):
         """
         [Adds a item to the inventory list.]
         """
@@ -76,31 +78,36 @@ class Character:
             self.inventory.append(item)
             term.pprint(f"---Item ({item.name.title()}) added to inventory---")
 
-    def equip_item(self, item, inventory: list):
-        for i in inventory:
-            if item == i.name:
-                if i.item_type == "head":
+    def equip_item(self, item_name: str) -> None:
+        for i in self.inventory:
+            if item_name == i.name:
+                if i.item_type == ItemTypes.head:
                     self.equip_head(i.name, i.armor)
-                    inventory.remove(i)
-                elif i.item_type == "armor":
+                    self.inventory.remove(i)
+                elif i.item_type == ItemTypes.body:
                     self.equip_body(i.name, i.armor)
-                    inventory.remove(i)
-                elif i.item_type == "weapon":
+                    self.inventory.remove(i)
+                elif i.item_type == ItemTypes.weapon:
                     self.equip_weapon(i.name, i.damage)
-                    inventory.remove(i)
+                    self.inventory.remove(i)
+                elif i.item_type == ItemTypes.other:
+                    term.pprint(
+                        f"---Oops! Item({item_name.title()}) cannot be equipped!---"
+                    )
                 return
-        term.pprint(f"---Oops! {item} is not in your inventory!---")
+
+        term.pprint(f"---Oops! Item({item_name.title()}) is not in your inventory!---")
 
     def equip_head(self, name, new_value):
-        self.head = name.title()
+        self.head = name
         self.armor += new_value
 
     def equip_body(self, name, new_value):
-        self.body = name.title()
+        self.body = name
         self.armor += new_value
 
     def equip_weapon(self, name, new_value):
-        self.weapon = name.title()
+        self.weapon = name
         self.damage += new_value
 
     def attack(self, enemy):
@@ -128,7 +135,7 @@ class Human(Character):
         self,
         name: str,
         gender: str,
-        inventory: list = [],
+        inventory: List[Item] = [],
         level: int = 1,
         exp: int = 0,
         head: str = "",
@@ -145,6 +152,9 @@ class Human(Character):
         self.armor = armor
         self.damage = damage
 
+    def __repr__(self) -> str:
+        return f"{self.name}"
+
 
 class Alien(Character):
     """
@@ -156,7 +166,7 @@ class Alien(Character):
         self,
         name: str,
         gender: str,
-        inventory: list = [],
+        inventory: List[Item] = [],
         level: int = 1,
         exp: int = 0,
         head: str = "",
@@ -184,7 +194,7 @@ class Robot(Character):
         self,
         name: str,
         gender: str,
-        inventory: list = [],
+        inventory: List[Item] = [],
         level: int = 1,
         exp: int = 0,
         head: str = "",

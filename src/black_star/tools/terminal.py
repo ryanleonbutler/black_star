@@ -81,6 +81,11 @@ def player_help():
     bprint("- 'quit(q)' to quit the game")
 
 
+def player_question(text: str) -> str:
+    bprint(text)
+    return str(console.input("[bold white]>>[/] ").lower())
+
+
 def player_input(text: str | None = None) -> Tuple | str:
     if text is None:
         bprint("")

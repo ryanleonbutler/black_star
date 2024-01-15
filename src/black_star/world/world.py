@@ -4,7 +4,7 @@ Module for game world.
 
 from black_star.characters.enemies import Enemy
 from black_star.tools import terminal as term
-from black_star.world.items import Item
+from black_star.world.items import Item, ItemTypes
 
 
 class Room:
@@ -55,18 +55,18 @@ class Room:
 
 
 # Create game items
-key = Item("key", "other", 0, 0, "Opens lock on door")
-robe = Item("robe", "armor", 5, 0, "Plain brown cotton robe")
+key = Item("key", ItemTypes.other, 0, 0, "Opens lock on door")
+robe = Item("robe", ItemTypes.body, 5, 0, "Plain brown cotton robe")
 space_sword = Item(
     "space sword",
-    "weapon",
+    ItemTypes.weapon,
     0,
     5,
     "Laser energy sword, cuts anything",
 )
 cadet_hat = Item(
     "cadet hat",
-    "head",
+    ItemTypes.head,
     2,
     0,
     "Standard issue cadet hat",

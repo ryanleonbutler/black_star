@@ -3,6 +3,7 @@ Module for in-game commands
 """
 
 from typing import List
+
 from black_star.characters.character import Alien, Human, Robot
 from black_star.tools import terminal as term
 from black_star.world import world
@@ -60,15 +61,12 @@ class Commands:
             self.my_char.attack(world.room_map[self.current_room]["enemy"])
             world.room_map[self.current_room]["enemy"] = False
 
-    def equip(self, item: str | None = None) -> None:
-        if item is None:
-            command, argument = term.player_input(
+    def equip(self, item_name: str | None = None) -> None:
+        if item_name is None:
+            item_name = term.player_question(
                 "Enter item name in inventory that you wish to equip:"
             )
-            self.my_char.equip_item(command, self.my_char.inventory)
-        else:
-            self.my_char.equip_item(item, self.my_char.inventory)
-
+        self.my_char.equip_item(item_name)
 
     def inspect(self):
         if "item" not in world.room_map[self.current_room]:
