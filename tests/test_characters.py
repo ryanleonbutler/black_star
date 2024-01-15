@@ -1,13 +1,26 @@
-from characters import character as char
+import black_star.characters.character as character
 
 
 def test_create_human():
-    c = char.Human(
+    c = character.Human(
         "Bob",
         "Male",
         ["Space Sword"],
     )
-    assert ("Bob", "Male", ["Space Sword"], 1, 0, None, None, None, "Human", 15, 7, 3,) == (
+    assert (
+        "Bob",
+        "Male",
+        ["Space Sword"],
+        1,
+        0,
+        "",
+        "",
+        "",
+        "Human",
+        15,
+        7,
+        3,
+    ) == (
         c.name,
         c.gender,
         c.inventory,
@@ -24,12 +37,25 @@ def test_create_human():
 
 
 def test_create_alien():
-    c = char.Alien(
+    c = character.Alien(
         "Bob",
         "Male",
         ["Space Sword"],
     )
-    assert ("Bob", "Male", ["Space Sword"], 1, 0, None, None, None, "Alien", 9, 3, 13,) == (
+    assert (
+        "Bob",
+        "Male",
+        ["Space Sword"],
+        1,
+        0,
+        "",
+        "",
+        "",
+        "Alien",
+        9,
+        3,
+        13,
+    ) == (
         c.name,
         c.gender,
         c.inventory,
@@ -46,12 +72,25 @@ def test_create_alien():
 
 
 def test_create_robot():
-    c = char.Robot(
+    c = character.Robot(
         "Bob",
         "Male",
         ["Space Sword"],
     )
-    assert ("Bob", "Male", ["Space Sword"], 1, 0, None, None, None, "Robot", 12, 5, 8,) == (
+    assert (
+        "Bob",
+        "Male",
+        ["Space Sword"],
+        1,
+        0,
+        "",
+        "",
+        "",
+        "Robot",
+        12,
+        5,
+        8,
+    ) == (
         c.name,
         c.gender,
         c.inventory,

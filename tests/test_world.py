@@ -1,4 +1,4 @@
-from world import world
+from black_star.world import world
 
 
 def test_create_room():

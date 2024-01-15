@@ -3,7 +3,7 @@ Module for game objects.
 """
 
 
-from tools import terminal as term
+from black_star.tools import terminal as term
 
 
 # class for Items to use and equip in-game:

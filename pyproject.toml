@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "black_star"
-version = "0.5.2"
+version = "0.6.0"
 description = "Text-based role playing game"
 authors = ["Ryan Butler <ryanleonbutler@gmail.com>"]
 readme = "README.md"
@@ -9,33 +9,31 @@ homepage = "https://github.com/ryanleonbutler/black_star"
 repository = "https://github.com/ryanleonbutler/black_star"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-rich = "^11.0.0"
+python = ">=3.10"
+rich = "*"
 
 [tool.poetry.dev-dependencies]
-black = "^21.12b0"
-flake8 = "^4.0.1"
-isort = "^5.10.1"
-coverage = "^6.2"
-pytest = "^6.2.5"
-pytest-cov = "^3.0.0"
-tox = "^3.24.5"
-pre-commit = "^2.17.0"
+ruff = "*"
+coverage = "*"
+pytest = "*"
+pytest-cov = "*"
+tox = "*"
+pre-commit = "*"
 
 [tool.poetry.scripts]
 black_star = 'black_star.main:main'
 
+[tool.poetry.group.dev.dependencies]
+tox = "^4.12.0"
+pytest-xdist = "^3.5.0"
+
 [tool.tox]
 legacy_tox_ini = """
-[flake8]
-max-line-length = 119
-max-complexity = 23
-
 [Tox]
 isolated_build = true
 skipsdist = true
 envlist =
-    py{310,39,38},
+    py{310,11,12},
     flake8,
     tests
 
@@ -46,31 +44,24 @@ whitelist_external = poetry
 skip_install = true
 commands_pre = poetry install -vvv
 
-[testenv:flake8]
+[testenv:lint]
 commands =
-    poetry run flake8 src/black_star tests/
+    poetry run ruff check src/black_star tests/
 
 [testenv:tests]
 commands =
     poetry run pytest -ra -v --cov=src/black_star --cov-report xml .
 """
 
-[tool.black]
-line-length = 119
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+[tool.ruff]
+exclude = [".venv", "dist", "build"]
+select = [
+    "I"
+]
+
+[tool.ruff.isort]
+combine-as-imports = true
+force-sort-within-sections = true
 
 [tool.coverage.report]
 skip_empty = true

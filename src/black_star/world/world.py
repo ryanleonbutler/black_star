@@ -2,13 +2,13 @@
 Module for game world.
 """
 
-from characters.enemies import Enemy
-from tools import terminal as term
-from world.items import Item
+from black_star.characters.enemies import Enemy
+from black_star.tools import terminal as term
+from black_star.world.items import Item
 
 
 class Room:
-    def __init__(self, name, up, down, left, right, item=False, enemy=False):
+    def __init__(self, name, up, down, left, right, item=None, enemy=None):
         self.name = name
         self.up = up
         self.down = down
@@ -105,7 +105,9 @@ cargo_hold = Room(
     "nothing",
     enemy=service_robot.name,
 )
-blaster_turret = Room("Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing")
+blaster_turret = Room(
+    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing"
+)
 crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit")
 cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", cadet_hat.name)
 

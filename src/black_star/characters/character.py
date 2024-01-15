@@ -3,7 +3,7 @@ Module for game character.
 """
 import time
 
-from tools import terminal as term
+from black_star.tools import terminal as term
 
 
 class Character:
@@ -19,9 +19,9 @@ class Character:
         inventory: list,
         level: int,
         exp: int,
-        head: str = None,
-        body: str = None,
-        weapon: str = None,
+        head: str = "",
+        body: str = "",
+        weapon: str = "",
         health: int = 0,
         armor: int = 0,
         damage: int = 0,
@@ -131,9 +131,9 @@ class Human(Character):
         inventory: list = [],
         level: int = 1,
         exp: int = 0,
-        head: str = None,
-        body: str = None,
-        weapon: str = None,
+        head: str = "",
+        body: str = "",
+        weapon: str = "",
         race: str = "Human",
         health: int = 15,
         armor: int = 7,
@@ -159,9 +159,9 @@ class Alien(Character):
         inventory: list = [],
         level: int = 1,
         exp: int = 0,
-        head: str = None,
-        body: str = None,
-        weapon: str = None,
+        head: str = "",
+        body: str = "",
+        weapon: str = "",
         race: str = "Alien",
         health: int = 9,
         armor: int = 3,
@@ -187,9 +187,9 @@ class Robot(Character):
         inventory: list = [],
         level: int = 1,
         exp: int = 0,
-        head: str = None,
-        body: str = None,
-        weapon: str = None,
+        head: str = "",
+        body: str = "",
+        weapon: str = "",
         race: str = "Robot",
         health: int = 12,
         armor: int = 5,

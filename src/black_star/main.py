@@ -1,21 +1,14 @@
-"""
-Main of game.
-"""
-
 import time
 
-from characters import character as char
-from characters import dialog
-from tools import menu
-from tools import terminal as term
-from world import maps, world
-from world.commands import Commands
+import black_star.characters.character as character
+import black_star.characters.dialog as dialog
+from black_star.tools import menu, terminal as term
+from black_star.world import maps, world
+from black_star.world.commands import Commands
 
 
-def game_intro():
-    """
-    [Start of the game's intro function]
-    """
+def game_intro() -> None:
+    """Start of the game's intro function."""
     term.clear()
     time.sleep(1)
     term.bprint("In the future,\nin a star system very far away...\n")
@@ -28,11 +21,13 @@ def game_intro():
 
 
 def set_name() -> str:
+    """Sets the player name."""
     name = term.player_input("Please enter your name")
     return name
 
 
 def set_gender() -> str:
+    """Sets the player gender."""
     gender = term.player_input("Please enter your gender -> Male(1) or Female(2)")
     while True:
         if gender == "1":
@@ -40,12 +35,17 @@ def set_gender() -> str:
         elif gender == "2":
             return "Female"
         else:
-            gender = term.player_input("Please enter your gender -> Male(1) or Female(2)")
+            gender = term.player_input(
+                "Please enter your gender -> Male(1) or Female(2)"
+            )
 
 
 def set_race() -> str:
+    """Sets the player race."""
     while True:
-        race = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+        race = term.player_input(
+            "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+        )
         if race == "1":
             return "Human"
         elif race == "2":
@@ -53,21 +53,28 @@ def set_race() -> str:
         elif race == "3":
             return "Robot"
         else:
-            race = term.player_input("Please enter your race -> Human(1) or Alien(2) or Robot(3)")
+            race = term.player_input(
+                "Please enter your race -> Human(1) or Alien(2) or Robot(3)"
+            )
 
 
-def create_char():
+def create_character() -> character.Human | character.Robot | character.Alien | None:
+    """Creates new character for game"""
     name = set_name()
     gender = set_gender()
     race = set_race()
+    new_char = None
     if race == "Human":
-        new_char = char.Human(name, gender)
+        new_char = character.Human(name, gender)
     elif race == "Alien":
-        new_char = char.Alien(name, gender)
+        new_char = character.Alien(name, gender)
     elif race == "Robot":
-        new_char = char.Robot(name, gender)
+        new_char = character.Robot(name, gender)
     term.clear()
-    term.bprint(f"Welcome {new_char.name}!\n" f"You have chosen to be a {new_char.gender} {new_char.race}.\n")
+    if new_char is not None:
+        term.bprint(
+            f"Welcome {new_char.name}!\nYou have chosen to be a {new_char.gender} {new_char.race}.\n"
+        )
     term.player_input("Press enter to continue...")
     term.bprint("Good luck out there!")
     time.sleep(1)
@@ -75,15 +82,18 @@ def create_char():
 
 
 def main() -> None:
-    """Main game loop"""
+    """Main game loop."""
+    start_game = None
+    my_char = None
+    player_action = None
+    current_room = None
 
     # Menu
     player_input = menu.game_menu()
 
-    # Starting game if player_input == 1 in def player_menu(game_menu.py)
     if player_input == "1":
         start_game = True
-        my_char = create_char()
+        my_char = create_character()
         current_room = 1
         player_action = Commands(my_char, current_room)
         dialog.start_prison_cell_dialog()
@@ -92,6 +102,9 @@ def main() -> None:
         start_game = False
 
     while start_game:
+        if player_action is None or current_room is None or my_char is None:
+            break
+
         player_input = term.player_input("")
 
         if not player_action.is_valid_command(player_input):
