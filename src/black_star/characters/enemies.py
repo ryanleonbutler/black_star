@@ -14,9 +14,9 @@ class Enemy:
         armor: int,
         damage: int,
     ):
-        self.name = name.title()
-        self.gender = gender.title()
-        self.race = race.title()
+        self.name = name
+        self.gender = gender
+        self.race = race
         self.inventory = inventory
         self.health = health
         self.armor = armor

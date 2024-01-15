@@ -3,7 +3,16 @@ Module for game objects.
 """
 
 
-from tools import terminal as term
+from enum import Enum
+
+from black_star.tools import terminal as term
+
+
+class ItemTypes(Enum):
+    head = "head"
+    body = "body"
+    weapon = "weapon"
+    other = "other"
 
 
 # class for Items to use and equip in-game:
@@ -13,7 +22,9 @@ class Item:
     Also other items like health elixirs and notes.
     """
 
-    def __init__(self, name, item_type, armor=0, damage=0, description=""):
+    def __init__(
+        self, name: str, item_type: ItemTypes, armor=0, damage=0, description=""
+    ):
         self.name = name
         self.item_type = item_type
         self.armor = armor

@@ -2,13 +2,13 @@
 Module for game world.
 """
 
-from characters.enemies import Enemy
-from tools import terminal as term
-from world.items import Item
+from black_star.characters.enemies import Enemy
+from black_star.tools import terminal as term
+from black_star.world.items import Item, ItemTypes
 
 
 class Room:
-    def __init__(self, name, up, down, left, right, item=False, enemy=False):
+    def __init__(self, name, up, down, left, right, item=None, enemy=None):
         self.name = name
         self.up = up
         self.down = down
@@ -55,18 +55,18 @@ class Room:
 
 
 # Create game items
-key = Item("key", "other", 0, 0, "Opens lock on door")
-robe = Item("robe", "armor", 5, 0, "Plain brown cotton robe")
+key = Item("key", ItemTypes.other, 0, 0, "Opens lock on door")
+robe = Item("robe", ItemTypes.body, 5, 0, "Plain brown cotton robe")
 space_sword = Item(
     "space sword",
-    "weapon",
+    ItemTypes.weapon,
     0,
     5,
     "Laser energy sword, cuts anything",
 )
 cadet_hat = Item(
     "cadet hat",
-    "head",
+    ItemTypes.head,
     2,
     0,
     "Standard issue cadet hat",
@@ -105,7 +105,9 @@ cargo_hold = Room(
     "nothing",
     enemy=service_robot.name,
 )
-blaster_turret = Room("Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing")
+blaster_turret = Room(
+    "Blaster Turret", "nothing", "Passenger Area", "nothing", "nothing"
+)
 crew_area = Room("Crew Area", "nothing", "nothing", "Passenger Area", "Cockpit")
 cockpit = Room("Cockpit", "nothing", "nothing", "Crew Area", "nothing", cadet_hat.name)
 
