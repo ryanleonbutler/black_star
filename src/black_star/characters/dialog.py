@@ -4,7 +4,7 @@ Module for game dialog.
 
 import time
 
-from tools import terminal as term
+from black_star.tools import terminal as term
 
 
 def start_prison_cell_dialog():

@@ -2,7 +2,7 @@
 Module for world maps.
 """
 
-from tools import terminal as term
+from black_star.tools import terminal as term
 
 
 def unknown_spaceship():

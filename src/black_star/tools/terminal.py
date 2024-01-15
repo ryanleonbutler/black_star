@@ -1,6 +1,7 @@
 """Terminal API to print graphics, fonts and colors."""
 
 import os
+from typing import Tuple
 
 from rich.console import Console
 
@@ -80,9 +81,19 @@ def player_help():
     bprint("- 'quit(q)' to quit the game")
 
 
-def player_input(text):
-    bprint(text)
-    return str(console.input("[bold white]>>[/] ").lower())
+def player_input(text: str | None = None) -> Tuple | str:
+    if text is None:
+        bprint("")
+    else:
+        bprint(text)
+    input = str(console.input("[bold white]>>[/] ").lower()).split(" ")
+    command = input[0]
+
+    if len(input) > 1:
+        argument = " ".join(input[1:])
+        return (command, argument)
+
+    return (command, None)
 
 
 if __name__ == "__main__":
