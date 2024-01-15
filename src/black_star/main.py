@@ -2,7 +2,8 @@ import time
 
 import black_star.characters.character as character
 import black_star.characters.dialog as dialog
-from black_star.tools import menu, terminal as term
+from black_star.tools import menu
+from black_star.tools import terminal as term
 from black_star.world import maps, world
 from black_star.world.commands import Commands
 

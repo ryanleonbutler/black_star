@@ -1,5 +1,6 @@
-from black_star.world.items import Item, ItemTypes
 import pytest
+
+from black_star.world.items import Item, ItemTypes
 
 
 @pytest.fixture

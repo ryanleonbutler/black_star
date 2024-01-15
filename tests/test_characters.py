@@ -1,5 +1,6 @@
-from black_star.characters.character import Alien, Human, Robot
 import pytest
+
+from black_star.characters.character import Alien, Human, Robot
 
 
 @pytest.mark.parametrize(
