@@ -28,13 +28,14 @@ def test_create_alien(CharClass, race, health, armor, damage):
 
 def test_add_to_inventory(fake_sword):
     c = Human("John", "Male", [])
-    c.take_item(fake_sword) 
+    c.take_item(fake_sword)
     assert len(c.inventory) == 1
     assert c.inventory[0].name == fake_sword.name
 
+
 def test_equip_item(fake_sword):
     c = Human("John", "Male", [])
-    c.take_item(fake_sword) 
+    c.take_item(fake_sword)
     c.equip_item(fake_sword.name)
     assert c.weapon == fake_sword.name
-    # assert len(c.inventory) == 0
+    assert len(c.inventory) == 0
