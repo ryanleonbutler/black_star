@@ -1,13 +1,9 @@
 """
 Module for in-game commands
 """
-
-from typing import List
-
 from black_star.characters.character import Alien, Human, Robot
 from black_star.tools import terminal as term
 from black_star.world import world
-from black_star.world.items import Item
 
 
 class Commands:
