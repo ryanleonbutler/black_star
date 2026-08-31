@@ -1,6 +1,7 @@
 """
 Module for in-game commands
 """
+
 from black_star.characters.character import Alien, Human, Robot
 from black_star.tools import terminal as term
 from black_star.world import world
