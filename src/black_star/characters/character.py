@@ -1,6 +1,7 @@
 """
 Module for game character.
 """
+
 import time
 from typing import List
 

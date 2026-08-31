@@ -6,8 +6,7 @@ from black_star.tools import terminal as term
 
 
 def unknown_spaceship():
-    term.wprint(
-        """\
+    term.wprint("""\
 
 Unknown Spaceship:
                      ______________
@@ -29,5 +28,4 @@ Unknown Spaceship:
                     |              |                        |              |
                     |    Armory    |                        |  Cargo Hold  |
                     |______________|                        |______________|
-"""
-    )
+""")
