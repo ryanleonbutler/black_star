@@ -2,7 +2,6 @@
 Module for game objects.
 """
 
-
 from enum import Enum
 
 from black_star.tools import terminal as term
